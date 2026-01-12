@@ -1,0 +1,12 @@
+# Forbidden all files
+*
+.*
+
+# Allow specific files and directories
+!.gitignore
+!config.fish
+!fish_variables
+!config
+!config/**
+!.scripts
+!.scripts/**
