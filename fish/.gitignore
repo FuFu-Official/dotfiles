@@ -6,7 +6,7 @@
 !.gitignore
 !config.fish
 !fish_variables
-!config
-!config/**
+!conf.d
+!conf.d/**
 !.scripts
 !.scripts/**
