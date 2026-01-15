@@ -1,0 +1,5 @@
+force_keyboard_focus = true    # forces keyboard forcus to stay in Walker
+
+[keybinds]
+next = ["ctrl j"]
+previous = ["ctrl k"]
