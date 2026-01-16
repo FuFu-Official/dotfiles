@@ -56,7 +56,10 @@ alias rg 'rg --hyperlink-format=kitty'
 alias d "date '+%Y-%m-%d %H:%M:%S'"
 
 # Execute command in background without hangup
-alias nh "nohup $argv > /dev/null 2>&1 &"
+function nh
+    nohup $argv > /dev/null 2>&1 &
+    disown
+end
 
 # Arch Linux specific aliases
 if test "$OS_ID" = arch

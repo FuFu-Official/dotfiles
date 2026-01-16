@@ -112,7 +112,7 @@ function gf --description "Git add, commit and optionally push"
     # Push confirmation
     if test "$force" = false
         read -P "Push to remote? (y/N): " reply
-        if not string match -iq 'y' -- $reply
+        if not string match -iq 'y' -- "$reply"; and test -n "$reply"
             echo "Commit created but not pushed"
             return 0
         end
