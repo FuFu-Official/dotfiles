@@ -1,5 +1,4 @@
 set -gx EDITOR nvim
-set -gx HYPRSHOT_DIR $HOME/Pictures/Screenshots
 
 # Set Proxy for GO Dependency
 set -Ux GOPROXY https://goproxy.cn,direct

@@ -50,5 +50,3 @@ if status is-interactive
     # end
 end
 
-source $HOME/.config/fish/.scripts/auto-Hypr.fish
-
