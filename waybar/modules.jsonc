@@ -91,7 +91,7 @@
     "custom/poweroff": {
         "tooltip": false,
         "format": "󰐥",
-        "on-click": "systemctl poweroff",
+        "on-click": "wlogout",
     },
     "custom/lockscreen": {
         "tooltip": false,
