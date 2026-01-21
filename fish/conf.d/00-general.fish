@@ -1,4 +1,5 @@
 set -gx EDITOR nvim
+set -gx nvm_default_version lts
 
 # Set Proxy for GO Dependency
 set -Ux GOPROXY https://goproxy.cn,direct
@@ -28,5 +29,53 @@ else
     set -g OS_ID windows
 end
 
+function fish_prompt -d "Write out the prompt"
+    echo
+
+
+    set -l last_status $status
+
+    if test $last_status -eq 0
+        if test $OS = linux
+            if test "$OS_ID" = "arch"
+                set_color -o 168cc7
+                echo -n ' '
+            else
+                set_color -o white 
+                echo -n ' '
+            end
+        else
+            set_color green
+            echo -n '✔ '
+        end
+    else
+        set_color red
+        echo -n '✖ '
+    end
+
+    echo -n ' '
+
+    set_color -i CAA5F8
+    echo -n (prompt_pwd)
+
+    set_color -o 86B1F8
+    echo -n (fish_git_prompt)
+
+    echo -n ' '
+
+    switch $fish_bind_mode
+        case default
+            set_color 88b3fb
+            echo -n "[N]"
+        case insert
+            set_color acd8a6
+            echo -n "[I]"
+    end
+
+    echo
+
+    set_color normal
+    echo -n '> '
+end
 
 
