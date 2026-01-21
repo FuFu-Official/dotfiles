@@ -55,8 +55,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-          "activated": "",
-          "deactivated": "",
+          "activated": "",
+          "deactivated": ""
         },
         "tooltip-format-activated": "idle Disabled",
         "tooltip-format-deactivated": "idle Enabled",
@@ -243,5 +243,13 @@
       "tooltip-format": "Launch OBS",
       "on-click": "obs-studio",
     },
+    "custom/eye-protect": {
+        "exec": "hyprshade current | grep -q blue-light-filter && echo '{\"text\":\"\"}' || echo '{\"text\":\"\"}'",
+        "interval": 2,
+        "return-type": "json",
+        "on-click": "hyprshade toggle blue-light-filter",
+        "tooltip": "Eye Protecting"
+    }
+
 
 }
