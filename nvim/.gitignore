@@ -1,0 +1,23 @@
+################################
+## White list based gitignore ##
+################################
+
+# forbidden
+*
+.*
+
+
+# allowed
+!.git*
+!*.md
+!*.json
+!*.lua
+!lua
+!lua/**
+!dotfiles
+!dotfiles/**
+!*.toml
+
+# forbidden: commitizen related files
+package-lock.json
+package.json
