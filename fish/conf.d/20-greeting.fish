@@ -8,6 +8,24 @@ function typewrite
     echo ""
 end
 
+function chafa_smart_clamp --argument picture max_width
+    # Get width data
+    set -l width (identify -format "%w" "$picture" 2>/dev/null)
+    
+    if test -z "$width"
+        echo "Error: Cannot read image file."
+        return 1
+    end
+
+    # Cal scale
+    set -l scale 1.0
+    if test $width -gt $max_width
+        set scale (math -s 3 "$max_width / $width")
+    end
+
+    chafa --fill=block --symbols=block --scale=$scale "$picture"
+end
+
 function gen_random_pictures
     set -l primary_dirs $HOME/Pictures/Hiten $HOME/Pictures/竹嶋えく
     set -l fallback_dirs $HOME/Pictures/Wallpapers
@@ -35,7 +53,7 @@ function gen_random_pictures
     test -n "$picture"; or return
 
     if set -q KITTY_WINDOW_ID
-        chafa --fill=block --symbols=block --scale=0.5 "$picture"
+        chafa_smart_clamp "$picture" 650
     end
 end
 

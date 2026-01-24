@@ -10,18 +10,18 @@ if test "$OS_ID" = arch
 
     # AUR
     if type -q paru
-        alias sga "sudo paru -Syu"
-        alias sgi "sudo paru -S"
-        alias sgr "sudo paru -Rns"
+        alias gu "paru -Syu"
+        alias gs "paru -S"
+        alias gr "paru -Rns"
     else if type -q yay
-        alias sga "sudo yay -Syu"
-        alias sgi "sudo yay -S"
-        alias sgr "sudo yay -Rns"
+        alias gu "yay -Syu"
+        alias gs "yay -S"
+        alias gr "yay -Rns"
     else
         echo "No AUR helper found (paru or yay)"
     end
 
-   function change_wallpaper --description "Update hyprpaper.conf and restart"
+    function change_wallpaper --description "Update hyprpaper.conf and restart"
         if test (count $argv) -eq 0
             echo "Usage: change_wallpaper <path_to_image>"
             return 1
@@ -42,5 +42,11 @@ if test "$OS_ID" = arch
         nh hyprpaper
 
         echo "Hyprpaper config updated and hyprpaper restarted with: $wall_path"
+    end
+end
+
+if test "$TERM" = xterm-kitty
+    function ssh --description "Aliasing ssh to kitty kitten for terminfo support"
+        kitty +kitten ssh $argv
     end
 end

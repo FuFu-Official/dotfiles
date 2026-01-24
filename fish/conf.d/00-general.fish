@@ -32,16 +32,15 @@ end
 function fish_prompt -d "Write out the prompt"
     echo
 
-
     set -l last_status $status
 
     if test $last_status -eq 0
         if test $OS = linux
-            if test "$OS_ID" = "arch"
+            if test "$OS_ID" = arch
                 set_color -o 168cc7
                 echo -n ' '
             else
-                set_color -o white 
+                set_color -o white
                 echo -n ' '
             end
         else
@@ -70,6 +69,12 @@ function fish_prompt -d "Write out the prompt"
         case insert
             set_color acd8a6
             echo -n "[I]"
+        case visual
+            set_color caa8ed
+            echo -n "[V]"
+        case replace_one
+            set_color d08770
+            echo -n "[R]"
     end
 
     echo
@@ -77,5 +82,3 @@ function fish_prompt -d "Write out the prompt"
     set_color normal
     echo -n '> '
 end
-
-
