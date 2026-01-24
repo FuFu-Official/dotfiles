@@ -8,7 +8,8 @@
     "fixed-center": true,
     "reload_style_on_change": true,
     "modules-left": [
-        "ext/workspaces",
+        // "ext/workspaces",
+        "hyprland/workspaces",
         "custom/right_div#5",
         "hyprland/window",
         "custom/right_div#6"

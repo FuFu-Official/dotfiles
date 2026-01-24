@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    local servers = { "pyright", "clangd", "lua_ls", "fish_lsp", "cmake", "hyprls" }
+    local servers = { "pyright", "clangd", "lua_ls", "fish_lsp", "cmake", "hyprls", "texlab" }
 
     for _, lsp in ipairs(servers) do
       vim.lsp.enable(lsp)
@@ -49,5 +49,22 @@ return {
     --     "--path-mappings=/home/radar/workspace/rm.cv.radar2026=/home/fufu/workspace/rm.cv.radar2026",
     --   },
     -- })
+
+    vim.lsp.config("texlab", {
+      settings = {
+        texlab = {
+          build = {
+            executable = "xelatex",
+            args = { "-interaction=nonstopmode", "-synctex=1", "%f" },
+            forwardSearchAfter = true,
+            onSave = true,
+          },
+          forwardSearch = {
+            args = { "--synctex-forward", "%l:1:%f", "%p" },
+            executable = "zathura",
+          },
+        },
+      },
+    })
   end,
 }
