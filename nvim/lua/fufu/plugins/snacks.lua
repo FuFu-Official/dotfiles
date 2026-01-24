@@ -40,45 +40,45 @@ local dashboardConfig = {
   },
 }
 
-local scopeConfig = {
-  keys = {
-    ---@type table<string, snacks.scope.TextObject|{desc?:string}|false>
-    textobject = {
-      is = {
-        min_size = 2, -- minimum size of the scope
-        edge = false, -- inner scope
-        cursor = false,
-        treesitter = { blocks = { enabled = false } },
-        desc = "inner scope",
-      },
-      as = {
-        cursor = false,
-        min_size = 2, -- minimum size of the scope
-        treesitter = { blocks = { enabled = false } },
-        desc = "full scope",
-      },
-    },
-    ---@type table<string, snacks.scope.Jump|{desc?:string}|false>
-    jump = {
-      ["[s"] = {
-        min_size = 1, -- allow single line scopes
-        bottom = false,
-        cursor = false,
-        edge = true,
-        treesitter = { blocks = { enabled = false } },
-        desc = "jump to top edge of scope",
-      },
-      ["]s"] = {
-        min_size = 1, -- allow single line scopes
-        bottom = true,
-        cursor = false,
-        edge = true,
-        treesitter = { blocks = { enabled = false } },
-        desc = "jump to bottom edge of scope",
-      },
-    },
-  },
-}
+-- local scopeConfig = {
+--   keys = {
+--     ---@type table<string, snacks.scope.TextObject|{desc?:string}|false>
+--     textobject = {
+--       is = {
+--         min_size = 2, -- minimum size of the scope
+--         edge = false, -- inner scope
+--         cursor = false,
+--         treesitter = { blocks = { enabled = false } },
+--         desc = "inner scope",
+--       },
+--       as = {
+--         cursor = false,
+--         min_size = 2, -- minimum size of the scope
+--         treesitter = { blocks = { enabled = false } },
+--         desc = "full scope",
+--       },
+--     },
+--     ---@type table<string, snacks.scope.Jump|{desc?:string}|false>
+--     jump = {
+--       ["[s"] = {
+--         min_size = 1, -- allow single line scopes
+--         bottom = false,
+--         cursor = false,
+--         edge = true,
+--         treesitter = { blocks = { enabled = false } },
+--         desc = "jump to top edge of scope",
+--       },
+--       ["]s"] = {
+--         min_size = 1, -- allow single line scopes
+--         bottom = true,
+--         cursor = false,
+--         edge = true,
+--         treesitter = { blocks = { enabled = false } },
+--         desc = "jump to bottom edge of scope",
+--       },
+--     },
+--   },
+-- }
 
 -- Main snacks.nvim configuration
 return {
@@ -100,7 +100,7 @@ return {
     },
     picker = { enabled = true },
     quickfile = { enabled = true },
-    scope = scopeConfig,
+    scope = { enabled = false },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
@@ -109,7 +109,6 @@ return {
         -- wo = { wrap = true } -- Wrap notifications
       },
     },
-    lazygit = { enabled = false },
   },
   keys = {
     -- Top Pickers & Explorer
@@ -578,174 +577,13 @@ return {
       desc = "Git Browse",
       mode = { "n", "v" },
     },
-    -- { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
-    {
-      "<leader>un",
-      function()
-        Snacks.notifier.hide()
-      end,
-      desc = "Dismiss All Notifications",
-    },
-    {
-      "<c-/>",
-      function()
-        Snacks.terminal()
-      end,
-      desc = "Toggle Terminal",
-    },
-    {
-      "<c-_>",
-      function()
-        Snacks.terminal()
-      end,
-      desc = "which_key_ignore",
-    },
-    {
-      "]]",
-      function()
-        Snacks.words.jump(vim.v.count1)
-      end,
-      desc = "Next Reference",
-      mode = { "n", "t" },
-    },
-    {
-      "[[",
-      function()
-        Snacks.words.jump(-vim.v.count1)
-      end,
-      desc = "Prev Reference",
-      mode = { "n", "t" },
-    },
-    -- LSP
-    {
-      "gd",
-      function()
-        Snacks.picker.lsp_definitions()
-      end,
-      desc = "Goto Definition",
-    },
-    {
-      "gD",
-      function()
-        Snacks.picker.lsp_declarations()
-      end,
-      desc = "Goto Declaration",
-    },
-    {
-      "gr",
-      function()
-        Snacks.picker.lsp_references()
-      end,
-      nowait = true,
-      desc = "References",
-    },
-    {
-      "gI",
-      function()
-        Snacks.picker.lsp_implementations()
-      end,
-      desc = "Goto Implementation",
-    },
-    {
-      "gy",
-      function()
-        Snacks.picker.lsp_type_definitions()
-      end,
-      desc = "Goto T[y]pe Definition",
-    },
-    {
-      "gai",
-      function()
-        Snacks.picker.lsp_incoming_calls()
-      end,
-      desc = "C[a]lls Incoming",
-    },
-    {
-      "gao",
-      function()
-        Snacks.picker.lsp_outgoing_calls()
-      end,
-      desc = "C[a]lls Outgoing",
-    },
-    {
-      "<leader>ss",
-      function()
-        Snacks.picker.lsp_symbols()
-      end,
-      desc = "LSP Symbols",
-    },
-    {
-      "<leader>sS",
-      function()
-        Snacks.picker.lsp_workspace_symbols()
-      end,
-      desc = "LSP Workspace Symbols",
-    },
-    -- Other
-    {
-      "<leader>z",
-      function()
-        Snacks.zen()
-      end,
-      desc = "Toggle Zen Mode",
-    },
-    {
-      "<leader>Z",
-      function()
-        Snacks.zen.zoom()
-      end,
-      desc = "Toggle Zoom",
-    },
-    {
-      "<leader>.",
-      function()
-        Snacks.scratch()
-      end,
-      desc = "Toggle Scratch Buffer",
-    },
-    {
-      "<leader>S",
-      function()
-        Snacks.scratch.select()
-      end,
-      desc = "Select Scratch Buffer",
-    },
-    {
-      "<leader>n",
-      function()
-        Snacks.notifier.show_history()
-      end,
-      desc = "Notification History",
-    },
-    {
-      "<leader>bd",
-      function()
-        Snacks.bufdelete()
-      end,
-      desc = "Delete Buffer",
-    },
-    {
-      "<leader>cR",
-      function()
-        Snacks.rename.rename_file()
-      end,
-      desc = "Rename File",
-    },
-    {
-      "<leader>gB",
-      function()
-        Snacks.gitbrowse()
-      end,
-      desc = "Git Browse",
-      mode = { "n", "v" },
-    },
-    {
-      "<leader>gg",
-      function()
-        Snacks.lazygit()
-      end,
-      desc = "Lazygit",
-    },
+    -- {
+    --   "<leader>gg",
+    --   function()
+    --     Snacks.lazygit()
+    --   end,
+    --   desc = "Lazygit",
+    -- },
     {
       "<leader>un",
       function()
@@ -829,7 +667,9 @@ return {
         -- Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
         -- Snacks.toggle.diagnostics():map("<leader>ud")
         -- Snacks.toggle.line_number():map("<leader>ul")
-        -- Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uc")
+        -- Snacks.toggle
+        --   .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
+        --   :map("<leader>uc")
         -- Snacks.toggle.treesitter():map("<leader>uT")
         -- Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
         -- Snacks.toggle.inlay_hints():map("<leader>uh")

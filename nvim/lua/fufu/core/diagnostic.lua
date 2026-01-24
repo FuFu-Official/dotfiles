@@ -13,33 +13,27 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
     },
   },
-  virtual_text = false,
+  virtual_text = true,
   virtual_lines = false,
 })
 
+local lsp_group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true })
+
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  group = lsp_group,
   callback = function(ev)
-    local opts = { buffer = ev.buf, silent = true }
+    local function map(mode, lhs, rhs, desc)
+      vim.keymap.set(mode, lhs, rhs, {
+        buffer = ev.buf,
+        silent = true,
+        desc = "LSP: " .. desc,
+      })
+    end
 
-    local keymap = vim.keymap
-
-    opts.desc = "See available code actions"
-    keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
-
-    opts.desc = "Smart rename"
-    keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
-    opts.desc = "Show line diagnostics"
-    keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
-
-    opts.desc = "Go to previous diagnostic"
-    keymap.set("n", "[d", vim.diagnostic.get_prev, opts) -- jump to previous diagnostic in buffer
-
-    opts.desc = "Go to next diagnostic"
-    keymap.set("n", "]d", vim.diagnostic.get_next, opts) -- jump to next diagnostic in buffer
-
-    opts.desc = "Show documentation for what is under cursor"
-    keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Action")
+    map("n", "<leader>rn", vim.lsp.buf.rename, "Smart Rename")
+    map("n", "<leader>d", vim.diagnostic.open_float, "Line Diagnostics")
+    map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
+    map("n", "gd", vim.lsp.buf.definition, "Go to Definition")
   end,
 })

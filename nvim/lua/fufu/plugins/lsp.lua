@@ -42,5 +42,12 @@ return {
         Lua = {},
       },
     })
+
+    -- vim.lsp.config("clangd", {
+    --   cmd = {
+    --     "clangd",
+    --     "--path-mappings=/home/radar/workspace/rm.cv.radar2026=/home/fufu/workspace/rm.cv.radar2026",
+    --   },
+    -- })
   end,
 }

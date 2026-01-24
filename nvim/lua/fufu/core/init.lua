@@ -1,6 +1,5 @@
 require("fufu.core.opts")
 require("fufu.core.keymaps")
 require("fufu.core.netrw")
-require("fufu.core.provider")
 require("fufu.core.indent")
 require("fufu.core.diagnostic")

@@ -46,6 +46,7 @@ return {
         "fish",
         "c",
         "cpp",
+        "diff",
         "lua",
         "luadoc",
         "markdown",
@@ -136,14 +137,14 @@ return {
         desc = "Select inner class",
         mode = { "x", "o" },
       },
-      -- {
-      --   "as",
-      --   function()
-      --     require("nvim-treesitter-textobjects.select").select_textobject("@local.scope", "locals")
-      --   end,
-      --   desc = "Select scope",
-      --   mode = { "n", "x", "o" },
-      -- },
+      {
+        "as",
+        function()
+          require("nvim-treesitter-textobjects.select").select_textobject("@local.scope", "locals")
+        end,
+        desc = "Select scope",
+        mode = { "n", "x", "o" },
+      },
       {
         "[f",
         function()
