@@ -12,6 +12,11 @@ return {
       javascript = { "prettier", "prettier", stop_after_first = true },
       c = { "clang-format" },
       cpp = { "clang-format" },
+      markdown = { "dprint", "prettier", stop_after_first = true },
+      dockerfile = { "dprint" },
+      json = { "dprint" },
+      toml = { "dprint" },
+      typescript = { "dprint" },
     },
     -- Set default options
     default_format_opts = {

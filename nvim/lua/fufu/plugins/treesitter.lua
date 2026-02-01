@@ -63,6 +63,8 @@ return {
         "svelte",
         "typst",
         "vue",
+        "astro",
+        "json",
       }
 
       -- make sure nvim-treesitter can load
