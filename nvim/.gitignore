@@ -14,10 +14,5 @@
 !*.lua
 !lua
 !lua/**
-!dotfiles
-!dotfiles/**
 !*.toml
-
-# forbidden: commitizen related files
-package-lock.json
-package.json
+!LICENSE

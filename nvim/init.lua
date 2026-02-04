@@ -1,2 +1,2 @@
-require("fufu.core")
-require("fufu.lazy")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
