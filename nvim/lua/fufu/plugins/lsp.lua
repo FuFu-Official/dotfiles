@@ -1,7 +1,17 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    local servers = { "pyright", "clangd", "lua_ls", "fish_lsp", "cmake", "hyprls", "texlab", "markdown_oxide" }
+    local servers = {
+      "pyright",
+      "clangd",
+      "lua_ls",
+      "fish_lsp",
+      "cmake",
+      "hyprls",
+      "texlab",
+      "markdown_oxide",
+      "bashls",
+    }
 
     for _, lsp in ipairs(servers) do
       vim.lsp.enable(lsp)
