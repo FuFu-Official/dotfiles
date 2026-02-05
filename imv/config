@@ -1,6 +1,6 @@
 [options]
 overlay = true
-overlay_text = " 󰋩 $imv_current_index/$imv_file_count  |  $imv_current_file  |  󰆊 ${imv_width}x${imv_height}  |  󰇊 $imv_scale% "
+overlay_text = " 󰋩 $imv_current_index/$imv_file_count | 󰇊 $imv_scale% | 󰆊 ${imv_width}x${imv_height} | $imv_current_file "
 
 overlay_font = JetBrainsMono Nerd Font:10
 
