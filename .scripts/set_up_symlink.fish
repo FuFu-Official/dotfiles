@@ -7,7 +7,7 @@
 
 set source_dir $HOME/Dev/dotfiles/
 set target_path $HOME/.config/
-set default_sources nvim fish hypr fastfetch kitty mako walker waybar wlogout feishu-flags.conf mimeapps.list zathura
+set default_sources nvim fish hypr fastfetch kitty mako walker waybar wlogout feishu-flags.conf mimeapps.list zathura imv
 set ignore_list .git .gitignore .DS_Store README.md LICENSE
 
 argparse f/force b/backup n/dry-run -- $argv
