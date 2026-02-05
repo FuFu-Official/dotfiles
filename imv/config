@@ -1,0 +1,10 @@
+[options]
+overlay = true
+overlay_text = " 󰋩 $imv_current_index/$imv_file_count  |  $imv_current_file  |  󰆊 ${imv_width}x${imv_height}  |  󰇊 $imv_scale% "
+
+overlay_font = JetBrainsMono Nerd Font:10
+
+overlay_text_color = 8ec07c
+overlay_text_alpha = ff
+overlay_background_color = 1d2021
+overlay_background_alpha = d0
