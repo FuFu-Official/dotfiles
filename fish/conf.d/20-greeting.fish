@@ -11,7 +11,7 @@ end
 function chafa_smart_clamp --argument picture max_width
     # Get width data
     set -l width (identify -format "%w" "$picture" 2>/dev/null)
-    
+
     if test -z "$width"
         echo "Error: Cannot read image file."
         return 1
@@ -52,7 +52,7 @@ function gen_random_pictures
 
     test -n "$picture"; or return
 
-    if set -q KITTY_WINDOW_ID
+    if set -q DISPLAY; or set -q WAYLAND_DISPLAY
         chafa_smart_clamp "$picture" 650
     end
 end
@@ -85,7 +85,6 @@ function fish_greeting
 
         gen_random_pictures
 
-        echo $today > $datefile
+        echo $today >$datefile
     end
 end
-

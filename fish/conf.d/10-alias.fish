@@ -28,6 +28,8 @@ alias V nvim
 # Git
 alias g git
 alias ga "git add"
+alias gcl "git clone"
+alias gcm "git commit -m"
 alias gst "git status"
 alias gb "git branch"
 alias gba "git branch -a"
@@ -57,7 +59,6 @@ alias d "date '+%Y-%m-%d %H:%M:%S'"
 
 # Execute command in background without hangup
 function nh
-    nohup $argv > /dev/null 2>&1 &
+    nohup $argv >/dev/null 2>&1 &
     disown
 end
-

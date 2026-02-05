@@ -4,6 +4,26 @@ set -gx nvm_default_version lts
 # Set Proxy for GO Dependency
 set -Ux GOPROXY https://goproxy.cn,direct
 
+if set -q CONTAINER_ID; or test -e /run/.containerenv
+    set -g IS_DISTROBOX 1
+else
+    set -g IS_DISTROBOX 0
+end
+
+if set -q CONTAINER_ID
+    # 清除掉从宿主机 Arch 带进来的错误 CUDA 变量
+    set -e CUDA_PATH
+    set -e DEBUGINFOD_URLS
+
+    # 重新定义容器内 Ubuntu 真正的 CUDA 路径
+    if test -d /usr/local/cuda/bin
+        set -gx CUDA_HOME /usr/local/cuda
+        fish_add_path /usr/local/cuda/bin
+        # 修正动态库路径
+        set -gx LD_LIBRARY_PATH /usr/local/cuda/lib64 $LD_LIBRARY_PATH
+    end
+end
+
 function proxy_on
     set -gx http_proxy http://127.0.0.1:12334
     set -gx https_proxy http://127.0.0.1:12334
