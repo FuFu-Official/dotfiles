@@ -16,3 +16,5 @@
 !lua/**
 !*.toml
 !LICENSE
+!config
+!config/**
