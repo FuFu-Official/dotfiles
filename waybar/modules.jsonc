@@ -1,261 +1,289 @@
 {
-    "ext/workspaces": {
-        "format": "{icon}",
-        //"format-icons": {
-        //        "active": "󰜋",
-        //        "default": ""
-        //    },
-        "ignore-hidden": true,
-        "sort-by-number": true,
-        "on-click": "activate",
-        "on-click-right": "deactivate",
+  "ext/workspaces": {
+    "format": "{icon}",
+    // "format-icons": {
+    //        "active": "󰜋",
+    //        "default": ""
+    //    },
+    "ignore-hidden": true,
+    "sort-by-number": true,
+    "on-click": "activate",
+    "on-click-right": "deactivate",
+  },
+  "hyprland/workspaces": {
+    "active-only": false,
+    "show-special": false,
+    "special-visible-only": false,
+    "sort-by": "number",
+  },
+  "custom/applauncher": {
+    "tooltip-format": "Click to Open Applauncher",
+    "format": "󰣇",
+    "on-click": "walker",
+  },
+  "clock": {
+    "interval": 60,
+    "format": "󰥔 {:%H:%M}",
+    "tooltip-format": "{:%Y/%m/%d %A}",
+    "max-length": 25,
+  },
+  "custom/cava": {
+    "tooltip": "Audio Visualization",
+    "format": "{}",
+    "exec": "~/.config/waybar/.scripts/cava.sh",
+  },
+  "network": {
+    "format-disconnected": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "{icon}",
+    "format-icons": {
+      "disconnected": "󰤮",
+      "wifi": [
+        "󰤯",
+        "󰤟",
+        "󰤢",
+        "󰤥",
+        "󰤨",
+      ],
+      "ethernet": "󰈀",
     },
-    "hyprland/workspaces": {
-       "active-only": false,
-       "show-special": false,
-       "special-visible-only": false ,
-       "sort-by": "number"
+    // 鼠标悬浮在wifi图标上会显示wifi名称、信号强度、ip地址、设备名
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname} : {ipaddr}",
+    "tooltip-format-ethernet": "{ifname} : {ipaddr} | Click to Open GUI",
+    "tooltip-format-disconnected": "Disconnected | Click to open GUI",
+    "on-click": "kitty --class nmtui -e nmtui",
+    "on-click-right": "nm-connection-editor",
+  },
+  "bluetooth": {
+    "format-disabled": "󰂲",
+    "tooltip-format-disabled": "Click to enable",
+    "format": "󰂯",
+    "tooltip-format-on": " 󰂯 Click to disable or Right click to open GUI",
+    "format-connected": "󰂱",
+    "tooltip-format-connected": "󰂱 {device_alias}Richt click to open GUI",
+    "on-click": "~/.config/waybar/.scripts/toggle-bluetooth.sh",
+    "on-click-right": "kitty --class bluetui  -e bluetui",
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "",
     },
-    "custom/applauncher": {
-        "tooltip-format": "Click to Open Applauncher",
-        "format": "󰣇",
-        "on-click": "walker",
+    "tooltip-format-activated": "idle Disabled",
+    "tooltip-format-deactivated": "idle Enabled",
+  },
+  "custom/colorpicker": {
+    "tooltip": false,
+    "format": "󱏜",
+    "on-click": "hyprpicker | wl-copy",
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Performance mode:{profile}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "󱐋",
+      "balanced": "",
+      "power-saver": "",
     },
-    "clock": {
-        "interval": 60,
-        "format": "󰥔 {:%H:%M}",
-        "tooltip-format": "{:%Y/%m/%d %A}",
-        "max-length": 25,
+  },
+  "group/powermenu": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
     },
-    "custom/cava": {
-        "tooltip": "Audio Visualization",
-        "format": "{}",
-        "exec": "~/.config/waybar/.scripts/cava.sh",
+    "modules": [
+      "custom/poweroff",
+      "custom/reboot",
+      // "custom/logout",
+      "custom/lockscreen",
+    ],
+  },
+  "custom/poweroff": {
+    "tooltip": false,
+    "format": "󰐥",
+    "on-click": "wlogout",
+  },
+  "custom/lockscreen": {
+    "tooltip": false,
+    "format": "",
+    "on-click": "swaylock || hyprlock",
+  },
+  "custom/reboot": {
+    "tooltip": false,
+    "format": "",
+    "on-click": "systemctl reboot",
+  },
+  // "custom/logout": {
+  //     "format": "󰈆",
+  //     "on-click": "niri msg action quit",
+  //     "tooltip": false,
+  // },
+  "battery": {
+    "interval": 60,
+    "states": {
+      "critical": 20,
     },
-    "network": {
-        "format-disconnected": "{icon}",
-        "format-wifi": "{icon}",
-        "format-ethernet": "{icon}",
-        "format-icons": {
-          "disconnected": "󰤮",
-          "wifi": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-          "ethernet": "󰈀",
-        },
-        //鼠标悬浮在wifi图标上会显示wifi名称、信号强度、ip地址、设备名
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname} : {ipaddr}",
-        "tooltip-format-ethernet": "{ifname} : {ipaddr} | Click to Open GUI",
-        "tooltip-format-disconnected": "Disconnected | Click to open GUI",
-        "on-click": "kitty --class nmtui -e nmtui",
-        "on-click-right": "nm-connection-editor",
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}% ",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂂",
+      "󰁹",
+    ],
+    "tooltip-format": "󰂍 {power} | {timeTo}",
+  },
+  "tray": {
+    "icon-size": 22,
+    "spacing": 7,
+  },
+  "custom/updates": {
+    "format": "{icon}{0}",
+    "return-type": "json",
+    "format-icons": {
+      "pending-updates": " ",
+      "updated": "",
     },
-    "bluetooth": {
-        "format-disabled": "󰂲",
-        "tooltip-format-disabled": "Click to enable",
-        "format": "󰂯",
-        "tooltip-format-on": " 󰂯 Click to disable or Right click to open GUI",
-        "format-connected": "󰂱",
-        "tooltip-format-connected": "󰂱 {device_alias}Richt click to open GUI",
-        "on-click": "~/.config/waybar/.scripts/toggle-bluetooth.sh",
-        "on-click-right": "kitty --class bluetui  -e bluetui",
+    "exec-if": "which waybar-updates",
+    "exec": "waybar-updates",
+    "on-click": "kitty -e paru",
+  },
+  "group/ddcutil": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-          "activated": "",
-          "deactivated": ""
-        },
-        "tooltip-format-activated": "idle Disabled",
-        "tooltip-format-deactivated": "idle Enabled",
+    "modules": [
+      "custom/ddcutil-day",
+      "backlight/slider",
+      "backlight",
+      "custom/separator#1",
+      "custom/ddcutil-sleep",
+      "custom/ddcutil-night",
+    ],
+  },
+  "custom/ddcutil-day": {
+    "tooltip-format": "Ex.Monitor 100% brightness",
+    "format": "󰃠",
+    "on-click": "ddcutil --display 1 setvcp 10 100 ",
+    "on-scroll-up": "true",
+    "on-scroll-down": "true",
+    // Only display the group when an external monitor is found
+    "exec-if": "ddcutil detect 2>/dev/null | grep -q 'Display 1' > /dev/null 2>&1",
+  },
+  "custom/ddcutil-night": {
+    "tooltip-format": "Ex.Monitor 65% brightness",
+    "format": "󰃟",
+    "on-click": "ddcutil --display 1 setvcp 10 65 ",
+    "on-scroll-up": "true",
+    "on-scroll-down": "true",
+  },
+  "custom/ddcutil-sleep": {
+    "tooltip-format": "Ex.Monitor 5% brightness",
+    "format": "󰃞",
+    "on-click": "ddcutil --display 1 setvcp 10 5 ",
+    "on-scroll-up": "true",
+    "on-scroll-down": "true",
+  },
+  "backlight/slider": {
+    "min": 5,
+    "max": 100,
+    "orientation": "horizontal",
+  },
+  "backlight": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+    ],
+  },
+  "custom/separator#1": {
+    "format": "󱋱",
+    "tooltip": false,
+  },
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
     },
-    "custom/colorpicker": {
-        "tooltip": false,
-        "format": "󱏜",
-        "on-click": "hyprpicker | wl-copy",
+    "modules": [
+      "pulseaudio",
+      "pulseaudio/slider",
+    ],
+  },
+  "pulseaudio": {
+    "tooltip-format": "Click to Mute | Right-Click to Mute Mic | Mid-Click to Open Pavucontrol",
+    "format": "{icon} {format_source} ",
+    "format-bluetooth": " {format_source} ",
+    "format-source": "{volume}%",
+    "format-source-muted": "",
+    "format-muted": " {format_source} ",
+    "format-icons": {
+      "headphone": "",
+      "bluetooth": "",
+      // "speaker":"󰓃"
+      "speaker": [
+        "",
+        "",
+        "",
+      ],
     },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Performance mode:{profile}",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-middle": "pavucontrol --tab=3",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+  },
+  "privacy": {
+    "icon-spacing": 10,
+    "icon-size": 16,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
         "tooltip": true,
-        "format-icons": {
-          "performance": "󱐋",
-          "balanced": "",
-          "power-saver": "",
-        },
-    },
-    "group/powermenu": {
-        "orientation": "inherit",
-        "drawer": {
-          "transition-left-to-right": false,
-        },
-        "modules": [
-          "custom/poweroff",
-          "custom/reboot",
-          // "custom/logout",
-          "custom/lockscreen",
-        ],
-    },
-    "custom/poweroff": {
-        "tooltip": false,
-        "format": "󰐥",
-        "on-click": "wlogout",
-    },
-    "custom/lockscreen": {
-        "tooltip": false,
-        "format": "",
-        "on-click": "swaylock || hyprlock",
-    },
-    "custom/reboot": {
-        "tooltip": false,
-        "format": "",
-        "on-click": "systemctl reboot",
-    },
-    // "custom/logout": {
-    //     "format": "󰈆",
-    //     "on-click": "niri msg action quit",
-    //     "tooltip": false,
-    // },
-    "battery": {
-        "interval": 60,
-        "states": {
-          "critical": 20,
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}% ",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂂", "󰁹"],
-        "tooltip-format": "󰂍 {power} | {timeTo}",
-    },
-    "tray": {
-        "icon-size": 22,
-        "spacing": 7,
-    },
-
-    "custom/updates": {
-        "format": "{icon}{0}",
-        "return-type": "json",
-        "format-icons": {
-            "pending-updates": " ",
-            "updated": ""
-        },
-        "exec-if": "which waybar-updates",
-        "exec": "waybar-updates",
-        "on-click": "kitty -e paru"
-    },
-
-    "group/ddcutil": {
-        "orientation": "inherit",
-        "drawer": {
-          "transition-left-to-right": false,
-        },
-        "modules": [
-          "custom/ddcutil-day",
-          "backlight/slider",
-          "backlight",
-          "custom/separator#1",
-          "custom/ddcutil-sleep",
-          "custom/ddcutil-night",
-        ],
-    },
-    "custom/ddcutil-day": {
-        "tooltip-format": "Ex.Monitor 100% brightness",
-        "format": "󰃠",
-        "on-click": "ddcutil --display 1 setvcp 10 100 ",
-        "on-scroll-up":"true",
-        "on-scroll-down":"true",
-        // Only display the group when an external monitor is found
-        "exec-if": "ddcutil detect 2>/dev/null | grep -q 'Display 1' > /dev/null 2>&1",
-
-    },
-    "custom/ddcutil-night": {
-        "tooltip-format": "Ex.Monitor 65% brightness",
-        "format": "󰃟",
-        "on-click": "ddcutil --display 1 setvcp 10 65 ",
-        "on-scroll-up":"true",
-        "on-scroll-down":"true"
-    },
-    "custom/ddcutil-sleep": {
-        "tooltip-format": "Ex.Monitor 5% brightness",
-        "format": "󰃞",
-        "on-click": "ddcutil --display 1 setvcp 10 5 ",
-        "on-scroll-up":"true",
-        "on-scroll-down":"true"
-    },
-    "backlight/slider": {
-        "min": 5,
-        "max": 100,
-        "orientation": "horizontal"
-    },
-    "backlight": {
-        "tooltip": false,
-        "format": "{icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-    "custom/separator#1": {
-        "format": "󱋱",
-        "tooltip": false
-    },
-
-    "group/audio": {
-        "orientation": "inherit",
-        "drawer": {
-          "transition-left-to-right": false
-        },
-        "modules": ["pulseaudio", "pulseaudio/slider"],
-    },
-    "pulseaudio": {
-        "tooltip-format": "Click to Mute | Right-Click to Mute Mic | Mid-Click to Open Pavucontrol",
-        "format": "{icon} {format_source} ",
-        "format-bluetooth": " {format_source} ",
-        "format-source": "{volume}%",
-        "format-source-muted": "",
-        "format-muted": " {format_source} ",
-        "format-icons": {
-          "headphone": "",
-          "bluetooth": "",
-          // "speaker":"󰓃"
-          "speaker": ["", "", ""],
-        },
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-        "on-click-middle": "pavucontrol --tab=3",
-        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
-        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
-    },
-    "pulseaudio/slider": {
-        "min": 0,
-        "max": 100,
-        "orientation": "horizontal",
-    },
-    "privacy": {
-        "icon-spacing": 10,
-        "icon-size": 16,
-        "transition-duration": 250,
-        "modules": [
-          {
-            "type": "screenshare",
-            "tooltip": true,
-            "tooltip-icon-size": 24,
-          },
-        ],
-    },
-    "custom/screenshot": {
-        "format": "",
-        "tooltip-format": "Click to region Screenshot Right Click to window screenshot or Middle Click open Pictures",
-        "on-click":"hyprshot -m region",
-        "on-click-right": "hyprshot -m window",
-        "on-click-middle":"thunar $HOME/Pictures/Screenshots"
-    },
-    "custom/wfrec": {
-      "format": "󰕧",
-      "tooltip-format": "Launch OBS",
-      "on-click": "obs-studio",
-    },
-    "custom/eye-protect": {
-        "exec": "hyprshade current | grep -q blue-light-filter && echo '{\"text\":\"\"}' || echo '{\"text\":\"\"}'",
-        "interval": 2,
-        "return-type": "json",
-        "on-click": "hyprshade toggle blue-light-filter",
-        "tooltip": "Eye Protecting"
-    }
-
-
+        "tooltip-icon-size": 24,
+      },
+    ],
+  },
+  "custom/screenshot": {
+    "format": "",
+    "tooltip-format": "Click to region Screenshot Right Click to window screenshot or Middle Click open Pictures",
+    "on-click": "hyprshot -m region",
+    "on-click-right": "hyprshot -m window",
+    "on-click-middle": "thunar $HOME/Pictures/Screenshots",
+  },
+  "custom/wfrec": {
+    "format": "󰕧",
+    "tooltip-format": "Launch OBS",
+    "on-click": "obs-studio",
+  },
+  "custom/eye-protect": {
+    "exec": "hyprshade current | grep -q blue-light-filter && echo '{\"text\":\"\"}' || echo '{\"text\":\"\"}'",
+    "interval": 2,
+    "return-type": "json",
+    "on-click": "hyprshade toggle blue-light-filter",
+    "tooltip": "Eye Protecting",
+  },
 }
