@@ -1,6 +1,5 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-
     set -gx fish_key_bindings fish_vi_key_bindings
 
     function fish_user_key_bindings
@@ -13,6 +12,8 @@ if status is-interactive
     function fish_mode_prompt
     end
 
+    bind -M insert ctrl-y accept-autosuggestion
+    bind -M insert ctrl-alt-y forward-word
 end
 
 function conda_activate
@@ -39,12 +40,4 @@ function conda_deactivate
     else
         echo "Conda is not activated. "
     end
-end
-
-function rm_compile_commands
-    rm compile_commands.json
-
-    ln -s build/compile_commands.json .
-
-    sed -i 's|/home/radar/workspace/rm.cv.radar2026|/home/fufu/workspace/rm.cv.radar2026|g' compile_commands.json
 end
