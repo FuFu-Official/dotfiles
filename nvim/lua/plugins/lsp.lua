@@ -30,6 +30,15 @@ return {
             },
           },
         },
+        jsonls = {
+          settings = {
+            json = {
+              schemas = {
+                { fileMatch = { "*.json", "*.jsonc" }, schema = { allowTrailingCommas = true } },
+              },
+            },
+          },
+        },
       },
     },
   },

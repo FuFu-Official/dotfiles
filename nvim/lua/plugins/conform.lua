@@ -10,6 +10,7 @@ return {
       markdown = { "dprint", "prettier", stop_after_first = true },
       dockerfile = { "dprint" },
       json = { "dprint" },
+      jsonc = { "dprint" },
       toml = { "dprint" },
       typescript = { "dprint" },
     },
