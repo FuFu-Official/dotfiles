@@ -1,16 +1,22 @@
 return {
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   opts = {
+  --     transparent_mode = true,
+  --   },
+  -- },
   {
-    "ellisonleao/gruvbox.nvim",
+    "catppuccin/nvim",
     opts = {
-      transparent_mode = true,
+      transparent_background = true,
+      auto_integrations = true,
     },
   },
 
-  -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "catppuccin-mocha",
     },
   },
 }
