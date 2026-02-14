@@ -62,3 +62,18 @@ function nh
     nohup $argv >/dev/null 2>&1 &
     disown
 end
+
+# Coding
+alias CC clang
+set -g MY_CXX_FLAGS \
+    -Wall -Wextra -Weffc++ \
+    -Werror=uninitialized \
+    -Werror=return-type \
+    -Wconversion -Wsign-compare \
+    -Werror=unused-result \
+    -Werror=suggest-override \
+    -Wzero-as-null-pointer-constant \
+    -Wmissing-declarations \
+    -Wold-style-cast -Werror=vla \
+    -Wnon-virtual-dtor
+alias CXX "clang++ $MY_CXX_FLAGS"

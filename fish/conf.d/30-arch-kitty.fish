@@ -45,6 +45,7 @@ if test "$OS_ID" = arch
     end
 end
 
+# Kitty specific settings
 if test "$TERM" = xterm-kitty
     function ssh --description "Aliasing ssh to kitty kitten for terminfo support"
         kitty +kitten ssh $argv
