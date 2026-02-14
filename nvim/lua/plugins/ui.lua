@@ -5,18 +5,31 @@ return {
   --     transparent_mode = true,
   --   },
   -- },
+  -- {
+  --   "catppuccin/nvim",
+  --   opts = {
+  --     flavour = "mocha",
+  --     transparent_background = false,
+  --     auto_integrations = true,
+  --   },
+  -- },
   {
-    "catppuccin/nvim",
+    "rose-pine/neovim",
+    name = "rose-pine",
     opts = {
-      transparent_background = true,
-      auto_integrations = true,
+      variant = "moon",
+      styles = {
+        transparency = true,
+      },
     },
   },
-
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "rose-pine",
     },
+  },
+  {
+    "eandrju/cellular-automaton.nvim",
   },
 }
