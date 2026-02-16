@@ -32,4 +32,13 @@ return {
   {
     "eandrju/cellular-automaton.nvim",
   },
+  {
+    "Aasim-A/scrollEOF.nvim",
+    event = { "CursorMoved", "WinScrolled" },
+    opts = {
+      insert_mode = true,
+      floating = false,
+      disabled_filetypes = { "NvimTree", "lazy", "terminal", "snacks_terminal" },
+    },
+  },
 }

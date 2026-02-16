@@ -28,7 +28,7 @@ end, {
   desc = "chroot to a specified path",
 })
 
-local function open_screensaver()
+local function open_screensaver(on_close)
   vim.cmd("tabnew")
 
   local tab = vim.api.nvim_get_current_tabpage()
@@ -60,8 +60,12 @@ local function open_screensaver()
     table.insert(jobs, job)
 
     setup_term_win(vim.api.nvim_get_current_win())
-    vim.keymap.set({ "n", "t" }, "q", function() close_all() end, { buffer = buf, silent = true })
-    vim.keymap.set({ "n", "t" }, "<Esc>", function() close_all() end, { buffer = buf, silent = true })
+    vim.keymap.set({ "n", "t" }, "q", function()
+      close_all()
+    end, { buffer = buf, silent = true })
+    vim.keymap.set({ "n", "t" }, "<Esc>", function()
+      close_all()
+    end, { buffer = buf, silent = true })
     vim.cmd("startinsert")
   end
 
@@ -96,7 +100,57 @@ local function open_screensaver()
     if vim.api.nvim_tabpage_is_valid(tab) then
       pcall(vim.cmd, "tabclose")
     end
+
+    if on_close then
+      on_close()
+    end
   end
 end
 
-vim.api.nvim_create_user_command("Screensaver", open_screensaver, {})
+vim.api.nvim_create_user_command("ScreenLocker", function()
+  open_screensaver()
+end, {})
+
+-- idle screensaver daemon
+local IDLE_TIMEOUT = 30 -- seconds
+local idle_timer = vim.uv.new_timer()
+local screensaver_active = false
+
+local function reset_idle()
+  if screensaver_active then
+    return
+  end
+  idle_timer:stop()
+  idle_timer:start(
+    IDLE_TIMEOUT * 1000,
+    0,
+    vim.schedule_wrap(function()
+      if not screensaver_active then
+        screensaver_active = true
+        open_screensaver(function()
+          screensaver_active = false
+          reset_idle()
+        end)
+      end
+    end)
+  )
+end
+
+local idle_events =
+  { "CursorMoved", "CursorMovedI", "TextChanged", "TextChangedI", "BufEnter", "WinEnter", "FocusGained", "InsertEnter" }
+vim.api.nvim_create_autocmd(idle_events, {
+  group = vim.api.nvim_create_augroup("screensaver_idle", { clear = true }),
+  callback = reset_idle,
+})
+
+reset_idle()
+
+vim.api.nvim_create_user_command("ScreenLockerEnable", function()
+  reset_idle()
+  vim.notify("🖥️ Screensaver daemon enabled (" .. IDLE_TIMEOUT .. "s)", vim.log.levels.INFO)
+end, {})
+
+vim.api.nvim_create_user_command("ScreenLockerDisable", function()
+  idle_timer:stop()
+  vim.notify("🖥️ Screensaver daemon disabled", vim.log.levels.INFO)
+end, {})

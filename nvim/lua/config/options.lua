@@ -3,3 +3,5 @@
 -- Add any additional options here
 
 vim.opt.jumpoptions = "stack"
+
+vim.opt.scrolloff = 999
