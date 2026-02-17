@@ -41,4 +41,14 @@ return {
       disabled_filetypes = { "NvimTree", "lazy", "terminal", "snacks_terminal" },
     },
   },
+  {
+    "folke/noice.nvim",
+    opts = {
+      lsp = {
+        signature = {
+          auto_open = { enabled = false },
+        },
+      },
+    },
+  },
 }

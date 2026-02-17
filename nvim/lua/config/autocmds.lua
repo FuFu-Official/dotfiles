@@ -112,7 +112,7 @@ vim.api.nvim_create_user_command("ScreenLocker", function()
 end, {})
 
 -- idle screensaver daemon
-local IDLE_TIMEOUT = 30 -- seconds
+local IDLE_TIMEOUT = 60 -- seconds
 local idle_timer = vim.uv.new_timer()
 local screensaver_active = false
 
