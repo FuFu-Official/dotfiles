@@ -11,6 +11,10 @@ application/x-extension-xhtml=zen-browser.desktop
 application/x-extension-xht=zen-browser.desktop
 inode/directory=thunar.desktop
 application/pdf=org.pwmt.zathura.desktop
+image/png=imv-dir.desktop
+image/jpeg=imv-dir.desktop
+image/jpg=imv-dir.desktop
+image/webp=imv-dir.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen-browser.desktop;
@@ -24,7 +28,7 @@ application/xhtml+xml=zen-browser.desktop;
 application/x-extension-xhtml=zen-browser.desktop;
 application/x-extension-xht=zen-browser.desktop;
 text/csv=nvim.desktop;
-image/png=satty.desktop;
+image/png=imv.desktop;satty.desktop;
 application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop;
 text/x-python=nvim.desktop;
 text/markdown=nvim.desktop;
