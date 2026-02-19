@@ -1,4 +1,4 @@
-@import "colors.css";
+@import "/home/fufu/.config/waybar/colors.css";
 /* @import "/home/shorin/.cache/wal/colors-waybar.css"; */
 
 /* 核心逻辑：全相对单位 (em) 改造
