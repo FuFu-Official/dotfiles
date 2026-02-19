@@ -21,6 +21,69 @@ if test "$OS_ID" = arch
         echo "No AUR helper found (paru or yay)"
     end
 
+    function switch_waybar --description "Switch waybar style via symlink"
+        set -l waybar_dir "$HOME/.config/waybar"
+        set -l active_dir "$waybar_dir/active"
+
+        # List available styles (subdirectories with config.jsonc)
+        set -l styles
+        for d in $waybar_dir/*/
+            set -l name (basename $d)
+            if test -f "$d/config.jsonc" -a "$name" != active
+                set -a styles $name
+            end
+        end
+
+        if test (count $styles) -eq 0
+            echo "No waybar styles found in $waybar_dir"
+            return 1
+        end
+
+        # Determine target style
+        if test (count $argv) -ge 1
+            set -l target $argv[1]
+            if not contains $target $styles
+                echo "Unknown style: $target"
+                echo "Available: $styles"
+                return 1
+            end
+        else
+            # No argument: show current and list options
+            set -l current ""
+            if test -L "$active_dir/config.jsonc"
+                # e.g. ../pill-top/config.jsonc -> extract folder name
+                set current (basename (dirname (readlink "$active_dir/config.jsonc")))
+            end
+            echo "Current: $current"
+            echo "Available:"
+            for s in $styles
+                if test "$s" = "$current"
+                    echo "  * $s"
+                else
+                    echo "    $s"
+                end
+            end
+            return 0
+        end
+
+        set -l target $argv[1]
+
+        # Create active dir if needed
+        mkdir -p $active_dir
+
+        # Create/update symlinks for config and style
+        ln -sf ../$target/config.jsonc $active_dir/config.jsonc
+        ln -sf ../$target/style.css $active_dir/style.css
+
+        # Restart waybar
+        killall waybar 2>/dev/null; or true
+        sleep 0.3
+        waybar -c "$active_dir/config.jsonc" -s "$active_dir/style.css" &
+        disown
+
+        echo "Switched waybar to: $target"
+    end
+
     function change_wallpaper --description "Update hyprpaper.conf and restart"
         if test (count $argv) -eq 0
             echo "Usage: change_wallpaper <path_to_image>"
