@@ -1,0 +1,35 @@
+{
+   "include": [
+      "win-bottom/modules.jsonc",
+   ],
+   "layer": "top",
+   "position": "bottom",
+   "fixed-center": true,
+   "reload_style_on_change": true,
+   "margin-top": 0,
+   "margin-left": 0,
+   "margin-right": 0,
+   "margin-bottom": -2,
+   "modules-left": [
+      "custom/applauncher",
+      "custom/separator#1",
+      "hyprland/workspaces",
+   ],
+   "modules-center": [
+      "hyprland/window",
+   ],
+   "modules-right": [
+      "custom/updates",
+      "group/tools",
+      "tray",
+      "privacy",
+      "custom/separator#2",
+      "group/audio",
+      "network",
+      "bluetooth",
+      "battery",
+      "custom/separator#3",
+      "clock",
+      "group/powermenu",
+   ],
+}

@@ -1,0 +1,348 @@
+@import "/home/fufu/.config/waybar/colors.css";
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *  Windows 11 Taskbar Style — Bottom Bar
+ *  基准 font-size: 14px — 整体缩放只需改这一个值
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+* {
+ border: none;
+ border-radius: 0;
+ font-family: "JetBrainsMono Nerd Font Propo", "LXGW WenKai Screen";
+ font-size: 14px;
+ min-height: 0;
+ padding: 0;
+ margin: 0;
+}
+
+/* ── 整体栏：半透明深色底栏 ── */
+window#waybar {
+ background: alpha(@surface_container, 0.92);
+ border-top: 1px solid alpha(@outline_variant, 0.3);
+ color: @on_surface;
+ margin: 0;
+ padding: 0;
+}
+
+window#waybar>box {
+ margin: 0;
+ padding: 0;
+}
+
+/* ── 左/中/右容器 — 无背景，纯平排列 ── */
+.modules-left,
+.modules-center,
+.modules-right {
+ background: transparent;
+ padding: 0 0.29em;
+ margin: 0;
+}
+
+/* ── Tooltip ── */
+tooltip {
+ background: @surface_container_high;
+ border: 1px solid @outline_variant;
+ border-radius: 0.57em;
+ padding: 0.43em 0.71em;
+}
+
+tooltip label {
+ color: @on_surface;
+ font-size: 0.93em;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *  通用模块样式 — 悬浮高亮条
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#workspaces,
+#window,
+#clock,
+#battery,
+#network,
+#bluetooth,
+#backlight,
+#pulseaudio,
+#idle_inhibitor,
+#tray,
+#privacy,
+#custom-updates,
+#custom-poweroff,
+#custom-reboot,
+#custom-lockscreen,
+#custom-ddcutil-day,
+#custom-ddcutil-night,
+#custom-ddcutil-sleep,
+#custom-separator-1,
+#custom-separator-2,
+#custom-separator-3,
+#custom-applauncher,
+#custom-screenshot,
+#custom-eye-protect,
+#custom-colorpicker,
+#power-profiles-daemon {
+ padding: 0.29em 0.57em;
+ margin: 0.21em 0.07em;
+ border-radius: 0.29em;
+ transition: all 150ms ease;
+}
+
+/* Windows 风格：鼠标悬浮淡色高亮 */
+#workspaces button:hover,
+#battery:hover,
+#network:hover,
+#bluetooth:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#idle_inhibitor:hover,
+#custom-updates:hover,
+#custom-poweroff:hover,
+#custom-reboot:hover,
+#custom-lockscreen:hover,
+#custom-applauncher:hover,
+#custom-screenshot:hover,
+#custom-eye-protect:hover,
+#custom-colorpicker:hover,
+#power-profiles-daemon:hover,
+#clock:hover {
+ background: alpha(@on_surface, 0.08);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *  左侧：开始 + 工作区
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* "开始"按钮 */
+#custom-applauncher {
+ color: @primary;
+ font-size: 1.36em;
+ padding: 0.21em 0.5em;
+ margin-left: 0.14em;
+}
+
+#custom-applauncher:hover {
+ background: alpha(@primary, 0.12);
+}
+
+/* 分隔符 */
+#custom-separator-1,
+#custom-separator-2,
+#custom-separator-3 {
+ color: alpha(@outline, 0.4);
+ padding: 0 0.14em;
+ font-size: 0.86em;
+}
+
+/* 工作区 — Windows 风格方块 */
+#workspaces {
+ padding: 0 0.14em;
+}
+
+#workspaces button {
+ padding: 0.29em 0.57em;
+ margin: 0.21em 0.14em;
+ border-radius: 0.29em;
+ color: @on_surface_variant;
+ background: transparent;
+ border-bottom: 2px solid transparent;
+}
+
+#workspaces button.active {
+ color: @on_surface;
+ background: alpha(@primary, 0.12);
+ border-bottom: 2px solid @primary;
+}
+
+#workspaces button.urgent {
+ color: @error;
+ background: alpha(@error, 0.12);
+ border-bottom: 2px solid @error;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *  中间：窗口标题
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#window {
+ color: @on_surface_variant;
+ font-size: 0.93em;
+ padding: 0.29em 0.71em;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *  右侧：系统托盘区
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* —— 更新 —— */
+#custom-updates {
+ color: @tertiary;
+}
+
+/* —— 托盘 —— */
+#tray {
+ padding: 0.29em 0.36em;
+}
+
+/* —— 工具模块 —— */
+#custom-screenshot {
+ color: @secondary;
+}
+
+#custom-eye-protect {
+ color: @tertiary;
+}
+
+#custom-colorpicker {
+ color: @secondary;
+}
+
+#power-profiles-daemon {
+ color: @tertiary;
+}
+
+/* —— 亮度 —— */
+#custom-ddcutil-day,
+#custom-ddcutil-night,
+#custom-ddcutil-sleep {
+ color: @tertiary;
+}
+
+#backlight {
+ color: @tertiary;
+}
+
+/* —— 屏幕隐私 —— */
+#privacy {
+ color: @error;
+ padding: 0.29em 0.43em;
+}
+
+/* —— 音频 —— */
+#pulseaudio {
+ color: @on_surface;
+}
+
+#pulseaudio.muted {
+ color: @outline;
+}
+
+#pulseaudio-slider {
+ padding: 0 0.29em;
+ margin: 0.36em 0;
+}
+
+#pulseaudio-slider slider {
+ min-height: 0;
+ min-width: 0;
+ opacity: 0;
+ background: none;
+ border: none;
+ box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+ min-height: 0.43em;
+ min-width: 5em;
+ border-radius: 0.21em;
+ background: @surface_container_highest;
+}
+
+#pulseaudio-slider highlight {
+ min-width: 0.43em;
+ border-radius: 0.21em;
+ background: @primary;
+}
+
+/* —— 网络 —— */
+#network {
+ color: @on_surface;
+}
+
+#network.disconnected {
+ color: @outline;
+}
+
+/* —— 蓝牙 —— */
+#bluetooth {
+ color: @on_surface;
+}
+
+#bluetooth.disabled {
+ color: @outline;
+}
+
+#bluetooth.connected {
+ color: @primary;
+}
+
+/* —— Idle Inhibitor —— */
+#idle_inhibitor {
+ color: @outline;
+}
+
+#idle_inhibitor.activated {
+ color: @tertiary;
+}
+
+/* —— 电池 —— */
+#battery {
+ color: @on_surface;
+}
+
+#battery.charging {
+ color: @primary;
+}
+
+#battery.critical:not(.charging) {
+ color: @error;
+ animation: blink 1s steps(12) infinite alternate;
+}
+
+@keyframes blink {
+ to {
+  color: @on_surface;
+ }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *  时钟 — Windows 风格双行时间日期
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#clock {
+ color: @on_surface_variant;
+ padding: 0.14em 0.71em;
+ font-size: 0.79em;
+ font-weight: normal;
+}
+
+#clock:hover {
+ background: alpha(@on_surface, 0.08);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *  电源菜单
+ * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#custom-poweroff {
+ color: @on_surface_variant;
+ font-size: 1.07em;
+ padding: 0.29em 0.57em;
+ margin-right: 0.14em;
+}
+
+#custom-poweroff:hover {
+ color: @on_surface;
+ background: @error;
+}
+
+#custom-reboot,
+#custom-lockscreen {
+ color: @on_surface_variant;
+ padding: 0.29em 0.57em;
+}
+
+#custom-reboot:hover,
+#custom-lockscreen:hover {
+ background: alpha(@error, 0.15);
+ color: @error;
+}
