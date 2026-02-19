@@ -15,6 +15,7 @@ image/png=imv-dir.desktop
 image/jpeg=imv-dir.desktop
 image/jpg=imv-dir.desktop
 image/webp=imv-dir.desktop
+text/plain=nvim.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen-browser.desktop;
@@ -34,3 +35,4 @@ text/x-python=nvim.desktop;
 text/markdown=nvim.desktop;
 application/pdf=zen-browser.desktop;org.pwmt.zathura-pdf-mupdf.desktop;
 image/jpeg=imv-dir.desktop;imv.desktop;
+text/plain=nvim.desktop;
