@@ -319,19 +319,22 @@
 
   // ── 媒体播放 ──
   "mpris": {
-    "format": "{player_icon} {title}",
+    "format": "{status_icon} {title}",
     "format-paused": "{status_icon} {title}",
-    "max-length": 30,
+    "format-stopped": "",
+    "max-length": 25,
+    "status-icons": {
+      "playing": "󰏤",
+      "paused": "󰐊",
+      "stopped": "󰓛"
+    },
     "player-icons": {
-      "default": "▶",
+      "default": "󰐊",
       "mpv": "󰄧"
     },
-    "status-icons": {
-      "paused": "⏸"
-    },
     "tooltip-format": "{artist} - {title} ({album})",
-    "on-click": "playerctld shift",
-    "on-click-right": "playerctl play-pause",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctld shift",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous"
   },
@@ -346,6 +349,19 @@
     "on-click-right": "xdg-open https://wttr.in"
   },
   // ── System Resources ──
+  // ── System Info Drawer ──
+  "group/sysinfo": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
+      "transition-duration": 300
+    },
+    "modules": [
+      "cpu",
+      "memory",
+      "temperature"
+    ]
+  },
   "cpu": {
     "interval": 5,
     "format": "󰍛 {usage}%",

@@ -201,19 +201,20 @@ tooltip label {
 #mpris {
  color: @secondary;
  font-size: 0.93em;
+ margin-left: 0.57em;
 }
 
 /* —— 天气 —— */
 #custom-weather {
  color: @on_surface_variant;
  font-size: 0.93em;
+ border-left: 1px solid alpha(@outline, 0.25);
+ padding-left: 0.71em;
 }
 
 /* —— 系统监控 —— */
 #cpu {
  color: @on_surface_variant;
- border-left: 1px solid alpha(@outline, 0.25);
- padding-left: 0.71em;
 }
 
 #memory {
@@ -260,8 +261,6 @@ tooltip label {
 /* —— 音频 —— */
 #pulseaudio {
  color: @on_surface;
- border-left: 1px solid alpha(@outline, 0.25);
- padding-left: 0.71em;
 }
 
 #pulseaudio.muted {

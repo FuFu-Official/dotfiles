@@ -13,20 +13,17 @@
    "modules-left": [
       "custom/applauncher",
       "hyprland/workspaces",
+      "mpris",
    ],
    "modules-center": [
       "wlr/taskbar",
    ],
    "modules-right": [
-      "mpris",
-      "custom/updates",
       "custom/weather",
       "group/tools",
       "tray",
       "privacy",
-      "cpu",
-      "memory",
-      "temperature",
+      "group/sysinfo",
       "group/audio",
       "network",
       "bluetooth",
