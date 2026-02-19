@@ -15,6 +15,17 @@
     "max-length": 60,
     "separate-outputs": true,
   },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-click-right": "minimize",
+    "app_ids-mapping": {
+      "kitty": "kitty"
+    }
+  },
   // ━━━━━━━━━━ 中间 ━━━━━━━━━━
   "clock": {
     "interval": 60,
@@ -80,11 +91,11 @@
     "exec-if": "ddcutil detect 2>/dev/null | grep -q 'Display 1'",
   },
   "custom/separator#2": {
-    "format": "󰃠",
+    "format": "󱋱",
     "tooltip": false,
   },
   "custom/separator#3": {
-    "format": "󰃠",
+    "format": "󱋱",
     "tooltip": false,
   },
   "custom/ddcutil-night": {
@@ -152,10 +163,7 @@
       "custom/colorpicker",
       "custom/eye-protect",
       "idle_inhibitor",
-      "power-profiles-daemon",
-      "custom/ddcutil-day",
-      "custom/ddcutil-night",
-      "custom/ddcutil-sleep",
+      "power-profiles-daemon"
     ],
   },
   "power-profiles-daemon": {
@@ -181,11 +189,11 @@
   },
   "pulseaudio": {
     "tooltip-format": "Click: mute | Right: mic mute | Mid: pavucontrol",
-    "format": "{icon} {format_source} ",
-    "format-bluetooth": " {format_source} ",
+    "format": "{icon} {volume}% {format_source} ",
+    "format-bluetooth": " {volume}% {format_source} ",
     "format-source": "{volume}%",
     "format-source-muted": "",
-    "format-muted": " {format_source} ",
+    "format-muted": " {volume}% {format_source} ",
     "format-icons": {
       "headphone": "",
       "bluetooth": "",
@@ -307,6 +315,67 @@
     "tooltip": false,
     "format": "",
     "on-click": "hyprlock",
+  },
+
+  // ── 媒体播放 ──
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "format-paused": "{status_icon} {title}",
+    "max-length": 30,
+    "player-icons": {
+      "default": "▶",
+      "mpv": "󰄧"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "tooltip-format": "{artist} - {title} ({album})",
+    "on-click": "playerctld shift",
+    "on-click-right": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+  // ── 天气 ──
+  "custom/weather": {
+    "format": "{}",
+    "format-alt": "{alt}: {}",
+    "tooltip": true,
+    "interval": 1800,
+    "return-type": "json",
+    "exec": "wttrbar --location auto --main-indicator temp_C --custom-indicator \"{ICON} {temp_C}°C\" --lang zh",
+    "on-click-right": "xdg-open https://wttr.in"
+  },
+  // ── System Resources ──
+  "cpu": {
+    "interval": 5,
+    "format": "󰍛 {usage}%",
+    "tooltip-format": "CPU: {usage}% ({load})",
+    "on-click": "kitty -e btop"
+  },
+  "memory": {
+    "interval": 10,
+    "format": "󰘚 {percentage}%",
+    "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G",
+    "on-click": "kitty -e btop"
+  },
+  "temperature": {
+    "thermal-zone": 0,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["󱃃", "󱃃", "󰔏", "󰸁", "󱃂"],
+    "critical-threshold": 85,
+    "tooltip-format": "CPU Temp: {temperatureC}°C"
+  },
+  // ── 亮度滑块 ──
+  "group/backlight": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
+      "transition-duration": 300
+    },
+    "modules": [
+      "backlight",
+      "backlight/slider"
+    ]
   },
 }
 

@@ -61,21 +61,19 @@ tooltip label {
 #battery,
 #network,
 #bluetooth,
-#backlight,
 #pulseaudio,
 #idle_inhibitor,
 #tray,
 #privacy,
+#mpris,
+#cpu,
+#memory,
+#temperature,
 #custom-updates,
+#custom-weather,
 #custom-poweroff,
 #custom-reboot,
 #custom-lockscreen,
-#custom-ddcutil-day,
-#custom-ddcutil-night,
-#custom-ddcutil-sleep,
-#custom-separator-1,
-#custom-separator-2,
-#custom-separator-3,
 #custom-applauncher,
 #custom-screenshot,
 #custom-eye-protect,
@@ -92,10 +90,14 @@ tooltip label {
 #battery:hover,
 #network:hover,
 #bluetooth:hover,
-#backlight:hover,
 #pulseaudio:hover,
 #idle_inhibitor:hover,
+#mpris:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
 #custom-updates:hover,
+#custom-weather:hover,
 #custom-poweroff:hover,
 #custom-reboot:hover,
 #custom-lockscreen:hover,
@@ -122,15 +124,6 @@ tooltip label {
 
 #custom-applauncher:hover {
  background: alpha(@primary, 0.12);
-}
-
-/* 分隔符 */
-#custom-separator-1,
-#custom-separator-2,
-#custom-separator-3 {
- color: alpha(@outline, 0.4);
- padding: 0 0.14em;
- font-size: 0.86em;
 }
 
 /* 工作区 — Windows 风格方块 */
@@ -160,13 +153,39 @@ tooltip label {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  中间：窗口标题
+ *  中间：任务栏（活动窗口列表）
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #window {
  color: @on_surface_variant;
  font-size: 0.93em;
  padding: 0.29em 0.71em;
+}
+
+#taskbar {
+ padding: 0;
+}
+
+#taskbar button {
+ padding: 0.21em 0.57em;
+ margin: 0.14em 0.07em;
+ border-radius: 0.29em;
+ background: transparent;
+ border-bottom: 2px solid transparent;
+ transition: all 150ms ease;
+}
+
+#taskbar button:hover {
+ background: alpha(@on_surface, 0.08);
+}
+
+#taskbar button.active {
+ background: alpha(@primary, 0.12);
+ border-bottom: 2px solid @primary;
+}
+
+#taskbar button.minimized {
+ opacity: 0.5;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -176,6 +195,38 @@ tooltip label {
 /* —— 更新 —— */
 #custom-updates {
  color: @tertiary;
+}
+
+/* —— 媒体播放 —— */
+#mpris {
+ color: @secondary;
+ font-size: 0.93em;
+}
+
+/* —— 天气 —— */
+#custom-weather {
+ color: @on_surface_variant;
+ font-size: 0.93em;
+}
+
+/* —— 系统监控 —— */
+#cpu {
+ color: @on_surface_variant;
+ border-left: 1px solid alpha(@outline, 0.25);
+ padding-left: 0.71em;
+}
+
+#memory {
+ color: @on_surface_variant;
+}
+
+#temperature {
+ color: @on_surface_variant;
+}
+
+#temperature.critical {
+ color: @error;
+ animation: blink 1s steps(12) infinite alternate;
 }
 
 /* —— 托盘 —— */
@@ -200,17 +251,6 @@ tooltip label {
  color: @tertiary;
 }
 
-/* —— 亮度 —— */
-#custom-ddcutil-day,
-#custom-ddcutil-night,
-#custom-ddcutil-sleep {
- color: @tertiary;
-}
-
-#backlight {
- color: @tertiary;
-}
-
 /* —— 屏幕隐私 —— */
 #privacy {
  color: @error;
@@ -220,6 +260,8 @@ tooltip label {
 /* —— 音频 —— */
 #pulseaudio {
  color: @on_surface;
+ border-left: 1px solid alpha(@outline, 0.25);
+ padding-left: 0.71em;
 }
 
 #pulseaudio.muted {
@@ -313,6 +355,7 @@ tooltip label {
  padding: 0.14em 0.71em;
  font-size: 0.79em;
  font-weight: normal;
+ border-left: 1px solid alpha(@outline, 0.25);
 }
 
 #clock:hover {
