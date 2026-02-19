@@ -4,7 +4,7 @@ import Quickshell
 
 import "../common" as Common
 
-// ━━━ 时钟 ━━━
+// ━━━ 时钟 (点击弹出日历面板) ━━━
 Item {
     id: root
 
@@ -33,7 +33,14 @@ Item {
         anchors.fill: parent
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
-        onClicked: Quickshell.execDetached("walker")
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+        onClicked: mouse => {
+            if (mouse.button === Qt.LeftButton)
+                BarState.toggleCalendar()
+            else
+                Quickshell.execDetached("walker")
+        }
 
         QC.ToolTip {
             id: clockTip

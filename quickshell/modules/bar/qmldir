@@ -9,6 +9,7 @@ BatteryWidget 1.0 BatteryWidget.qml
 BluetoothWidget 1.0 BluetoothWidget.qml
 BrightnessWidget 1.0 BrightnessWidget.qml
 ClockWidget 1.0 ClockWidget.qml
+MediaWidget 1.0 MediaWidget.qml
 NetworkWidget 1.0 NetworkWidget.qml
 PowerMenu 1.0 PowerMenu.qml
 SysTray 1.0 SysTray.qml

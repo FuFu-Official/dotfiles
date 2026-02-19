@@ -33,7 +33,7 @@ Item {
             if (mouse.button === Qt.LeftButton) {
                 if (audioService) audioService.toggleMute()
             } else if (mouse.button === Qt.RightButton) {
-                if (audioService) audioService.toggleMicMute()
+                BarState.toggleQuickSettings()
             } else {
                 Quickshell.execDetached("pavucontrol")
             }

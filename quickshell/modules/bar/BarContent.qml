@@ -26,16 +26,22 @@ Item {
             ActiveWindow {}
         }
 
+        // ═══ 左：媒体播放 (有播放时显示) ═══
+        BarGroup {
+            visible: mediaService?.hasPlayer ?? false
+            MediaWidget {}
+        }
+
         Item { Layout.fillWidth: true }
 
-        // ═══ 中：时钟 ═══
+        // ═══ 中：时钟 (点击开关日历) ═══
         BarGroup {
             ClockWidget {}
         }
 
         Item { Layout.fillWidth: true }
 
-        // ═══ 右：系统状态 ═══
+        // ═══ 右：系统状态 (右键任意图标开关 Quick Settings) ═══
         BarGroup {
             NetworkWidget {}
             BluetoothWidget {}
