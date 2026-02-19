@@ -23,13 +23,12 @@ if test "$OS_ID" = arch
 
     function switch_waybar --description "Switch waybar style via symlink"
         set -l waybar_dir "$HOME/.config/waybar"
-        set -l active_dir "$waybar_dir/active"
 
         # List available styles (subdirectories with config.jsonc)
         set -l styles
         for d in $waybar_dir/*/
             set -l name (basename $d)
-            if test -f "$d/config.jsonc" -a "$name" != active
+            if test -f "$d/config.jsonc"
                 set -a styles $name
             end
         end
@@ -50,9 +49,9 @@ if test "$OS_ID" = arch
         else
             # No argument: show current and list options
             set -l current ""
-            if test -L "$active_dir/config.jsonc"
-                # e.g. ../pill-top/config.jsonc -> extract folder name
-                set current (basename (dirname (readlink "$active_dir/config.jsonc")))
+            if test -L "$waybar_dir/config.jsonc"
+                # e.g. pill-top/config.jsonc -> extract folder name
+                set current (string split / (readlink "$waybar_dir/config.jsonc"))[1]
             end
             echo "Current: $current"
             echo "Available:"
@@ -68,17 +67,14 @@ if test "$OS_ID" = arch
 
         set -l target $argv[1]
 
-        # Create active dir if needed
-        mkdir -p $active_dir
-
-        # Create/update symlinks for config and style
-        ln -sf ../$target/config.jsonc $active_dir/config.jsonc
-        ln -sf ../$target/style.css $active_dir/style.css
+        # Create/update symlinks in waybar root
+        ln -sf $target/config.jsonc $waybar_dir/config.jsonc
+        ln -sf $target/style.css $waybar_dir/style.css
 
         # Restart waybar
-        killall waybar 2>/dev/null; or true
+        pkill -i waybar; or true
         sleep 0.3
-        waybar -c "$active_dir/config.jsonc" -s "$active_dir/style.css" &
+        waybar &>/dev/null &
         disown
 
         echo "Switched waybar to: $target"
