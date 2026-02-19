@@ -9,7 +9,7 @@
     border: none;
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font Propo", "LXGW WenKai Screen";
-    font-size: 14px;
+    font-size: 12px;
     min-height: 0;
     padding: 0;
     margin: 0;
@@ -31,26 +31,26 @@ window#waybar>box {
 .modules-center,
 .modules-right {
     background: @surface_container;
-    border-radius: 14px;
-    padding: 4px 4px;
-    margin: 0 2px;
+    border-radius: 1em;
+    padding: 0.29em 0.29em;
+    margin: 0 0.14em;
 }
 
 .modules-center {
-    padding: 4px 8px;
+    padding: 0.29em 0.57em;
 }
 
 /* ── Tooltip ── */
 tooltip {
     background: @surface_container_high;
     border: 1px solid @outline_variant;
-    border-radius: 12px;
-    padding: 6px 10px;
+    border-radius: 0.86em;
+    padding: 0.43em 0.71em;
 }
 
 tooltip label {
     color: @on_surface;
-    font-size: 13px;
+    font-size: 0.93em;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -82,9 +82,9 @@ tooltip label {
 #custom-eye-protect,
 #custom-colorpicker,
 #power-profiles-daemon {
-    padding: 0 8px;
-    margin: 3px 1px;
-    border-radius: 10px;
+    padding: 0 0.57em;
+    margin: 0.21em 0.07em;
+    border-radius: 0.71em;
     transition: all 200ms ease;
 }
 
@@ -115,18 +115,18 @@ tooltip label {
 
 #custom-applauncher {
     color: @primary;
-    font-size: 18px;
-    padding: 0 10px;
+    font-size: 1.29em;
+    padding: 0 0.56em;
 }
 
 #workspaces {
-    padding: 0 2px;
+    padding: 0 0.14em;
 }
 
 #workspaces button {
-    padding: 0 6px;
-    margin: 4px 1px;
-    border-radius: 8px;
+    padding: 0 0.43em;
+    margin: 0.29em 0.07em;
+    border-radius: 0.57em;
     color: @outline;
     background: transparent;
 }
@@ -144,8 +144,8 @@ tooltip label {
 
 #window {
     color: @on_surface_variant;
-    font-size: 13px;
-    padding: 0 12px;
+    font-size: 0.93em;
+    padding: 0 0.92em;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -155,8 +155,8 @@ tooltip label {
 #clock {
     color: @primary;
     font-weight: bold;
-    padding: 0 14px;
-    font-size: 15px;
+    padding: 0 0.93em;
+    font-size: 1.07em;
 }
 
 #clock label {
@@ -175,8 +175,8 @@ tooltip label {
 
 /* —— 托盘 —— */
 #tray {
-    padding: 0 6px;
-    margin: 4px 1px;
+    padding: 0 0.43em;
+    margin: 0.29em 0.07em;
 }
 
 /* —— 亮度 Group —— */
@@ -188,7 +188,7 @@ tooltip label {
 
 #custom-separator-1 {
     color: @outline;
-    padding: 0 2px;
+    padding: 0 0.14em;
 }
 
 #backlight {
@@ -196,8 +196,8 @@ tooltip label {
 }
 
 #backlight-slider {
-    padding: 0 4px;
-    margin: 4px 0;
+    padding: 0 0.29em;
+    margin: 0.29em 0;
 }
 
 #backlight-slider slider {
@@ -210,29 +210,29 @@ tooltip label {
 }
 
 #backlight-slider trough {
-    min-height: 8px;
-    min-width: 70px;
-    border-radius: 4px;
+    min-height: 0.57em;
+    min-width: 5em;
+    border-radius: 0.29em;
     background: @surface_container_highest;
 }
 
 #backlight-slider highlight {
-    min-width: 8px;
-    border-radius: 4px;
+    min-width: 0.57em;
+    border-radius: 0.29em;
     background: @tertiary;
 }
 
 /* —— 屏幕隐私 —— */
 #privacy {
     color: @error;
-    padding: 0 6px;
-    margin: 3px 1px;
+    padding: 0 0.43em;
+    margin: 0.21em 0.07em;
 }
 
 /* —— 音频 Group —— */
 #pulseaudio {
     color: @primary;
-    font-size: 15px;
+    font-size: 1.07em;
 }
 
 #pulseaudio.muted {
@@ -240,8 +240,8 @@ tooltip label {
 }
 
 #pulseaudio-slider {
-    padding: 0 4px;
-    margin: 4px 0;
+    padding: 0 0.29em;
+    margin: 0.29em 0;
 }
 
 #pulseaudio-slider slider {
@@ -254,15 +254,15 @@ tooltip label {
 }
 
 #pulseaudio-slider trough {
-    min-height: 8px;
-    min-width: 70px;
-    border-radius: 4px;
+    min-height: 0.57em;
+    min-width: 5em;
+    border-radius: 0.29em;
     background: @surface_container_highest;
 }
 
 #pulseaudio-slider highlight {
-    min-width: 8px;
-    border-radius: 4px;
+    min-width: 0.57em;
+    border-radius: 0.29em;
     background: @primary;
 }
 
@@ -287,7 +287,7 @@ tooltip label {
 /* —— 蓝牙 —— */
 #bluetooth {
     color: @secondary;
-    font-size: 15px;
+    font-size: 1.07em;
 }
 
 #bluetooth.disabled {
@@ -301,7 +301,7 @@ tooltip label {
 /* —— 网络 —— */
 #network {
     color: @secondary;
-    font-size: 16px;
+    font-size: 1.14em;
 }
 
 #network.disconnected {
@@ -340,14 +340,14 @@ tooltip label {
 /* —— 电源菜单 —— */
 #custom-poweroff {
     color: @error;
-    font-size: 16px;
-    padding: 0 10px 0 8px;
+    font-size: 1.14em;
+    padding: 0 0.63em 0 0.5em;
 }
 
 #custom-reboot,
 #custom-lockscreen {
     color: @on_surface_variant;
-    padding: 0 8px;
+    padding: 0 0.57em;
 }
 
 #custom-reboot:hover,
