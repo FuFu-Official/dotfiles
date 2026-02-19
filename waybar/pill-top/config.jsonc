@@ -1,0 +1,32 @@
+{
+  "include": [
+    "pill-top/modules.jsonc",
+  ],
+  "layer": "top",
+  "position": "top",
+  "fixed-center": true,
+  "reload_style_on_change": true,
+  "margin-top": 6,
+  "margin-left": 8,
+  "margin-right": 8,
+  "modules-left": [
+    "custom/applauncher",
+    "hyprland/workspaces",
+    "hyprland/window",
+  ],
+  "modules-center": [
+    "clock",
+  ],
+  "modules-right": [
+    "custom/updates",
+    "tray",
+    "group/ddcutil",
+    "privacy",
+    "group/audio",
+    "group/tools",
+    "bluetooth",
+    "network",
+    "battery",
+    "group/powermenu",
+  ],
+}
