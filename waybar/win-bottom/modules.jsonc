@@ -29,8 +29,7 @@
   // ━━━━━━━━━━ 中间 ━━━━━━━━━━
   "clock": {
     "interval": 60,
-    "format": "{:%H:%M
-%m/%d}",
+    "format": "{:%H:%M\n%m/%d}",
     "format-alt": "{:%Y/%m/%d %A}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
@@ -53,12 +52,12 @@
   },
   // ━━━━━━━━━━ 右侧 ━━━━━━━━━━
   "custom/updates": {
-    "format": "{icon}{0}",
+    "format": "{0}",
     "return-type": "json",
-    "format-icons": {
-      "pending-updates": " ",
-      "updated": "",
-    },
+    // "format-icons": {
+    //   "pending-updates": "",
+    //   "updated": "",
+    // },
     "exec-if": "which waybar-updates",
     "exec": "waybar-updates",
     "on-click": "kitty -e paru",
@@ -345,7 +344,7 @@
     "tooltip": true,
     "interval": 1800,
     "return-type": "json",
-    "exec": "wttrbar --location auto --main-indicator temp_C --custom-indicator \"{ICON} {temp_C}°C\" --lang zh",
+    "exec": "wttrbar --location Nanjing --main-indicator temp_C --custom-indicator \"{ICON} {temp_C}°C\" --lang zh",
     "on-click-right": "xdg-open https://wttr.in",
   },
   // ── System Resources ──

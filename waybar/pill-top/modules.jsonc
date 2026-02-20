@@ -3,17 +3,17 @@
   "custom/applauncher": {
     "tooltip-format": "Open App Launcher",
     "format": "󰣇",
-    "on-click": "walker"
+    "on-click": "walker",
   },
   "hyprland/workspaces": {
     "active-only": false,
     "show-special": false,
     "special-visible-only": false,
-    "sort-by": "number"
+    "sort-by": "number",
   },
   "hyprland/window": {
     "max-length": 36,
-    "separate-outputs": true
+    "separate-outputs": true,
   },
   // ━━━━━━━━━━ 中间 ━━━━━━━━━━
   "clock": {
@@ -30,14 +30,14 @@
         "months": "<span color='#c7bfff'><b>{}</b></span>",
         "days": "<span color='#c9c5d0'>{}</span>",
         "weekdays": "<span color='#928f99'><b>{}</b></span>",
-        "today": "<span color='#141318' background='#c7bfff'><b> {} </b></span>"
-      }
+        "today": "<span color='#141318' background='#c7bfff'><b> {} </b></span>",
+      },
     },
     "actions": {
       "on-click-right": "mode",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
+      "on-scroll-down": "shift_down",
+    },
   },
   // ━━━━━━━━━━ 右侧 ━━━━━━━━━━
   "custom/updates": {
@@ -45,21 +45,21 @@
     "return-type": "json",
     "format-icons": {
       "pending-updates": " ",
-      "updated": ""
+      "updated": "",
     },
     "exec-if": "which waybar-updates",
     "exec": "waybar-updates",
-    "on-click": "kitty -e paru"
+    "on-click": "kitty -e paru",
   },
   "tray": {
     "icon-size": 14,
-    "spacing": 4
+    "spacing": 4,
   },
   "group/ddcutil": {
     "orientation": "inherit",
     "drawer": {
       "transition-left-to-right": false,
-      "transition-duration": 300
+      "transition-duration": 300,
     },
     "modules": [
       "custom/ddcutil-day",
@@ -67,8 +67,8 @@
       "backlight",
       "custom/separator#1",
       "custom/ddcutil-sleep",
-      "custom/ddcutil-night"
-    ]
+      "custom/ddcutil-night",
+    ],
   },
   "custom/ddcutil-day": {
     "tooltip-format": "External monitor 100%",
@@ -76,30 +76,30 @@
     "on-click": "ddcutil --display 1 setvcp 10 100",
     "on-scroll-up": "true",
     "on-scroll-down": "true",
-    "exec-if": "ddcutil detect 2>/dev/null | grep -q 'Display 1'"
+    "exec-if": "ddcutil detect 2>/dev/null | grep -q 'Display 1'",
   },
   "custom/ddcutil-night": {
     "tooltip-format": "External monitor 65%",
     "format": "󰃟",
     "on-click": "ddcutil --display 1 setvcp 10 65",
     "on-scroll-up": "true",
-    "on-scroll-down": "true"
+    "on-scroll-down": "true",
   },
   "custom/ddcutil-sleep": {
     "tooltip-format": "External monitor 5%",
     "format": "󰃞",
     "on-click": "ddcutil --display 1 setvcp 10 5",
     "on-scroll-up": "true",
-    "on-scroll-down": "true"
+    "on-scroll-down": "true",
   },
   "custom/separator#1": {
     "format": "󱋱",
-    "tooltip": false
+    "tooltip": false,
   },
   "backlight/slider": {
     "min": 5,
     "max": 100,
-    "orientation": "horizontal"
+    "orientation": "horizontal",
   },
   "privacy": {
     "icon-spacing": 8,
@@ -109,42 +109,42 @@
       {
         "type": "screenshare",
         "tooltip": true,
-        "tooltip-icon-size": 24
-      }
-    ]
+        "tooltip-icon-size": 24,
+      },
+    ],
   },
   "custom/screenshot": {
     "format": "",
     "tooltip-format": "Left: region | Right: window | Mid: open folder",
     "on-click": "hyprshot -m region",
     "on-click-right": "hyprshot -m window",
-    "on-click-middle": "thunar $HOME/Pictures/Screenshots"
+    "on-click-middle": "thunar $HOME/Pictures/Screenshots",
   },
   "custom/eye-protect": {
     "exec": "hyprshade current | grep -q blue-light-filter && echo '{\"text\":\"\"}' || echo '{\"text\":\"\"}'",
     "interval": 2,
     "return-type": "json",
     "on-click": "hyprshade toggle blue-light-filter",
-    "tooltip-format": "Eye Protection"
+    "tooltip-format": "Eye Protection",
   },
   "custom/colorpicker": {
     "tooltip": false,
     "format": "󱏜",
-    "on-click": "hyprpicker | wl-copy"
+    "on-click": "hyprpicker | wl-copy",
   },
   "group/tools": {
     "orientation": "inherit",
     "drawer": {
       "transition-left-to-right": false,
-      "transition-duration": 300
+      "transition-duration": 300,
     },
     "modules": [
       "custom/screenshot",
       "custom/colorpicker",
       "custom/eye-protect",
       "idle_inhibitor",
-      "power-profiles-daemon"
-    ]
+      "power-profiles-daemon",
+    ],
   },
   "power-profiles-daemon": {
     "format": "{icon}",
@@ -153,19 +153,19 @@
     "format-icons": {
       "performance": "󱐋",
       "balanced": "",
-      "power-saver": ""
-    }
+      "power-saver": "",
+    },
   },
   "group/audio": {
     "orientation": "inherit",
     "drawer": {
       "transition-left-to-right": false,
-      "transition-duration": 300
+      "transition-duration": 300,
     },
     "modules": [
       "pulseaudio",
-      "pulseaudio/slider"
-    ]
+      "pulseaudio/slider",
+    ],
   },
   "pulseaudio": {
     "tooltip-format": "Click: mute | Right: mic mute | Mid: pavucontrol",
@@ -193,7 +193,7 @@
   "pulseaudio/slider": {
     "min": 0,
     "max": 100,
-    "orientation": "horizontal"
+    "orientation": "horizontal",
   },
   "backlight": {
     "tooltip": false,
@@ -207,8 +207,8 @@
       "",
       "",
       "",
-      ""
-    ]
+      "",
+    ],
   },
   "bluetooth": {
     "format-disabled": "󰂲",
@@ -218,7 +218,7 @@
     "tooltip-format-connected": "{device_alias}",
     "tooltip-format-disabled": "Bluetooth off",
     "on-click": "~/.config/waybar/.scripts/toggle-bluetooth.sh",
-    "on-click-right": "kitty --class bluetui -e bluetui"
+    "on-click-right": "kitty --class bluetui -e bluetui",
   },
   "network": {
     "format-disconnected": "󰤮",
@@ -230,28 +230,28 @@
         "󰤟",
         "󰤢",
         "󰤥",
-        "󰤨"
-      ]
+        "󰤨",
+      ],
     },
     "tooltip-format-wifi": "{essid}  {signalStrength}%\n{ifname} : {ipaddr}",
     "tooltip-format-ethernet": "{ifname} : {ipaddr}",
     "tooltip-format-disconnected": "Disconnected",
     "on-click": "kitty --class nmtui -e nmtui",
-    "on-click-right": "nm-connection-editor"
+    "on-click-right": "nm-connection-editor",
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "󰅶",
-      "deactivated": "󰛊"
+      "deactivated": "󰛊",
     },
     "tooltip-format-activated": "Idle inhibitor on",
-    "tooltip-format-deactivated": "Idle inhibitor off"
+    "tooltip-format-deactivated": "Idle inhibitor off",
   },
   "battery": {
     "interval": 60,
     "states": {
-      "critical": 20
+      "critical": 20,
     },
     "format": "{icon}  {capacity}%",
     "format-charging": "󰂄  {capacity}%",
@@ -265,35 +265,35 @@
       "󰁿",
       "󰂀",
       "󰂂",
-      "󰁹"
+      "󰁹",
     ],
-    "tooltip-format": "{power}W · {timeTo}"
+    "tooltip-format": "{power}W · {timeTo}",
   },
   "group/powermenu": {
     "orientation": "inherit",
     "drawer": {
       "transition-left-to-right": false,
-      "transition-duration": 300
+      "transition-duration": 300,
     },
     "modules": [
       "custom/poweroff",
       "custom/reboot",
-      "custom/lockscreen"
-    ]
+      "custom/lockscreen",
+    ],
   },
   "custom/poweroff": {
     "tooltip": false,
     "format": "⏻",
-    "on-click": "wlogout"
+    "on-click": "wlogout",
   },
   "custom/reboot": {
     "tooltip": false,
     "format": "",
-    "on-click": "systemctl reboot"
+    "on-click": "systemctl reboot",
   },
   "custom/lockscreen": {
     "tooltip": false,
     "format": "",
-    "on-click": "hyprlock"
-  }
+    "on-click": "hyprlock",
+  },
 }
