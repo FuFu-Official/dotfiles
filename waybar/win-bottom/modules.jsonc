@@ -52,12 +52,12 @@
   },
   // ━━━━━━━━━━ 右侧 ━━━━━━━━━━
   "custom/updates": {
-    "format": "{0}",
+    "format": "{icon} {0}",
     "return-type": "json",
-    // "format-icons": {
-    //   "pending-updates": "",
-    //   "updated": "",
-    // },
+    "format-icons": {
+      "pending-updates": "",
+      "updated": "",
+    },
     "exec-if": "which waybar-updates",
     "exec": "waybar-updates",
     "on-click": "kitty -e paru",
@@ -315,7 +315,6 @@
     "format": "",
     "on-click": "hyprlock",
   },
-
   // ── 媒体播放 ──
   "mpris": {
     "format": "{status_icon} {title}",
@@ -376,7 +375,13 @@
   "temperature": {
     "thermal-zone": 0,
     "format": "{icon} {temperatureC}°C",
-    "format-icons": ["󱃃", "󱃃", "󰔏", "󰸁", "󱃂"],
+    "format-icons": [
+      "󱃃",
+      "󱃃",
+      "󰔏",
+      "󰸁",
+      "󱃂"
+    ],
     "critical-threshold": 85,
     "tooltip-format": "CPU Temp: {temperatureC}°C",
   },
