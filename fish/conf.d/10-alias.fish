@@ -38,6 +38,9 @@ alias gcb "git checkout -b"
 alias gph "git push"
 alias gpl "git pull"
 
+# Lazygit
+alias gg lazygit
+
 # Grep aliases
 alias grep 'grep --color=auto'
 alias fgrep 'fgrep --color=auto'
