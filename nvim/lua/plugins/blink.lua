@@ -6,7 +6,7 @@ return {
       preset = "default",
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
-      ["<Tab>"] = { "select_next", "fallback" },
+      -- ["<Tab>"] = { "select_next", "fallback" },
       ["<C-h>"] = {
         function(cmp)
           cmp.scroll_documentation_down(4)
