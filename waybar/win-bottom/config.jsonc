@@ -13,6 +13,7 @@
   "modules-left": [
     "custom/applauncher",
     "hyprland/workspaces",
+    // "niri/workspaces",
     "mpris",
   ],
   "modules-center": [
