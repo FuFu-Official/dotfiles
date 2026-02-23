@@ -1,0 +1,234 @@
+/*************************************************
+ * Walker Launcher Theme
+ * Anime Night · Neon Petal
+ * Bold ACG / Anime-inspired palette
+ *************************************************/
+
+@define-color window_bg_color #181425;
+@define-color surface_color   #1f1b36;
+@define-color overlay_color   #2a2550;
+@define-color muted_color     #8b86b8;
+
+@define-color accent_pink     #ff79c6;
+@define-color accent_purple  #bd93f9;
+@define-color accent_blue    #7dd3fc;
+
+@define-color theme_fg_color #f8f8f2;
+@define-color theme_fg_secondary alpha(#f8f8f2, 0.65);
+
+@define-color error_bg_color #ff5555;
+@define-color error_fg_color #ffffff;
+
+/* ===============================
+ * Reset & Global
+ * =============================== */
+
+* {
+  all: unset;
+  font-family: "Inter", "Sarasa Gothic SC", "Noto Sans JP", sans-serif;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+/* ===============================
+ * Popover
+ * =============================== */
+
+popover {
+  background: linear-gradient(180deg, @surface_color, @window_bg_color);
+
+  border-radius: 18px;
+  padding: 10px;
+
+  border: 1px solid alpha(@accent_purple, 0.45);
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.65),
+    0 0 24px alpha(@accent_purple, 0.35);
+}
+
+/* ===============================
+ * Main Wrapper
+ * =============================== */
+
+.box-wrapper {
+  background:
+    radial-gradient(
+      120% 140% at 0% 0%,
+      alpha(@accent_pink, 0.12),
+      transparent 60%
+    ),
+    linear-gradient(180deg, @surface_color, @window_bg_color);
+
+  padding: 28px;
+  border-radius: 30px;
+
+  border: 1.5px solid alpha(@accent_purple, 0.5);
+
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.7),
+    inset 0 0 32px alpha(@accent_blue, 0.12);
+}
+
+/* ===============================
+ * Hints / Placeholder
+ * =============================== */
+
+.preview-box,
+.elephant-hint,
+.placeholder {
+  color: @muted_color;
+}
+
+/* ===============================
+ * Search / Input
+ * =============================== */
+
+.search-container {
+  background: alpha(@overlay_color, 0.9);
+  border-radius: 18px;
+  padding: 4px;
+  margin-bottom: 18px;
+
+  border: 1px solid alpha(@accent_blue, 0.45);
+}
+
+.input {
+  padding: 14px 20px;
+  border-radius: 16px;
+
+  background: transparent;
+  color: @theme_fg_color;
+
+  caret-color: @accent_pink;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.input placeholder {
+  opacity: 0.4;
+  font-style: italic;
+}
+
+.input selection {
+  background: alpha(@accent_pink, 0.45);
+}
+
+/* ===============================
+ * List / Items
+ * =============================== */
+
+.list {
+  color: @theme_fg_color;
+}
+
+.item-box {
+  padding: 14px 18px;
+  border-radius: 18px;
+
+  transition:
+    background 0.18s ease,
+    box-shadow 0.18s ease,
+    border 0.18s ease;
+}
+
+.item-text {
+  font-weight: 600;
+}
+
+.item-subtext {
+  font-size: 11px;
+  color: @muted_color;
+}
+
+/* ===============================
+ * Selected / Current
+ * =============================== */
+
+child:selected .item-box,
+row:selected .item-box {
+  background: linear-gradient(
+    135deg,
+    alpha(@accent_blue, 0.55),
+    alpha(@accent_pink, 0.55)
+  );
+
+  border: 1px solid alpha(@accent_pink, 0.75);
+
+  box-shadow:
+    0 0 22px alpha(@accent_pink, 0.6),
+    inset 0 0 18px alpha(@accent_blue, 0.35);
+}
+
+:not(.calc).current {
+  color: @accent_pink;
+  font-weight: 700;
+  text-shadow: 0 0 10px alpha(@accent_pink, 0.9);
+}
+
+/* ===============================
+ * Preview
+ * =============================== */
+
+.preview {
+  background: alpha(@surface_color, 0.92);
+  border-radius: 18px;
+  padding: 16px;
+
+  border: 1px solid alpha(@accent_purple, 0.45);
+  color: @theme_fg_color;
+
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.35);
+}
+
+/* ===============================
+ * Keybinds
+ * =============================== */
+
+.keybinds {
+  padding-top: 14px;
+  margin-top: 12px;
+
+  border-top: 1px solid alpha(@accent_purple, 0.45);
+  font-size: 11px;
+  color: @theme_fg_secondary;
+}
+
+.keybind-label {
+  padding: 4px 10px;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    alpha(@accent_purple, 0.55),
+    alpha(@accent_pink, 0.55)
+  );
+
+  color: #ffffff;
+  font-weight: 700;
+
+  box-shadow: 0 0 10px alpha(@accent_pink, 0.6);
+}
+
+/* ===============================
+ * Error
+ * =============================== */
+
+.error {
+  padding: 14px;
+  border-radius: 14px;
+
+  background: @error_bg_color;
+  color: @error_fg_color;
+
+  box-shadow: 0 0 18px alpha(@error_bg_color, 0.7);
+}

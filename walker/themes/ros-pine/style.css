@@ -1,0 +1,219 @@
+/*************************************************
+ * Walker Launcher Theme
+ * Rose Pine Moon · Polished
+ * Optimized, production-ready
+ *************************************************/
+
+/* ===============================
+ * 颜色定义（Rose Pine Moon）
+ * =============================== */
+
+@define-color window_bg_color #232136; /* base */
+@define-color surface_color #2a273f; /* surface */
+@define-color overlay_color #393552; /* overlay */
+@define-color muted_color #908caa; /* muted */
+
+@define-color accent_bg_color #ea9a97; /* rose */
+@define-color accent_soft alpha(#ea9a97, 0.35);
+
+@define-color theme_fg_color #e0def4; /* text */
+@define-color theme_fg_secondary alpha(#e0def4, 0.65);
+
+@define-color error_bg_color #eb6f92;
+@define-color error_fg_color #f2e9e1;
+
+/* ===============================
+ * Reset & Global
+ * =============================== */
+
+* {
+  all: unset;
+  font-family: "Inter", "Sarasa Gothic SC", sans-serif;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+/* ===============================
+ * Popover
+ * =============================== */
+
+popover {
+  background: @surface_color;
+  border: 1px solid alpha(@overlay_color, 0.8);
+  border-radius: 14px;
+  padding: 10px;
+
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+/* ===============================
+ * Main Wrapper
+ * =============================== */
+
+.box-wrapper {
+  background: linear-gradient(
+    180deg,
+    alpha(@surface_color, 0.9),
+    @window_bg_color
+  );
+
+  padding: 26px;
+  border-radius: 26px;
+
+  border: 1px solid alpha(@overlay_color, 0.85);
+
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.45),
+    inset 0 0 24px rgba(255, 255, 255, 0.03);
+}
+
+/* ===============================
+ * Hints / Placeholder
+ * =============================== */
+
+.preview-box,
+.elephant-hint,
+.placeholder {
+  color: @muted_color;
+}
+
+/* ===============================
+ * Search / Input
+ * =============================== */
+
+.search-container {
+  background: alpha(@surface_color, 0.95);
+  border-radius: 16px;
+  padding: 3px;
+  margin-bottom: 16px;
+
+  border: 1px solid alpha(@overlay_color, 0.85);
+}
+
+.input {
+  padding: 13px 18px;
+  border-radius: 13px;
+
+  background: transparent;
+  color: @theme_fg_color;
+
+  caret-color: @accent_bg_color;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+}
+
+.input placeholder {
+  opacity: 0.38;
+  font-style: italic;
+}
+
+.input selection {
+  background: alpha(@accent_bg_color, 0.28);
+}
+
+/* ===============================
+ * List / Content
+ * =============================== */
+
+.list {
+  color: @theme_fg_color;
+}
+
+/* ===============================
+ * Item
+ * =============================== */
+
+.item-box {
+  padding: 13px 16px;
+  border-radius: 14px;
+
+  transition:
+    background 0.18s ease,
+    border 0.18s ease;
+}
+
+.item-text {
+  color: @theme_fg_color;
+  font-weight: 500;
+}
+
+.item-subtext {
+  font-size: 11px;
+  color: @muted_color;
+}
+
+/* ===============================
+ * Selected / Current
+ * =============================== */
+
+child:selected .item-box,
+row:selected .item-box {
+  background: linear-gradient(
+    135deg,
+    alpha(@accent_bg_color, 0.18),
+    alpha(@accent_bg_color, 0.08)
+  );
+
+  border: 1px solid alpha(@accent_bg_color, 0.35);
+}
+
+:not(.calc).current {
+  color: @accent_bg_color;
+  font-weight: 600;
+}
+
+/* ===============================
+ * Preview
+ * =============================== */
+
+.preview {
+  background: alpha(@surface_color, 0.9);
+  border-radius: 16px;
+  padding: 14px;
+
+  border: 1px solid alpha(@overlay_color, 0.85);
+  color: @theme_fg_color;
+}
+
+/* ===============================
+ * Keybinds
+ * =============================== */
+
+.keybinds {
+  padding-top: 12px;
+  margin-top: 10px;
+
+  border-top: 1px solid alpha(@overlay_color, 0.85);
+  font-size: 11px;
+  color: @theme_fg_secondary;
+}
+
+.keybind-label {
+  padding: 3px 8px;
+  border-radius: 8px;
+
+  background: alpha(@overlay_color, 0.9);
+  color: @accent_bg_color;
+  font-weight: 600;
+}
+
+/* ===============================
+ * Error
+ * =============================== */
+
+.error {
+  padding: 12px;
+  border-radius: 12px;
+
+  background: @error_bg_color;
+  color: @error_fg_color;
+}

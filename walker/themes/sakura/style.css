@@ -1,0 +1,102 @@
+@define-color main_bg_color rgba(205, 214, 244, 0.8);
+
+/* 辅助颜色变量 */
+@define-color pink_accent #f5c2e7;
+@define-color blue_accent #89dceb;
+@define-color text_color #45475a;
+
+* {
+  all: unset;
+  font-family: "Inter", sans-serif;
+}
+
+/* 主容器 */
+.box-wrapper {
+  background: @main_bg_color;
+  padding: 24px;
+  border-radius: 30px;
+  /* 彩色边框：这里也自动跟随透明度 */
+  border: 2px solid alpha(@pink_accent, 0.3);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.1),
+    inset 0 0 25px alpha(@blue_accent, 0.2);
+}
+
+popover {
+  background: alpha(@main_bg_color, 0.9);
+  border: 1px solid @blue_accent;
+  border-radius: 20px;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+scrollbar {
+  opacity: 0;
+}
+
+.search-container {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.input {
+  caret-color: @pink_accent;
+  padding: 12px 18px;
+  color: @text_color;
+  font-weight: 800; /* 加粗字体以应对高透明度 */
+}
+
+.input selection {
+  background: alpha(@pink_accent, 0.4);
+}
+
+.item-box {
+  border-radius: 15px;
+  padding: 12px 16px;
+  transition: all 0.2s ease;
+}
+
+child:selected .item-box,
+row:selected .item-box {
+  background: linear-gradient(
+    120deg,
+    alpha(@blue_accent, 0.5),
+    alpha(@pink_accent, 0.5)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.item-text {
+  color: @text_color;
+  font-weight: 600;
+}
+
+.item-subtext {
+  font-size: 11px;
+  color: alpha(@text_color, 0.7);
+}
+
+.preview {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.keybind-label {
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: alpha(white, 0.3);
+  color: @text_color;
+  border: 1px solid alpha(@text_color, 0.2);
+}
+
+:not(.calc).current {
+  color: #d27da5;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}

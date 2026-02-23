@@ -1,0 +1,288 @@
+/*************************************************
+ * Walker Launcher Theme
+ * Nord · Arctic Glass
+ * Full production-ready stylesheet
+ *************************************************/
+
+/* ===============================
+ * Nord Color Variables
+ * =============================== */
+
+@define-color window_bg_color rgba(46, 52, 64, 0.92); /* nord0 */
+@define-color window_bg_light rgba(59, 66, 82, 0.85); /* nord1 */
+
+@define-color accent_primary #88c0d0; /* nord8 */
+@define-color accent_secondary #81a1c1; /* nord9 */
+@define-color accent_soft #8fbcbb; /* nord7 */
+
+@define-color theme_fg_color #eceff4; /* nord6 */
+@define-color theme_fg_secondary alpha(#eceff4, 0.65);
+
+@define-color border_soft alpha(#88c0d0, 0.28);
+@define-color glass_overlay rgba(255, 255, 255, 0.08);
+
+@define-color error_bg_color #bf616a; /* nord11 */
+@define-color error_fg_color #eceff4;
+
+/* ===============================
+ * Reset & Global
+ * =============================== */
+
+* {
+  all: unset;
+  font-family: "Inter", "SF Pro Text", sans-serif;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+/* ===============================
+ * Popover
+ * =============================== */
+
+popover {
+  background: alpha(@window_bg_color, 0.96);
+  border: 1px solid alpha(@accent_secondary, 0.45);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+/* ===============================
+ * Main Wrapper
+ * =============================== */
+
+.box-wrapper {
+  background: @window_bg_color;
+  padding: 24px;
+  border-radius: 26px;
+
+  border: 1.5px solid @border_soft;
+
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.35),
+    inset 0 0 26px alpha(@accent_primary, 0.12);
+}
+
+/* ===============================
+ * Search / Input
+ * =============================== */
+
+.search-container {
+  background: @glass_overlay;
+  border-radius: 18px;
+  padding: 4px;
+  margin-bottom: 14px;
+
+  border: 1px solid alpha(white, 0.12);
+}
+
+.input {
+  padding: 12px 18px;
+  color: @theme_fg_color;
+
+  caret-color: @accent_primary;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+}
+
+.input placeholder {
+  opacity: 0.45;
+}
+
+.input selection {
+  background: alpha(@accent_primary, 0.45);
+}
+
+.input:focus,
+.input:active {
+}
+
+/* ===============================
+ * Content / List
+ * =============================== */
+
+.content-container {
+}
+
+.scroll {
+}
+
+.list {
+  color: @theme_fg_color;
+}
+
+child {
+}
+
+.row {
+}
+
+/* ===============================
+ * Item
+ * =============================== */
+
+.item-box {
+  padding: 12px 16px;
+  border-radius: 14px;
+  transition:
+    background 0.18s ease,
+    border 0.18s ease;
+}
+
+.item-text-box {
+}
+
+.item-text {
+  font-weight: 500;
+  color: @theme_fg_color;
+}
+
+.item-subtext {
+  font-size: 11px;
+  color: @theme_fg_secondary;
+}
+
+.item-image-text {
+  font-size: 26px;
+}
+
+.item-quick-activation {
+  background: alpha(@accent_secondary, 0.25);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* ===============================
+ * Selected / Current
+ * =============================== */
+
+child:selected .item-box,
+row:selected .item-box {
+  background: linear-gradient(
+    135deg,
+    alpha(@accent_secondary, 0.45),
+    alpha(@accent_primary, 0.45)
+  );
+
+  border: 1px solid alpha(@accent_primary, 0.55);
+}
+
+:not(.calc).current {
+  color: @accent_soft;
+  text-shadow: 0 0 6px alpha(@accent_soft, 0.8);
+}
+
+/* ===============================
+ * Preview
+ * =============================== */
+
+.preview {
+  background: alpha(@window_bg_light, 0.75);
+  border-radius: 20px;
+  padding: 14px;
+
+  border: 1px solid alpha(@accent_secondary, 0.25);
+  color: @theme_fg_color;
+}
+
+.preview .large-icons {
+  -gtk-icon-size: 64px;
+}
+
+.preview-content.archlinuxpkgs,
+.preview-content.dnfpackages {
+  font-family: monospace;
+}
+
+/* ===============================
+ * Provider / Special Types
+ * =============================== */
+
+.calc .item-text {
+  font-size: 24px;
+}
+
+.symbols .item-image {
+  font-size: 24px;
+}
+
+.todo.done .item-text-box {
+  opacity: 0.3;
+}
+
+.todo.urgent {
+  font-size: 24px;
+}
+
+.todo.active {
+  font-weight: bold;
+}
+
+.bluetooth.disconnected {
+  opacity: 0.5;
+}
+
+/* ===============================
+ * Keybinds
+ * =============================== */
+
+.keybinds {
+  padding-top: 12px;
+  margin-top: 10px;
+
+  border-top: 1px solid alpha(@accent_secondary, 0.25);
+  font-size: 12px;
+  color: @theme_fg_secondary;
+}
+
+.global-keybinds {
+}
+
+.item-keybinds {
+}
+
+.keybind {
+}
+
+.keybind-button {
+  opacity: 0.5;
+}
+
+.keybind-button:hover {
+  opacity: 0.75;
+}
+
+.keybind-bind {
+  text-transform: lowercase;
+  opacity: 0.35;
+}
+
+.keybind-label {
+  padding: 3px 10px;
+  border-radius: 8px;
+
+  background: alpha(@accent_primary, 0.25);
+  border: 1px solid alpha(@accent_primary, 0.35);
+  color: @theme_fg_color;
+}
+
+/* ===============================
+ * Error
+ * =============================== */
+
+.error {
+  padding: 12px;
+  border-radius: 12px;
+
+  background: @error_bg_color;
+  color: @error_fg_color;
+}
