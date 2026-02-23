@@ -13,6 +13,7 @@ return {
       jsonc = { "dprint" },
       toml = { "dprint" },
       typescript = { "dprint" },
+      css = { "prettier" },
     },
   },
 }
