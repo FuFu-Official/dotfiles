@@ -16,6 +16,7 @@ image/jpeg=imv-dir.desktop
 image/jpg=imv-dir.desktop
 image/webp=imv-dir.desktop
 text/plain=nvim.desktop
+x-scheme-handler/discord=vesktop.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen-browser.desktop;
