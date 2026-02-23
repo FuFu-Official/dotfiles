@@ -1,0 +1,406 @@
+// This config is in the KDL format: https://kdl.dev
+// https://yalter.github.io/niri/Configuration:-Introduction
+environment {
+    LANG "zh_CN.UTF-8"
+    LC_CTYPE "en_US.UTF-8"
+    XMODIFIERS "@im=fcitx"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+    QS_ICON_THEME "Adwaita"
+    GSK_RENDERER "gl"
+    EDITOR "nvim"
+}
+cursor {
+    xcursor-size 30
+    hide-after-inactive-ms 15000
+}
+recent-windows {
+    debounce-ms 750
+    open-delay-ms 150
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 12
+    }
+    previews {
+        max-height 480
+        max-scale 0.2
+    }
+    binds {
+        Mod+Tab {
+            next-window scope="workspace"
+        }
+        Mod+Shift+Tab {
+            previous-window scope="workspace"
+        }
+        Mod+grave {
+            next-window filter="app-id"
+        }
+        Mod+Shift+grave {
+            previous-window filter="app-id"
+        }
+    }
+}
+// https://yalter.github.io/niri/Configuration:-Input
+input {
+    keyboard {
+        xkb {
+
+        }
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {
+        accel-speed -0.15
+        accel-profile "flat"
+    }
+    trackpoint {
+
+    }
+}
+// https://yalter.github.io/niri/Configuration:-Outputs
+output "eDP-1" {
+    scale 1.6
+}
+// https://yalter.github.io/niri/Configuration:-Layout
+overview {
+    workspace-shadow {
+
+    }
+    zoom 0.5
+}
+layout {
+    background-color "transparent"
+    gaps 12
+    center-focused-column "never"
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+    default-column-width {
+        proportion 0.5
+    }
+    focus-ring {
+        width 3
+    }
+    border {
+        off
+        width 4
+        active-color "#ffc87f"
+        inactive-color "#505050"
+        urgent-color "#9b0000"
+    }
+    shadow {
+        on
+        softness 20
+        spread 2
+        offset x=-4 y=-4
+        color "rgba(0, 0, 0, 0.7)"
+    }
+    struts {
+
+    }
+}
+spawn-at-startup "hyprpaper"
+spawn-at-startup "hypridle"
+spawn-at-startup "mako"
+spawn-at-startup "/usr/lib64/libexec/hyprpolkitagent"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+spawn-at-startup "waybar"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "nm-applet"
+spawn-at-startup "elephant"
+spawn-at-startup "walker" "--gapplication-service"
+hotkey-overlay {
+    skip-at-startup
+}
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+animations {
+    slowdown 1
+    workspace-switch {
+        spring damping-ratio=0.82 stiffness=523 epsilon=0.0001
+    }
+    horizontal-view-movement {
+        spring damping-ratio=0.86 stiffness=423 epsilon=0.0001
+    }
+}
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+layer-rule {
+    match namespace="hyprpaper"
+    match namespace="wallpaper"
+    match namespace="awww-daemon"
+    match namespace="swww-daemonoverview"
+    place-within-backdrop true
+}
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+    draw-border-with-background false
+    opacity 0.98
+}
+window-rule {
+    match app-id="imv"
+    open-focused false
+    open-floating true
+}
+window-rule {
+    match app-id="com.gabm.satty"
+    match app-id="media_info"
+    match app-id="video2gif"
+    match app-id="floating-term"
+    match app-id="nm-connection-editor"
+    match app-id="niri-quick-switch"
+    match app-id="firefox$" title="^Picture-in-Picture$"
+    match app-id="steam" title="Friends List"
+    match app-id="blueberry.py" title="蓝牙"
+    match app-id="blueman-manager"
+    match app-id="flameshot"
+    match app-id="com.github.hluk.copyq"
+    match app-id="be.alexandervanhee.gradia"
+    match app-id="org.pulseaudio.pavucontrol" title="音量控制"
+    match app-id="org.gnome.clocks" title="时钟"
+    match app-id="fcitx" title="Fcitx5 Input Window"
+    match app-id="org.gnome.FileRoller"
+    match app-id="thunar" title="文件操作进度"
+    match app-id="waypaper"
+    match app-id="clipse-gui"
+    match title="群聊的聊天记录"
+    match title="聊天记录"
+    match title="日历"
+    match title="重命名"
+    match app-id="btrfs-assistant"
+    match app-id="markpix"
+    match title="Steam 设置"
+    match title="另存为"
+    match app-id="better_control.py"
+    open-floating true
+}
+window-rule {
+    match app-id="command-center"
+    default-column-width {
+        fixed 1000
+    }
+    default-window-height {
+        fixed 600
+    }
+    open-floating true
+}
+window-rule {
+    match title="图片查看器"
+    match title="画中画"
+    match title="图片和视频"
+    match title="视频播放器"
+    open-floating true
+    opacity 1.0
+}
+window-rule {
+    match app-id="mpv"
+    match app-id="celluloid"
+    opacity 1.0
+}
+binds {
+    Mod+O repeat=false {
+        toggle-overview
+    }
+    Mod+Shift+Slash hotkey-overlay-title="Keybind tutorial" {
+        show-hotkey-overlay
+    }
+    Mod+B hotkey-overlay-title="Toggle waybar status" {
+        spawn "killall" "-USR1" "waybar"
+    }
+    Mod+Space hotkey-overlay-title="Toggle input method" {
+        spawn-sh "pkill fcitx5 || fcitx5"
+    }
+    Mod+T hotkey-overlay-title="Terminal" {
+        spawn "kitty" "--single-instance"
+    }
+    Mod+W hotkey-overlay-title="Zen" {
+        spawn "zen"
+    }
+    Mod+E hotkey-overlay-title="Thunar" {
+        spawn-sh "thunar || nautilus"
+    }
+    Mod+Z hotkey-overlay-title="Walker" {
+        spawn "walker"
+    }
+    Mod+Alt+L hotkey-overlay-title="Lock screen" {
+        spawn-sh "hyprlock -c ~/.config/niri/hyprlock.conf || swaylock"
+    }
+    Mod+M hotkey-overlay-title="Collect window to sidebar" {
+        spawn "~/.local/bin/niri-sidebar" "toggle-window"
+    }
+    Mod+Alt+Z hotkey-overlay-title="Toggle sidebar" {
+        spawn "~/.local/bin/niri-sidebar" "toggle-visibility"
+    }
+    Mod+Alt+R hotkey-overlay-title="Update sidebar" {
+        spawn "~/.local/bin/niri-sidebar" "reorder"
+    }
+    Mod+Q {
+        close-window
+    }
+    Mod+F {
+        fullscreen-window
+    }
+    Mod+D {
+        maximize-column
+    }
+    Mod+V {
+        toggle-window-floating
+    }
+    Mod+C {
+        center-column
+    }
+    Mod+H {
+        focus-column-left
+    }
+    Mod+L {
+        focus-column-right
+    }
+    Mod+K {
+        focus-window-or-monitor-up
+    }
+    Mod+J {
+        focus-window-or-monitor-down
+    }
+    Mod+Left {
+        focus-column-left
+    }
+    Mod+Right {
+        focus-column-right
+    }
+    Mod+Up {
+        focus-window-up
+    }
+    Mod+Down {
+        focus-window-down
+    }
+    Mod+Shift+H {
+        move-column-left
+    }
+    Mod+Shift+L {
+        move-column-right
+    }
+    Mod+Shift+K {
+        move-window-up
+    }
+    Mod+Shift+J {
+        move-window-down
+    }
+    Mod+Ctrl+H {
+        consume-or-expel-window-left
+    }
+    Mod+Ctrl+L {
+        consume-or-expel-window-right
+    }
+    Mod+Comma {
+        consume-window-into-column
+    }
+    Mod+Period {
+        expel-window-from-column
+    }
+    Mod+X {
+        toggle-column-tabbed-display
+    }
+    Mod+Minus {
+        set-column-width "-5%"
+    }
+    Mod+Equal {
+        set-column-width "+5%"
+    }
+    Mod+R hotkey-overlay-title="Switch to preset width" {
+        switch-preset-column-width
+    }
+    Mod+Shift+R hotkey-overlay-title="Switch to preset height" {
+        switch-preset-window-height
+    }
+    Mod+1 {
+        focus-workspace 1
+    }
+    Mod+2 {
+        focus-workspace 2
+    }
+    Mod+3 {
+        focus-workspace 3
+    }
+    Mod+4 {
+        focus-workspace 4
+    }
+    Mod+5 {
+        focus-workspace 5
+    }
+    Mod+6 {
+        focus-workspace 6
+    }
+    Mod+7 {
+        focus-workspace 7
+    }
+    Mod+8 {
+        focus-workspace 8
+    }
+    Mod+9 {
+        focus-workspace 9
+    }
+    Mod+0 {
+        focus-workspace 10
+    }
+    Mod+Alt+1 {
+        move-column-to-workspace 1
+    }
+    Mod+Alt+2 {
+        move-column-to-workspace 2
+    }
+    Mod+Alt+3 {
+        move-column-to-workspace 3
+    }
+    Mod+Alt+4 {
+        move-column-to-workspace 4
+    }
+    Mod+Alt+5 {
+        move-column-to-workspace 5
+    }
+    Mod+Alt+6 {
+        move-column-to-workspace 6
+    }
+    Mod+Alt+7 {
+        move-column-to-workspace 7
+    }
+    Mod+Alt+8 {
+        move-column-to-workspace 8
+    }
+    Mod+Alt+9 {
+        move-column-to-workspace 9
+    }
+    Mod+BracketLeft {
+        focus-workspace-up
+    }
+    Mod+BracketRight {
+        focus-workspace-down
+    }
+    Print {
+        spawn-sh "niri msg action screenshot --show-pointer false && pkill -f -USR1 screenshot-sound.sh"
+    }
+    Mod+Alt+A hotkey-overlay-title="Screenshot" {
+        spawn-sh "niri msg action screenshot --show-pointer false && pkill -f -USR1 screenshot-sound.sh"
+    }
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn-sh "swayosd-client --output-volume +5 || wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn-sh "swayosd-client --output-volume -5 || wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn-sh "swayosd-client --output-volume mute-toggle || wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    }
+    XF86MonBrightnessUp allow-when-locked=true {
+        spawn "brightnessctl" "set" "+5%"
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+        spawn "brightnessctl" "set" "5%-"
+    }
+}
+
