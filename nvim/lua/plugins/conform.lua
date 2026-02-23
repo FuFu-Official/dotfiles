@@ -14,6 +14,7 @@ return {
       toml = { "dprint" },
       typescript = { "dprint" },
       css = { "prettier" },
+      kdl = { "kdlfmt" },
     },
   },
 }
