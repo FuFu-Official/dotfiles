@@ -78,7 +78,8 @@ local function open_screensaver(on_close)
   if vim.trim(sink_inputs) ~= "" then
     open_term("cava")
   else
-    open_term("cmatrix -b -s")
+    -- open_term("cmatrix -b -s")
+    open_term("genact")
   end
 
   close_all = function()
