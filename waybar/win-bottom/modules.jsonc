@@ -135,8 +135,8 @@
   "custom/screenshot": {
     "format": "",
     "tooltip-format": "Left: region | Right: window | Mid: open folder",
-    "on-click": "hyprshot -m region",
-    "on-click-right": "hyprshot -m window",
+    "on-click": "grim -g \"$(slurp)\" - | satty -f - ",
+    "on-click-right": "grim - | satty -f -",
     "on-click-middle": "thunar $HOME/Pictures/Screenshots",
   },
   "custom/eye-protect": {
@@ -380,7 +380,7 @@
       "󱃃",
       "󰔏",
       "󰸁",
-      "󱃂"
+      "󱃂",
     ],
     "critical-threshold": 85,
     "tooltip-format": "CPU Temp: {temperatureC}°C",
@@ -398,3 +398,4 @@
     ],
   },
 }
+
