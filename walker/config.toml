@@ -1,5 +1,5 @@
 force_keyboard_focus = true # forces keyboard forcus to stay in Walker
-theme = "cyber"
+theme = "sakura"
 
 [keybinds]
 next = ["ctrl j"]
