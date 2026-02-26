@@ -1,8 +1,6 @@
+include=~/.config/mako/mako-colors
+
 font=font=JetBrainsMono Nerd Font 11
-background-color=#343a3a
-border-color=#899393
-text-color=#dde4e3
-progress-color=#dde4e3
 
 margin=10
 padding=10,0
