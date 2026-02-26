@@ -4,16 +4,19 @@ if test "$OS_ID" = arch
     set -gx HYPRSHOT_DIR $HOME/Pictures/Screenshots
 
     # Pacman
+    alias p pacman
     alias sps "sudo pacman -S"
     alias spu "sudo pacman -Syu"
     alias spr "sudo pacman -Rns"
 
     # AUR
     if type -q paru
+        alias g paru
         alias gu "paru -Syu"
         alias gs "paru -S"
         alias gr "paru -Rns"
     else if type -q yay
+        alias g yay
         alias gu "yay -Syu"
         alias gs "yay -S"
         alias gr "yay -Rns"
@@ -80,7 +83,7 @@ if test "$OS_ID" = arch
         echo "Switched waybar to: $target"
     end
 
-    function change_wallpaper --description "Update hyprpaper.conf and restart"
+    function switch_wallpaper --description "Update hyprpaper.conf and restart"
         if test (count $argv) -eq 0
             echo "Usage: change_wallpaper <path_to_image>"
             return 1
@@ -101,6 +104,32 @@ if test "$OS_ID" = arch
         nh hyprpaper
 
         echo "Hyprpaper config updated and hyprpaper restarted with: $wall_path"
+    end
+
+    function conda_activate
+        # >>> conda initialize >>>
+        # !! Contents within this block are managed by 'conda init' !!
+        if test -f /opt/miniforge/bin/conda
+            eval /opt/miniforge/bin/conda "shell.fish" hook $argv | source
+        else
+            if test -f "/opt/miniforge/etc/fish/conf.d/conda.fish"
+                "/opt/miniforge/etc/fish/conf.d/conda.fish"
+            else
+                set -x PATH /opt/miniforge/bin $PATH
+            end
+        end
+        # <<< conda initialize <<<
+    end
+
+    function conda_deactivate
+        if type -q conda
+            set -e CONDA_EXE
+            set -e CONDA_PREFIX
+            set -e CONDA_PYTHON_EXE
+            echo "Conda Deactivate. "
+        else
+            echo "Conda is not activated. "
+        end
     end
 end
 

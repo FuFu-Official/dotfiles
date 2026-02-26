@@ -68,7 +68,7 @@ end
 
 # Coding
 alias CC clang
-set -g MY_CXX_FLAGS \
+set -g FF_CXX_FLAGS \
     -Wall -Wextra -Weffc++ \
     -Werror=uninitialized \
     -Werror=return-type \
@@ -79,4 +79,4 @@ set -g MY_CXX_FLAGS \
     -Wmissing-declarations \
     -Wold-style-cast -Werror=vla \
     -Wnon-virtual-dtor
-alias CXX "clang++ $MY_CXX_FLAGS"
+alias CXX "clang++ $FF_CXX_FLAGS"
