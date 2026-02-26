@@ -12,9 +12,12 @@
 !*.md
 !*.json
 !*.lua
+!*.vim
 !lua
 !lua/**
 !*.toml
 !LICENSE
 !config
 !config/**
+!colors
+!colors/**

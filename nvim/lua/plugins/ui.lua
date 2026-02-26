@@ -13,20 +13,24 @@ return {
   --     auto_integrations = true,
   --   },
   -- },
+  -- {
+  --   "rose-pine/neovim",
+  --   name = "rose-pine",
+  --   opts = {
+  --     variant = "moon",
+  --     styles = {
+  --       transparency = true,
+  --     },
+  --   },
+  -- },
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    opts = {
-      variant = "moon",
-      styles = {
-        transparency = true,
-      },
-    },
+    "RRethy/base16-nvim",
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine",
+      -- colorscheme = "rose-pine",
+      colorscheme = function() end,
     },
   },
   {
@@ -60,6 +64,20 @@ return {
         "filename",
         path = 3,
       })
+      opts.options.theme = "base16"
+    end,
+  },
+  {
+    "xiyaowong/transparent.nvim",
+    opts = {
+      extra_groups = {
+        "NormalFloat",
+        "FloatBorder",
+      },
+    },
+    config = function(_, opts)
+      require("transparent").setup(opts)
+      require("transparent").clear_prefix("gitsigns")
     end,
   },
 }
