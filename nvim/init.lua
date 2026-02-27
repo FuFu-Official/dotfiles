@@ -31,6 +31,9 @@ local function auxiliary_function()
   -- Because reloading base16 overwrites lualine configuration, just source lualine here
   require("lualine").refresh()
 
+  -- Refresh transparent.nvim
+  vim.cmd("TransparentEnable")
+
   -- Any other options you wish to set upon matugen reloads can also go here!
   -- vim.api.nvim_set_hl(0, "Comment", { italic = true })
 end
