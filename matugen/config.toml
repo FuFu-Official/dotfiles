@@ -1,6 +1,67 @@
 [config]
 
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/fufu-matugen.theme'
+post_hook = 'pkill -USR2 btop || true'
+
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
-output_path = '~/.config/cava/themes/your-theme'
-post_hook = 'pkill -USR1 cava'
+output_path = '~/.config/cava/themes/fufu-matugen'
+post_hook = 'pkill -USR1 cava || true'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/colors.conf'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/themes/fufu-matugen.conf'
+post_hook = "kitty +kitten themes --reload-in=all fufu-matugen"
+
+[templates.mako]
+input_path = '~/.config/matugen/templates/mako'
+output_path = '~/.config/mako/mako-colors'
+post_hook = 'makoctl reload'
+
+[templates.nvim]
+input_path = '~/.config/matugen/templates/neovim/template.lua'
+output_path = '~/.config/nvim/matugen.lua'
+post_hook = 'pkill -SIGUSR1 nvim || true'
+
+[templates.opencode]
+input_path = '~/.config/matugen/templates/opencode-colors.json'
+output_path = '~/.config/opencode/themes/fufu-matugen.json'
+
+[templates.qt5ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/colors/fufu-matugen.conf'
+
+[templates.qt6ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/colors/fufu-matugen.conf'
+
+[templates.rmpc]
+input_path = '~/.config/matugen/templates/rmpc/rmpc.ron'
+output_path = '~/.config/rmpc/themes/fufu-matugen.ron'
+
+[templates.wlogout]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/wlogout/colors.css'
+[templates.wlogout-recolor-icons]
+input_path = '~/.config/wlogout/.scripts/recolor-icons-template.sh'
+output_path = '~/.config/wlogout/.scripts/recolor-icons.sh'
+post_hook = 'chmod +x ~/.config/wlogout/.scripts/recolor-icons.sh && bash ~/.config/wlogout/.scripts/recolor-icons.sh &'
+
+[templates.yazi]
+input_path = '~/.config/matugen/templates/yazi-theme.toml'
+output_path = '~/.config/yazi/theme.toml'
