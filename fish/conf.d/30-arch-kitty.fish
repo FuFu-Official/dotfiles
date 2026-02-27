@@ -24,7 +24,7 @@ if test "$OS_ID" = arch
         echo "No AUR helper found (paru or yay)"
     end
 
-    function switch_waybar --description "Switch waybar style via symlink"
+    function switch-waybar --description "Switch waybar style via symlink"
         set -l waybar_dir "$HOME/.config/waybar"
 
         # List available styles (subdirectories with config.jsonc)
@@ -83,7 +83,7 @@ if test "$OS_ID" = arch
         echo "Switched waybar to: $target"
     end
 
-    function switch_wallpaper --description "Update hyprpaper.conf and restart"
+    function switch-wallpaper --description "Update hyprpaper.conf and restart"
         if test (count $argv) -eq 0
             echo "Usage: change_wallpaper <path_to_image>"
             return 1
@@ -104,6 +104,9 @@ if test "$OS_ID" = arch
         nh hyprpaper
 
         echo "Hyprpaper config updated and hyprpaper restarted with: $wall_path"
+
+        matugen image $wall_path
+        echo "Matugen updated with new wallpaper"
     end
 
     function conda_activate
@@ -139,3 +142,6 @@ if test "$TERM" = xterm-kitty
         kitty +kitten ssh $argv
     end
 end
+
+# Qt
+set -gx QT_QPA_PLATFORMTHEME qt6ct
