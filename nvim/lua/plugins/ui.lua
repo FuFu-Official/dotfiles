@@ -5,24 +5,24 @@ return {
   --     transparent_mode = true,
   --   },
   -- },
-  -- {
-  --   "catppuccin/nvim",
-  --   opts = {
-  --     flavour = "mocha",
-  --     transparent_background = false,
-  --     auto_integrations = true,
-  --   },
-  -- },
-  -- {
-  --   "rose-pine/neovim",
-  --   name = "rose-pine",
-  --   opts = {
-  --     variant = "moon",
-  --     styles = {
-  --       transparency = true,
-  --     },
-  --   },
-  -- },
+  {
+    "catppuccin/nvim",
+    opts = {
+      flavour = "mocha",
+      transparent_background = false,
+      auto_integrations = true,
+    },
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    opts = {
+      variant = "moon",
+      styles = {
+        transparency = true,
+      },
+    },
+  },
   {
     "RRethy/base16-nvim",
   },
