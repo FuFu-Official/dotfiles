@@ -105,7 +105,7 @@ if test "$OS_ID" = arch
 
         echo "Hyprpaper config updated and hyprpaper restarted with: $wall_path"
 
-        matugen image $wall_path
+        matugen image $wall_path -t scheme-vibrant --contrast 0.2 --lightness-dark 0.05
         echo "Matugen updated with new wallpaper"
     end
 
@@ -145,3 +145,14 @@ end
 
 # Qt
 set -gx QT_QPA_PLATFORMTHEME qt6ct
+
+function restart_fcitx5
+    if pgrep -x fcitx5 >/dev/null
+        hyprctl keyword exec "pkill fcitx5 &> /dev/null &"
+        while pgrep -x fcitx5 >/dev/null
+            sleep 0.1
+        end
+        hyprctl keyword exec "nohup fcitx5 >/dev/null 2>&1 & disown"
+        notify-send "[🌸中|⚡A]  Fcitx5 restarted!"
+    end
+end

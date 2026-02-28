@@ -1,4 +1,5 @@
 set -gx EDITOR nvim
+set -gx TERMINAL kitty
 set -gx nvm_default_version lts
 
 # Set Proxy for GO Dependency

@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export GOPROXY:https\x3a//goproxy\x2ecn\x2cdirect
+SETUVAR MATUGEN_RELOAD_SIGNAL:1772269123
 SETUVAR __fish_initialized:4300
 SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
@@ -8,11 +9,11 @@ SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eedc/bass\x1ejorgebucaran/nvm\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_user_paths:/home/linuxbrew/\x2elinuxbrew/bin
-SETUVAR my_p_cwd:c2caaa
-SETUVAR my_p_git:a1d0c7
-SETUVAR my_p_icon_arch:b9cf83
-SETUVAR my_p_icon_linux:e3e3d7
-SETUVAR my_p_mode_default:b9cf83
-SETUVAR my_p_mode_insert:c2caaa
-SETUVAR my_p_mode_replace:ffb4ab
-SETUVAR my_p_mode_visual:a1d0c7
+SETUVAR my_p_cwd:f4b9c2
+SETUVAR my_p_git:ffb5b2
+SETUVAR my_p_icon_arch:ffb1d0
+SETUVAR my_p_icon_linux:fae1e8
+SETUVAR my_p_mode_default:ffb1d0
+SETUVAR my_p_mode_insert:f4b9c2
+SETUVAR my_p_mode_replace:ffb6ad
+SETUVAR my_p_mode_visual:ffb5b2
