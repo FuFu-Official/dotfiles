@@ -1,0 +1,294 @@
+/*************************************************
+ * Walker Launcher Theme
+ * Matugen / Material You Edition
+ * Full production-ready stylesheet
+ *************************************************/
+
+@import "/home/fufu/.config/walker/colors.css";
+
+/* ===============================
+ * Theme Color Variables (Mapped to Matugen)
+ * =============================== */
+
+@define-color window_bg_color alpha(@surface, 0.96);
+@define-color window_bg_layer alpha(@surface_container_low, 0.9);
+
+@define-color accent_primary @primary;
+@define-color accent_secondary @secondary;
+@define-color accent_warning @error;
+
+@define-color theme_fg_color @on_surface;
+@define-color theme_fg_secondary @on_surface_variant;
+
+@define-color border_soft alpha(@primary, 0.25);
+@define-color glass_overlay alpha(@on_surface, 0.04);
+
+/* ===============================
+ * Reset & Global
+ * =============================== */
+
+* {
+  all: unset;
+  font-family: "JetBrains Mono", "IBM Plex Mono", monospace;
+  font-size: 13px;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+/* ===============================
+ * Popover
+ * =============================== */
+
+popover {
+  background: alpha(@window_bg_layer, 0.96);
+  border: 1px solid alpha(@accent_secondary, 0.4);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+/* ===============================
+ * Main Wrapper
+ * =============================== */
+
+.box-wrapper {
+  background: linear-gradient(180deg, @window_bg_layer, @window_bg_color);
+
+  padding: 22px;
+  border-radius: 14px;
+
+  border: 1px solid @border_soft;
+
+  box-shadow:
+    0 0 0 1px alpha(@accent_primary, 0.08),
+    0 25px 70px alpha(@shadow, 0.6),
+    inset 0 0 24px alpha(@accent_primary, 0.08);
+}
+
+/* ===============================
+ * Search / Input
+ * =============================== */
+
+.search-container {
+  /* Using shadow for a darkened background container */
+  background: alpha(@shadow, 0.35);
+  border-radius: 8px;
+  padding: 2px;
+  margin-bottom: 14px;
+
+  border: 1px solid alpha(@accent_primary, 0.35);
+}
+
+.input {
+  padding: 10px 14px;
+  color: @theme_fg_color;
+
+  caret-color: @accent_primary;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.input placeholder {
+  opacity: 0.35;
+}
+
+.input selection {
+  background: alpha(@accent_primary, 0.35);
+}
+
+.input:focus,
+.input:active {
+}
+
+/* ===============================
+ * Content / List
+ * =============================== */
+
+.content-container {
+}
+
+.scroll {
+}
+
+.list {
+  color: @theme_fg_color;
+}
+
+child {
+}
+
+.row {
+}
+
+/* ===============================
+ * Item
+ * =============================== */
+
+.item-box {
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition:
+    background 0.12s linear,
+    box-shadow 0.12s linear;
+}
+
+.item-text-box {
+}
+
+.item-text {
+  font-weight: 500;
+  color: @theme_fg_color;
+}
+
+.item-subtext {
+  font-size: 11px;
+  color: @theme_fg_secondary;
+}
+
+.item-image-text {
+  font-size: 22px;
+}
+
+.item-quick-activation {
+  background: alpha(@accent_secondary, 0.25);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+/* ===============================
+ * Selected / Current
+ * =============================== */
+
+child:selected .item-box,
+row:selected .item-box {
+  background: linear-gradient(
+    90deg,
+    alpha(@accent_primary, 0.35),
+    alpha(@accent_secondary, 0.15)
+  );
+
+  box-shadow:
+    inset 0 0 0 1px alpha(@accent_primary, 0.55),
+    0 0 14px alpha(@accent_primary, 0.35);
+}
+
+:not(.calc).current {
+  color: @accent_primary;
+  text-shadow: 0 0 6px alpha(@accent_primary, 0.9);
+}
+
+/* ===============================
+ * Preview
+ * =============================== */
+
+.preview {
+  background: alpha(@shadow, 0.45);
+  border-radius: 10px;
+  padding: 12px;
+
+  border: 1px solid alpha(@accent_secondary, 0.25);
+  color: @theme_fg_color;
+}
+
+.preview .large-icons {
+  -gtk-icon-size: 64px;
+}
+
+.preview-content.archlinuxpkgs,
+.preview-content.dnfpackages {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* ===============================
+ * Provider / Special Types
+ * =============================== */
+
+.calc .item-text {
+  font-size: 22px;
+}
+
+.symbols .item-image {
+  font-size: 22px;
+}
+
+.todo.done .item-text-box {
+  opacity: 0.25;
+}
+
+.todo.urgent {
+  font-size: 22px;
+  color: @accent_warning;
+}
+
+.todo.active {
+  font-weight: bold;
+}
+
+.bluetooth.disconnected {
+  opacity: 0.4;
+}
+
+/* ===============================
+ * Keybinds
+ * =============================== */
+
+.keybinds {
+  padding-top: 10px;
+  margin-top: 8px;
+
+  border-top: 1px solid alpha(@accent_primary, 0.25);
+  font-size: 11px;
+  color: @theme_fg_secondary;
+}
+
+.global-keybinds {
+}
+
+.item-keybinds {
+}
+
+.keybind {
+}
+
+.keybind-button {
+  opacity: 0.45;
+}
+
+.keybind-button:hover {
+  opacity: 0.75;
+}
+
+.keybind-bind {
+  text-transform: lowercase;
+  opacity: 0.35;
+}
+
+.keybind-label {
+  padding: 2px 8px;
+  border-radius: 4px;
+
+  background: alpha(@accent_primary, 0.2);
+  border: 1px solid alpha(@accent_primary, 0.45);
+  color: @accent_primary;
+}
+
+/* ===============================
+ * Error
+ * =============================== */
+
+.error {
+  padding: 10px;
+  border-radius: 8px;
+
+  background: alpha(@accent_warning, 0.85);
+  color: @on_error; /* Mapped to matching Matugen on-error foreground */
+}
