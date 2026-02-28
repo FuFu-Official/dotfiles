@@ -36,6 +36,13 @@ set recolor-darkcolor       "{{colors.primary.default.hex}}"
 set recolor-reverse-video   "true"
 set recolor-keephue         "true"
 
+set synctex               true
+set scroll-step           100
+set database              "sqlite"
+set page-padding          20
+set adjust-open           "width"
+set guioptions            "none"
+
 " Clipboard
 set selection-clipboard clipboard
 
@@ -47,7 +54,7 @@ set search-hadjust true
 set adjust-open width
 
 " Typography
-set font "FiraCode Nerd Font 12"
+" set font "FiraCode Nerd Font 12"
 
 " -----------------------------------------------------------------------------
 " Zathura mappings
