@@ -1,0 +1,104 @@
+@-moz-document domain("github.com") {
+  :root {
+    --bgColor-default: var(--background) !important;
+    --bgColor-muted: var(--surface_container_low) !important;
+    --bgColor-inset: var(--surface_container_lowest) !important;
+    --bgColor-emphasis: var(--surface_bright) !important;
+
+    /* Borders */
+    --borderColor-default: var(--outline_variant) !important;
+    --borderColor-muted: var(--outline_variant) !important;
+    --borderColor-emphasis: var(--outline) !important;
+
+    /* Text Colors */
+    --fgColor-default: var(--on_surface) !important;
+    --fgColor-muted: var(--on_surface_variant) !important;
+    --fgColor-accent: var(--primary) !important;
+
+    /* Buttons */
+    --button-primary-bgColor-rest: var(--primary) !important;
+    --button-primary-fgColor-rest: var(--on_primary) !important;
+    --button-primary-bgColor-hover: var(--primary_fixed_dim) !important;
+    --button-primary-bgColor-active: var(--primary_fixed) !important;
+    --button-primary-borderColor-rest: var(--outline_variant) !important;
+
+    --button-default-bgColor-rest: var(--surface_container_high) !important;
+    --button-default-fgColor-rest: var(--on_surface) !important;
+    --button-default-bgColor-hover: var(--surface_bright) !important;
+    --buttonCounter-default-bgColor-rest: var(
+      --surface_container_highest
+    ) !important;
+
+    --bgColor-accent-emphasis: var(--primary) !important;
+    --borderColor-accent-emphasis: var(--primary) !important;
+    --bgColor-accent-muted: var(--primary_container) !important;
+    --borderColor-accent-muted: var(--primary_container) !important;
+
+    /* Looks kinda bad in issues but here if you want it */
+    /* --bgColor-success-emphasis: var(--tertiary) !important; */
+    /* --fgColor-success: var(--tertiary) !important; */
+
+    --bgColor-danger-emphasis: var(--error) !important;
+    --fgColor-danger: var(--error) !important;
+    --button-danger-fgColor-rest: var(--error) !important;
+    --button-danger-bgColor-hover: var(--error_container) !important;
+
+    --bgColor-attention-emphasis: var(--secondary) !important;
+    --borderColor-attention-muted: var(--secondary_container) !important;
+
+    --control-checked-bgColor-rest: var(--primary) !important;
+    --control-checked-bgColor-hover: var(--primary_fixed_dim) !important;
+    --control-checked-bgColor-active: var(--primary_fixed) !important;
+
+    /* Star button */
+    --button-star-iconColor: var(--primary) !important;
+
+    /*Code Blocks*/
+    --color-prettylights-syntax-comment: var(--on_surface_variant) !important;
+    --color-prettylights-syntax-constant: var(--secondary) !important;
+    --color-prettylights-syntax-entity: var(--primary) !important;
+    --color-prettylights-syntax-storage-modifier-import: var(
+      --on_surface
+    ) !important;
+    --color-prettylights-syntax-entity-tag: var(--tertiary) !important;
+    --color-prettylights-syntax-keyword: var(--error) !important;
+    --color-prettylights-syntax-string: var(--primary_fixed_dim) !important;
+    --color-prettylights-syntax-variable: var(--on_surface) !important;
+    --color-prettylights-syntax-markup-heading: var(--primary) !important;
+    --color-prettylights-syntax-markup-italic: var(--on_surface) !important;
+    --color-prettylights-syntax-markup-bold: var(--on_surface) !important;
+    --color-prettylights-syntax-markup-code: var(
+      --primary_container
+    ) !important;
+    --color-canvas-subtle: var(--surface_container_low) !important;
+
+    /* --- [PATCH] 分段控制组件 --- */
+    .prc-SegmentedControl-SegmentedControl-lqIXp,
+    [class*="SegmentedControl-SegmentedControl"] {
+      background-color: var(--surface_container_low) !important;
+      border: 1px solid var(--outline_variant) !important;
+      border-radius: 6px !important;
+    }
+    .prc-SegmentedControl-list,
+    [class*="SegmentedControl-Button"]:not([aria-current="true"]),
+    [class*="SegmentedControl-Button"]:not([aria-current="true"])
+      [class*="SegmentedControl-Content"] {
+      background-color: transparent !important;
+    }
+    [class*="SegmentedControl-Button"][aria-current="true"]
+      [class*="SegmentedControl-Content"] {
+      background-color: var(--surface_bright) !important;
+      color: var(--on_surface) !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+      border-radius: 4px !important; /* 让滑块边缘更圆润 */
+    }
+    [class*="SegmentedControl-Content"] {
+      color: var(--on_surface) !important;
+    }
+    [class*="SegmentedControl-Button"]:not([aria-current="true"]):hover
+      [class*="SegmentedControl-Content"] {
+      background-color: var(--surface_container_high) !important;
+      transition: background-color 0.2s ease;
+    }
+  }
+}
