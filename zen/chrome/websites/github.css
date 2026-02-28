@@ -72,7 +72,6 @@
     ) !important;
     --color-canvas-subtle: var(--surface_container_low) !important;
 
-    /* --- [PATCH] 分段控制组件 --- */
     .prc-SegmentedControl-SegmentedControl-lqIXp,
     [class*="SegmentedControl-SegmentedControl"] {
       background-color: var(--surface_container_low) !important;
