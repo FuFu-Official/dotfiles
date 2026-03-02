@@ -84,6 +84,10 @@ input_path = '~/.config/wlogout/.scripts/recolor-icons-template.sh'
 output_path = '~/.config/wlogout/.scripts/recolor-icons.sh'
 post_hook = 'chmod +x ~/.config/wlogout/.scripts/recolor-icons.sh && bash ~/.config/wlogout/.scripts/recolor-icons.sh &'
 
+[templates.walker]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/walker/colors.css'
+
 [templates.yazi]
 input_path = '~/.config/matugen/templates/yazi-theme.toml'
 output_path = '~/.config/yazi/theme.toml'
@@ -99,4 +103,4 @@ output_path = '~/.config/obs-studio/themes/matugen.obt'
 [templates.steam]
 input_path = '~/.config/matugen/templates/steam.css'
 output_path = '~/.config/AdwSteamGtk/custom.css'
-post_hook = 'adwaita-steam-gtk -i'
+post_hook = 'adwaita-steam-gtk -i && notify-send "󰄵  Matugen Theme Refreshed."'
