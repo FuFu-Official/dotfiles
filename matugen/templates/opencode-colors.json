@@ -54,16 +54,16 @@
       "light": "on_surface_variant"
     },
     "background": {
-      "dark": "background",
-      "light": "background"
+      "dark": "transparent",
+      "light": "transparent"
     },
     "backgroundPanel": {
-      "dark": "surface_variant",
-      "light": "surface_variant"
+      "dark": "transparent",
+      "light": "transparent"
     },
     "backgroundElement": {
-      "dark": "surface_variant",
-      "light": "surface_variant"
+      "dark": "transparent",
+      "light": "transparent"
     },
     "border": {
       "dark": "outline_variant",
@@ -219,4 +219,3 @@
     }
   }
 }
-

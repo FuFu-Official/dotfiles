@@ -39,7 +39,7 @@ set recolor-keephue         "true"
 set synctex               true
 set scroll-step           100
 set database              "sqlite"
-set page-padding          20
+" set page-padding          20
 set adjust-open           "width"
 set guioptions            "none"
 
@@ -66,6 +66,11 @@ map [normal]     z zoom in
 map [normal]     Z zoom out
 map [fullscreen] z zoom in
 map [fullscreen] Z zoom out
+
+map <C-+> zoom in
+map <C--> zoom out
+map <C-=> zoom in
+map <C-0> zoom reset
 
 " Toggle mode
 map [normal]     D toggle_page_mode
