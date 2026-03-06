@@ -61,26 +61,48 @@ tooltip label {
 #battery,
 #network,
 #bluetooth,
-#pulseaudio,
-#idle_inhibitor,
 #tray,
 #privacy,
 #mpris,
+#custom-updates,
+#custom-weather,
+#custom-applauncher {
+  padding: 0.29em 0.57em;
+  margin: 0.21em 0.07em;
+  border-radius: 0.29em;
+  transition: all 150ms ease;
+}
+
+#group-tools,
+#group-sysinfo,
+#group-audio,
+#group-ddcutil,
+#group-powermenu {
+  padding: 0.07em 0.04em;
+  margin: 0.21em 0.04em;
+  border-radius: 0.29em;
+  transition: all 150ms ease;
+}
+
+#pulseaudio,
+#idle_inhibitor,
 #cpu,
 #memory,
 #temperature,
-#custom-updates,
-#custom-weather,
-#custom-poweroff,
-#custom-reboot,
-#custom-lockscreen,
-#custom-applauncher,
 #custom-screenshot,
 #custom-eye-protect,
 #custom-colorpicker,
-#power-profiles-daemon {
-  padding: 0.29em 0.57em;
-  margin: 0.21em 0.07em;
+#power-profiles-daemon,
+#custom-ddcutil-day,
+#custom-ddcutil-night,
+#custom-ddcutil-sleep,
+#custom-separator-1,
+#backlight,
+#custom-poweroff,
+#custom-reboot,
+#custom-lockscreen {
+  padding: 0.29em 0.36em;
+  margin: 0.14em 0.04em;
   border-radius: 0.29em;
   transition: all 150ms ease;
 }
@@ -106,6 +128,16 @@ tooltip label {
 #custom-eye-protect:hover,
 #custom-colorpicker:hover,
 #power-profiles-daemon:hover,
+#custom-ddcutil-day:hover,
+#custom-ddcutil-night:hover,
+#custom-ddcutil-sleep:hover,
+#backlight:hover,
+#custom-separator-1:hover,
+#group-tools:hover,
+#group-sysinfo:hover,
+#group-audio:hover,
+#group-ddcutil:hover,
+#group-powermenu:hover,
 #clock:hover {
   background: alpha(@on_surface, 0.08);
 }
@@ -192,37 +224,96 @@ tooltip label {
  *  Right: tray and system area
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-/* Updates */
+/* Unified density for all right-side modules */
+#custom-updates,
+#custom-weather,
+#network,
+#bluetooth,
+#privacy,
+#tray,
+#battery,
+#clock {
+  padding: 0.29em 0.42em;
+  margin: 0.21em 0.04em;
+  border-radius: 0.29em;
+}
+
+/* Section starts: one separator rule for all blocks */
+/* #network, */
+/* #tray, */
+/* #group-sysinfo, */
+/* #group-audio { */
+/*   border-left: 1px solid alpha(@outline, 0.25); */
+/*   margin-left: 0.14em; */
+/*   padding-left: 0.36em; */
+/* } */
+
+/* Status cluster */
+#custom-updates,
+#custom-weather,
+#network,
+#bluetooth {
+  color: @tertiary;
+}
+
 #custom-updates {
   color: @tertiary;
 }
 
-/* Media */
-#mpris {
+#privacy {
+  color: @error;
+}
+
+#network {
+  font-size: 1.12em;
+  padding-left: 0.32em;
+  padding-right: 0.32em;
+}
+
+#bluetooth {
+  font-size: 1.2em;
+  padding-left: 0.31em;
+  padding-right: 0.31em;
+}
+
+#network.disconnected,
+#bluetooth.disabled {
+  color: @outline;
+}
+
+#bluetooth.connected {
+  color: @primary;
+}
+
+#tray {
   color: @secondary;
-  font-size: 0.93em;
-  margin-left: 0.57em;
 }
 
-/* Weather */
-#custom-weather {
-  color: @on_surface_variant;
-  font-size: 0.93em;
-  border-left: 1px solid alpha(@outline, 0.25);
-  padding-left: 0.71em;
+/* Tools cluster */
+#custom-screenshot,
+#custom-colorpicker {
+  color: @tertiary;
+  font-size: 1.16em;
 }
 
-/* System monitor */
+#custom-eye-protect,
+#power-profiles-daemon,
+#idle_inhibitor.activated {
+  color: @tertiary;
+  font-size: 1.12em;
+}
+
+#idle_inhibitor {
+  color: @outline;
+  font-size: 1.12em;
+}
+
+/* System info cluster */
+#temperature,
+#memory,
 #cpu {
-  color: @on_surface_variant;
-}
-
-#memory {
-  color: @on_surface_variant;
-}
-
-#temperature {
-  color: @on_surface_variant;
+  color: @tertiary;
+  font-size: 1.05em;
 }
 
 #temperature.critical {
@@ -230,37 +321,9 @@ tooltip label {
   animation: blink 1s steps(12) infinite alternate;
 }
 
-/* Tray */
-#tray {
-  padding: 0.29em 0.36em;
-}
-
-/* Tools */
-#custom-screenshot {
-  color: @secondary;
-}
-
-#custom-eye-protect {
-  color: @tertiary;
-}
-
-#custom-colorpicker {
-  color: @secondary;
-}
-
-#power-profiles-daemon {
-  color: @tertiary;
-}
-
-/* Privacy */
-#privacy {
-  color: @error;
-  padding: 0.29em 0.43em;
-}
-
-/* Audio */
+/* Audio cluster */
 #pulseaudio {
-  color: @on_surface;
+  color: @tertiary;
 }
 
 #pulseaudio.muted {
@@ -268,8 +331,7 @@ tooltip label {
 }
 
 #pulseaudio-slider {
-  padding: 0 0.29em;
-  margin: 0.36em 0;
+  padding: 0.14em 0.29em;
 }
 
 #pulseaudio-slider slider {
@@ -291,47 +353,66 @@ tooltip label {
 #pulseaudio-slider highlight {
   min-width: 0.43em;
   border-radius: 0.21em;
-  background: @primary;
+  background: @tertiary;
 }
 
-/* Network */
-#network {
-  color: @on_surface;
-}
-
-#network.disconnected {
-  color: @outline;
-}
-
-/* Bluetooth */
-#bluetooth {
-  color: @on_surface;
-}
-
-#bluetooth.disabled {
-  color: @outline;
-}
-
-#bluetooth.connected {
-  color: @primary;
-}
-
-/* —— Idle Inhibitor —— */
-#idle_inhibitor {
-  color: @outline;
-}
-
-#idle_inhibitor.activated {
+/* Brightness cluster */
+#custom-ddcutil-day,
+#custom-ddcutil-night,
+#custom-ddcutil-sleep,
+#custom-separator-1,
+#backlight,
+#backlight-slider {
   color: @tertiary;
 }
 
-/* Battery */
-#battery {
-  color: @on_surface;
+#custom-ddcutil-day,
+#custom-ddcutil-night,
+#custom-ddcutil-sleep {
+  font-size: 1.08em;
+  min-width: 1em;
+  padding: 0.29em 0.1em;
 }
 
-#battery.charging {
-  color: @primary;
+#custom-separator-1 {
+  color: @outline;
+  padding: 0.29em 0.2em;
+}
+
+#backlight {
+  padding: 0.29em 0.3em;
+}
+
+#backlight-slider {
+  padding: 0.14em 0.22em;
+}
+
+#backlight-slider slider {
+  min-height: 0;
+  min-width: 0;
+  opacity: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+#backlight-slider trough {
+  min-height: 0.43em;
+  min-width: 5em;
+  border-radius: 0.21em;
+  background: @surface_container_highest;
+}
+
+#backlight-slider highlight {
+  min-width: 0.43em;
+  border-radius: 0.21em;
+  background: @tertiary;
+}
+
+/* Battery and clock */
+
+#battery {
+  color: @tertiary;
 }
 
 #battery.critical:not(.charging) {
@@ -339,48 +420,31 @@ tooltip label {
   animation: blink 1s steps(12) infinite alternate;
 }
 
-@keyframes blink {
-  to {
-    color: @on_surface;
-  }
+#clock {
+  color: @tertiary;
 }
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  Clock — Windows-style two-line time/date
- * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #clock {
-  color: @on_surface_variant;
-  padding: 0.14em 0.71em;
-  font-size: 0.79em;
-  font-weight: normal;
-  border-left: 1px solid alpha(@outline, 0.25);
+  font-size: 0.93em;
+  font-weight: 500;
+  padding-left: 0.52em;
+  padding-right: 0.52em;
 }
 
-#clock:hover {
-  background: alpha(@on_surface, 0.08);
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  Power menu
- * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-
+/* Power menu */
 #custom-poweroff {
-  color: @on_surface_variant;
-  font-size: 1.07em;
-  padding: 0.29em 0.57em;
-  margin-right: 0.14em;
+  color: @error;
+  font-size: 1.27em;
+}
+
+#custom-reboot,
+#custom-lockscreen {
+  color: @on_surface;
 }
 
 #custom-poweroff:hover {
   color: @on_surface;
   background: @error;
-}
-
-#custom-reboot,
-#custom-lockscreen {
-  color: @on_surface_variant;
-  padding: 0.29em 0.57em;
 }
 
 #custom-reboot:hover,
@@ -389,56 +453,8 @@ tooltip label {
   color: @error;
 }
 
-/* Brightness */
-#custom-ddcutil-day,
-#custom-ddcutil-night,
-#custom-ddcutil-sleep,
-#custom-separator.1 {
-  background-color: @surface_container_high;
-  color: @tertiary;
-  padding: 0px 0.33em;
-  /* 5px */
+@keyframes blink {
+  to {
+    color: @on_surface;
+  }
 }
-
-#backlight {
-  background-color: @surface_container_high;
-  color: @tertiary;
-  padding: 0px 0.28em 0px 0px;
-  /* 5px */
-}
-
-#backlight-slider {
-  background-color: @surface_container_high;
-  padding: 0px 0.28em 0px 0px;
-  /* 5px */
-}
-
-#backlight-slider slider {
-  min-height: 0px;
-  min-width: 0px;
-  opacity: 0;
-  background-image: none;
-  border: none;
-  box-shadow: none;
-  background: none;
-}
-
-#backlight-slider trough {
-  min-height: 0.56em;
-  /* 10px */
-  min-width: 4.44em;
-  /* 80px */
-  border-radius: 0.28em;
-  /* 5px */
-  opacity: 0;
-  background-color: @background;
-}
-
-#backlight-slider highlight {
-  min-width: 0.56em;
-  /* 10px */
-  border-radius: 0.28em;
-  /* 5px */
-  background-color: @tertiary;
-}
-

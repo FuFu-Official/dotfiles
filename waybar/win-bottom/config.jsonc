@@ -23,17 +23,16 @@
   "modules-right": [
     "custom/updates",
     "custom/weather",
-    "group/tools",
-    "tray",
+    "network",
+    "bluetooth",
     "privacy",
+    "tray",
+    "group/tools",
     "group/sysinfo",
     "group/audio",
     "group/ddcutil",
-    "network",
-    "bluetooth",
     "battery",
     "clock",
     "group/powermenu",
   ],
 }
-
