@@ -4,7 +4,7 @@
 
 local keymap = vim.keymap
 
--- Exit insert mode quickly by pressing "jk" or "kj"
+-- Exit insert mode quickly by pressing "jk"
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode using 'jk'" })
 
 -- Exit visual mode using "q"
