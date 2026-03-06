@@ -27,6 +27,7 @@
     "privacy",
     "group/sysinfo",
     "group/audio",
+    "group/ddcutil",
     "network",
     "bluetooth",
     "battery",

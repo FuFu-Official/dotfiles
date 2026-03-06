@@ -6,49 +6,49 @@
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 * {
- border: none;
- border-radius: 0;
- font-family: "JetBrainsMono Nerd Font Propo", "LXGW WenKai Screen";
- font-size: 12px;
- min-height: 0;
- padding: 0;
- margin: 0;
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font Propo", "LXGW WenKai Screen";
+  font-size: 12px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
 }
 
 /* ── 整体栏：半透明深色底栏 ── */
 window#waybar {
- background: alpha(@surface_container, 0.92);
- border-top: 1px solid alpha(@outline_variant, 0.3);
- color: @on_surface;
- margin: 0;
- padding: 0;
+  background: alpha(@surface_container, 0.92);
+  border-top: 1px solid alpha(@outline_variant, 0.3);
+  color: @on_surface;
+  margin: 0;
+  padding: 0;
 }
 
-window#waybar>box {
- margin: 0;
- padding: 0;
+window#waybar > box {
+  margin: 0;
+  padding: 0;
 }
 
 /* ── 左/中/右容器 — 无背景，纯平排列 ── */
 .modules-left,
 .modules-center,
 .modules-right {
- background: transparent;
- padding: 0 0.29em;
- margin: 0;
+  background: transparent;
+  padding: 0 0.29em;
+  margin: 0;
 }
 
 /* ── Tooltip ── */
 tooltip {
- background: @surface_container_high;
- border: 1px solid @outline_variant;
- border-radius: 0.57em;
- padding: 0.43em 0.71em;
+  background: @surface_container_high;
+  border: 1px solid @outline_variant;
+  border-radius: 0.57em;
+  padding: 0.43em 0.71em;
 }
 
 tooltip label {
- color: @on_surface;
- font-size: 0.93em;
+  color: @on_surface;
+  font-size: 0.93em;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -79,10 +79,10 @@ tooltip label {
 #custom-eye-protect,
 #custom-colorpicker,
 #power-profiles-daemon {
- padding: 0.29em 0.57em;
- margin: 0.21em 0.07em;
- border-radius: 0.29em;
- transition: all 150ms ease;
+  padding: 0.29em 0.57em;
+  margin: 0.21em 0.07em;
+  border-radius: 0.29em;
+  transition: all 150ms ease;
 }
 
 /* Windows 风格：鼠标悬浮淡色高亮 */
@@ -107,7 +107,7 @@ tooltip label {
 #custom-colorpicker:hover,
 #power-profiles-daemon:hover,
 #clock:hover {
- background: alpha(@on_surface, 0.08);
+  background: alpha(@on_surface, 0.08);
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -116,40 +116,40 @@ tooltip label {
 
 /* "开始"按钮 */
 #custom-applauncher {
- color: @primary;
- font-size: 1.36em;
- padding: 0.21em 0.5em;
- margin-left: 0.14em;
+  color: @primary;
+  font-size: 1.36em;
+  padding: 0.21em 0.5em;
+  margin-left: 0.14em;
 }
 
 #custom-applauncher:hover {
- background: alpha(@primary, 0.12);
+  background: alpha(@primary, 0.12);
 }
 
 /* 工作区 — Windows 风格方块 */
 #workspaces {
- padding: 0 0.14em;
+  padding: 0 0.14em;
 }
 
 #workspaces button {
- padding: 0.29em 0.57em;
- margin: 0.21em 0.14em;
- border-radius: 0.29em;
- color: @on_surface_variant;
- background: transparent;
- border-bottom: 2px solid transparent;
+  padding: 0.29em 0.57em;
+  margin: 0.21em 0.14em;
+  border-radius: 0.29em;
+  color: @on_surface_variant;
+  background: transparent;
+  border-bottom: 2px solid transparent;
 }
 
 #workspaces button.active {
- color: @on_surface;
- background: alpha(@primary, 0.12);
- border-bottom: 2px solid @primary;
+  color: @on_surface;
+  background: alpha(@primary, 0.12);
+  border-bottom: 2px solid @primary;
 }
 
 #workspaces button.urgent {
- color: @error;
- background: alpha(@error, 0.12);
- border-bottom: 2px solid @error;
+  color: @error;
+  background: alpha(@error, 0.12);
+  border-bottom: 2px solid @error;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -157,35 +157,35 @@ tooltip label {
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #window {
- color: @on_surface_variant;
- font-size: 0.93em;
- padding: 0.29em 0.71em;
+  color: @on_surface_variant;
+  font-size: 0.93em;
+  padding: 0.29em 0.71em;
 }
 
 #taskbar {
- padding: 0;
+  padding: 0;
 }
 
 #taskbar button {
- padding: 0.21em 0.57em;
- margin: 0.14em 0.07em;
- border-radius: 0.29em;
- background: transparent;
- border-bottom: 2px solid transparent;
- transition: all 150ms ease;
+  padding: 0.21em 0.57em;
+  margin: 0.14em 0.07em;
+  border-radius: 0.29em;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 150ms ease;
 }
 
 #taskbar button:hover {
- background: alpha(@on_surface, 0.08);
+  background: alpha(@on_surface, 0.08);
 }
 
 #taskbar button.active {
- background: alpha(@primary, 0.12);
- border-bottom: 2px solid @primary;
+  background: alpha(@primary, 0.12);
+  border-bottom: 2px solid @primary;
 }
 
 #taskbar button.minimized {
- opacity: 0.5;
+  opacity: 0.5;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -194,155 +194,155 @@ tooltip label {
 
 /* —— 更新 —— */
 #custom-updates {
- color: @tertiary;
+  color: @tertiary;
 }
 
 /* —— 媒体播放 —— */
 #mpris {
- color: @secondary;
- font-size: 0.93em;
- margin-left: 0.57em;
+  color: @secondary;
+  font-size: 0.93em;
+  margin-left: 0.57em;
 }
 
 /* —— 天气 —— */
 #custom-weather {
- color: @on_surface_variant;
- font-size: 0.93em;
- border-left: 1px solid alpha(@outline, 0.25);
- padding-left: 0.71em;
+  color: @on_surface_variant;
+  font-size: 0.93em;
+  border-left: 1px solid alpha(@outline, 0.25);
+  padding-left: 0.71em;
 }
 
 /* —— 系统监控 —— */
 #cpu {
- color: @on_surface_variant;
+  color: @on_surface_variant;
 }
 
 #memory {
- color: @on_surface_variant;
+  color: @on_surface_variant;
 }
 
 #temperature {
- color: @on_surface_variant;
+  color: @on_surface_variant;
 }
 
 #temperature.critical {
- color: @error;
- animation: blink 1s steps(12) infinite alternate;
+  color: @error;
+  animation: blink 1s steps(12) infinite alternate;
 }
 
 /* —— 托盘 —— */
 #tray {
- padding: 0.29em 0.36em;
+  padding: 0.29em 0.36em;
 }
 
 /* —— 工具模块 —— */
 #custom-screenshot {
- color: @secondary;
+  color: @secondary;
 }
 
 #custom-eye-protect {
- color: @tertiary;
+  color: @tertiary;
 }
 
 #custom-colorpicker {
- color: @secondary;
+  color: @secondary;
 }
 
 #power-profiles-daemon {
- color: @tertiary;
+  color: @tertiary;
 }
 
 /* —— 屏幕隐私 —— */
 #privacy {
- color: @error;
- padding: 0.29em 0.43em;
+  color: @error;
+  padding: 0.29em 0.43em;
 }
 
 /* —— 音频 —— */
 #pulseaudio {
- color: @on_surface;
+  color: @on_surface;
 }
 
 #pulseaudio.muted {
- color: @outline;
+  color: @outline;
 }
 
 #pulseaudio-slider {
- padding: 0 0.29em;
- margin: 0.36em 0;
+  padding: 0 0.29em;
+  margin: 0.36em 0;
 }
 
 #pulseaudio-slider slider {
- min-height: 0;
- min-width: 0;
- opacity: 0;
- background: none;
- border: none;
- box-shadow: none;
+  min-height: 0;
+  min-width: 0;
+  opacity: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 #pulseaudio-slider trough {
- min-height: 0.43em;
- min-width: 5em;
- border-radius: 0.21em;
- background: @surface_container_highest;
+  min-height: 0.43em;
+  min-width: 5em;
+  border-radius: 0.21em;
+  background: @surface_container_highest;
 }
 
 #pulseaudio-slider highlight {
- min-width: 0.43em;
- border-radius: 0.21em;
- background: @primary;
+  min-width: 0.43em;
+  border-radius: 0.21em;
+  background: @primary;
 }
 
 /* —— 网络 —— */
 #network {
- color: @on_surface;
+  color: @on_surface;
 }
 
 #network.disconnected {
- color: @outline;
+  color: @outline;
 }
 
 /* —— 蓝牙 —— */
 #bluetooth {
- color: @on_surface;
+  color: @on_surface;
 }
 
 #bluetooth.disabled {
- color: @outline;
+  color: @outline;
 }
 
 #bluetooth.connected {
- color: @primary;
+  color: @primary;
 }
 
 /* —— Idle Inhibitor —— */
 #idle_inhibitor {
- color: @outline;
+  color: @outline;
 }
 
 #idle_inhibitor.activated {
- color: @tertiary;
+  color: @tertiary;
 }
 
 /* —— 电池 —— */
 #battery {
- color: @on_surface;
+  color: @on_surface;
 }
 
 #battery.charging {
- color: @primary;
+  color: @primary;
 }
 
 #battery.critical:not(.charging) {
- color: @error;
- animation: blink 1s steps(12) infinite alternate;
+  color: @error;
+  animation: blink 1s steps(12) infinite alternate;
 }
 
 @keyframes blink {
- to {
-  color: @on_surface;
- }
+  to {
+    color: @on_surface;
+  }
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -350,15 +350,15 @@ tooltip label {
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #clock {
- color: @on_surface_variant;
- padding: 0.14em 0.71em;
- font-size: 0.79em;
- font-weight: normal;
- border-left: 1px solid alpha(@outline, 0.25);
+  color: @on_surface_variant;
+  padding: 0.14em 0.71em;
+  font-size: 0.79em;
+  font-weight: normal;
+  border-left: 1px solid alpha(@outline, 0.25);
 }
 
 #clock:hover {
- background: alpha(@on_surface, 0.08);
+  background: alpha(@on_surface, 0.08);
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -366,25 +366,79 @@ tooltip label {
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #custom-poweroff {
- color: @on_surface_variant;
- font-size: 1.07em;
- padding: 0.29em 0.57em;
- margin-right: 0.14em;
+  color: @on_surface_variant;
+  font-size: 1.07em;
+  padding: 0.29em 0.57em;
+  margin-right: 0.14em;
 }
 
 #custom-poweroff:hover {
- color: @on_surface;
- background: @error;
+  color: @on_surface;
+  background: @error;
 }
 
 #custom-reboot,
 #custom-lockscreen {
- color: @on_surface_variant;
- padding: 0.29em 0.57em;
+  color: @on_surface_variant;
+  padding: 0.29em 0.57em;
 }
 
 #custom-reboot:hover,
 #custom-lockscreen:hover {
- background: alpha(@error, 0.15);
- color: @error;
+  background: alpha(@error, 0.15);
+  color: @error;
 }
+
+/* 亮度 */
+#custom-ddcutil-day,
+#custom-ddcutil-night,
+#custom-ddcutil-sleep,
+#custom-separator.1 {
+  background-color: @surface_container_high;
+  color: @tertiary;
+  padding: 0px 0.33em;
+  /* 5px */
+}
+
+#backlight {
+  background-color: @surface_container_high;
+  color: @tertiary;
+  padding: 0px 0.28em 0px 0px;
+  /* 5px */
+}
+
+#backlight-slider {
+  background-color: @surface_container_high;
+  padding: 0px 0.28em 0px 0px;
+  /* 5px */
+}
+
+#backlight-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+#backlight-slider trough {
+  min-height: 0.56em;
+  /* 10px */
+  min-width: 4.44em;
+  /* 80px */
+  border-radius: 0.28em;
+  /* 5px */
+  opacity: 0;
+  background-color: @background;
+}
+
+#backlight-slider highlight {
+  min-width: 0.56em;
+  /* 10px */
+  border-radius: 0.28em;
+  /* 5px */
+  background-color: @tertiary;
+}
+
