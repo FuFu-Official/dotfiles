@@ -2,62 +2,62 @@
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  *  Simple & Clean — Floating Pill Style
- *  基准 font-size: 14px — 整体缩放只需改这一个值
+ *  Base font-size: change one value to scale the bar
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 * {
-    border: none;
-    border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font Propo", "LXGW WenKai Screen";
-    font-size: 12px;
-    min-height: 0;
-    padding: 0;
-    margin: 0;
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font Propo", "LXGW WenKai Screen";
+  font-size: 12px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
 }
 
-/* ── 整体栏 ── */
+/* ── Bar container ── */
 window#waybar {
-    background: transparent;
-    color: @on_surface;
+  background: transparent;
+  color: @on_surface;
 }
 
-window#waybar>box {
-    margin: 0;
-    padding: 0;
+window#waybar > box {
+  margin: 0;
+  padding: 0;
 }
 
-/* ── 左/中/右分组容器 ── */
+/* ── Left/center/right groups ── */
 .modules-left,
 .modules-center,
 .modules-right {
-    background: @surface_container;
-    border-radius: 1em;
-    padding: 0.29em 0.29em;
-    margin: 0 0.14em;
+  background: @surface_container;
+  border-radius: 1em;
+  padding: 0.29em 0.29em;
+  margin: 0 0.14em;
 }
 
 .modules-center {
-    padding: 0.29em 0.57em;
+  padding: 0.29em 0.57em;
 }
 
 /* ── Tooltip ── */
 tooltip {
-    background: @surface_container_high;
-    border: 1px solid @outline_variant;
-    border-radius: 0.86em;
-    padding: 0.43em 0.71em;
+  background: @surface_container_high;
+  border: 1px solid @outline_variant;
+  border-radius: 0.86em;
+  padding: 0.43em 0.71em;
 }
 
 tooltip label {
-    color: @on_surface;
-    font-size: 0.93em;
+  color: @on_surface;
+  font-size: 0.93em;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  通用模块样式
+ *  Common module style
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-/* 所有模块基础 padding */
+/* Base spacing for modules */
 #workspaces,
 #window,
 #clock,
@@ -82,13 +82,13 @@ tooltip label {
 #custom-eye-protect,
 #custom-colorpicker,
 #power-profiles-daemon {
-    padding: 0 0.57em;
-    margin: 0.21em 0.07em;
-    border-radius: 0.71em;
-    transition: all 200ms ease;
+  padding: 0 0.57em;
+  margin: 0.21em 0.07em;
+  border-radius: 0.71em;
+  transition: all 200ms ease;
 }
 
-/* 悬浮高亮 */
+/* Hover highlight */
 #workspaces button:hover,
 #battery:hover,
 #network:hover,
@@ -106,251 +106,251 @@ tooltip label {
 #custom-colorpicker:hover,
 #power-profiles-daemon:hover,
 #clock:hover {
-    background: @surface_container_high;
+  background: @surface_container_high;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  左侧：启动器 + 工作区 + 窗口名
+ *  Left: launcher + workspaces + window title
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #custom-applauncher {
-    color: @primary;
-    font-size: 1.29em;
-    padding: 0 0.56em;
+  color: @primary;
+  font-size: 1.29em;
+  padding: 0 0.56em;
 }
 
 #workspaces {
-    padding: 0 0.14em;
+  padding: 0 0.14em;
 }
 
 #workspaces button {
-    padding: 0 0.43em;
-    margin: 0.29em 0.07em;
-    border-radius: 0.57em;
-    color: @outline;
-    background: transparent;
+  padding: 0 0.43em;
+  margin: 0.29em 0.07em;
+  border-radius: 0.57em;
+  color: @outline;
+  background: transparent;
 }
 
 #workspaces button.active {
-    color: @primary;
-    background: alpha(@primary, 0.15);
-    font-weight: bold;
+  color: @primary;
+  background: alpha(@primary, 0.15);
+  font-weight: bold;
 }
 
 #workspaces button.urgent {
-    color: @error;
-    background: alpha(@error, 0.15);
+  color: @error;
+  background: alpha(@error, 0.15);
 }
 
 #window {
-    color: @on_surface_variant;
-    font-size: 0.93em;
-    padding: 0 0.92em;
+  color: @on_surface_variant;
+  font-size: 0.93em;
+  padding: 0 0.92em;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  中间：时钟
+ *  Center: clock
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #clock {
-    color: @primary;
-    font-weight: bold;
-    padding: 0 0.93em;
-    font-size: 1.07em;
+  color: @primary;
+  font-weight: bold;
+  padding: 0 0.93em;
+  font-size: 1.07em;
 }
 
 #clock label {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  右侧模块
+ *  Right-side modules
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-/* —— 更新 —— */
+/* Updates */
 #custom-updates {
-    color: @tertiary;
+  color: @tertiary;
 }
 
-/* —— 托盘 —— */
+/* Tray */
 #tray {
-    padding: 0 0.43em;
-    margin: 0.29em 0.07em;
+  padding: 0 0.43em;
+  margin: 0.29em 0.07em;
 }
 
-/* —— 亮度 Group —— */
+/* Brightness group */
 #custom-ddcutil-day,
 #custom-ddcutil-night,
 #custom-ddcutil-sleep {
-    color: @tertiary;
+  color: @tertiary;
 }
 
 #custom-separator-1 {
-    color: @outline;
-    padding: 0 0.14em;
+  color: @outline;
+  padding: 0 0.14em;
 }
 
 #backlight {
-    color: @tertiary;
+  color: @tertiary;
 }
 
 #backlight-slider {
-    padding: 0 0.29em;
-    margin: 0.29em 0;
+  padding: 0 0.29em;
+  margin: 0.29em 0;
 }
 
 #backlight-slider slider {
-    min-height: 0;
-    min-width: 0;
-    opacity: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
+  min-height: 0;
+  min-width: 0;
+  opacity: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 #backlight-slider trough {
-    min-height: 0.57em;
-    min-width: 5em;
-    border-radius: 0.29em;
-    background: @surface_container_highest;
+  min-height: 0.57em;
+  min-width: 5em;
+  border-radius: 0.29em;
+  background: @surface_container_highest;
 }
 
 #backlight-slider highlight {
-    min-width: 0.57em;
-    border-radius: 0.29em;
-    background: @tertiary;
+  min-width: 0.57em;
+  border-radius: 0.29em;
+  background: @tertiary;
 }
 
-/* —— 屏幕隐私 —— */
+/* Privacy */
 #privacy {
-    color: @error;
-    padding: 0 0.43em;
-    margin: 0.21em 0.07em;
+  color: @error;
+  padding: 0 0.43em;
+  margin: 0.21em 0.07em;
 }
 
-/* —— 音频 Group —— */
+/* Audio group */
 #pulseaudio {
-    color: @primary;
-    font-size: 1.07em;
+  color: @primary;
+  font-size: 1.07em;
 }
 
 #pulseaudio.muted {
-    color: @outline;
+  color: @outline;
 }
 
 #pulseaudio-slider {
-    padding: 0 0.29em;
-    margin: 0.29em 0;
+  padding: 0 0.29em;
+  margin: 0.29em 0;
 }
 
 #pulseaudio-slider slider {
-    min-height: 0;
-    min-width: 0;
-    opacity: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
+  min-height: 0;
+  min-width: 0;
+  opacity: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 #pulseaudio-slider trough {
-    min-height: 0.57em;
-    min-width: 5em;
-    border-radius: 0.29em;
-    background: @surface_container_highest;
+  min-height: 0.57em;
+  min-width: 5em;
+  border-radius: 0.29em;
+  background: @surface_container_highest;
 }
 
 #pulseaudio-slider highlight {
-    min-width: 0.57em;
-    border-radius: 0.29em;
-    background: @primary;
+  min-width: 0.57em;
+  border-radius: 0.29em;
+  background: @primary;
 }
 
-/* —— 工具模块 —— */
+/* Tools */
 #custom-screenshot {
-    color: @secondary;
+  color: @secondary;
 }
 
 #custom-eye-protect {
-    color: @tertiary;
+  color: @tertiary;
 }
 
 #custom-colorpicker {
-    color: @secondary;
+  color: @secondary;
 }
 
 #power-profiles-daemon {
-    color: @tertiary;
+  color: @tertiary;
 }
 
-
-/* —— 蓝牙 —— */
+/* Bluetooth */
 #bluetooth {
-    color: @secondary;
-    font-size: 1.07em;
+  color: @secondary;
+  font-size: 1.07em;
 }
 
 #bluetooth.disabled {
-    color: @outline;
+  color: @outline;
 }
 
 #bluetooth.connected {
-    color: @primary;
+  color: @primary;
 }
 
-/* —— 网络 —— */
+/* Network */
 #network {
-    color: @secondary;
-    font-size: 1.14em;
+  color: @secondary;
+  font-size: 1.14em;
 }
 
 #network.disconnected {
-    color: @outline;
+  color: @outline;
 }
 
 /* —— Idle Inhibitor —— */
 #idle_inhibitor {
-    color: @outline;
+  color: @outline;
 }
 
 #idle_inhibitor.activated {
-    color: @tertiary;
+  color: @tertiary;
 }
 
-/* —— 电池 —— */
+/* Battery */
 #battery {
-    color: @secondary;
+  color: @secondary;
 }
 
 #battery.charging {
-    color: @primary;
+  color: @primary;
 }
 
 #battery.critical:not(.charging) {
-    color: @error;
-    animation: blink 1s steps(12) infinite alternate;
+  color: @error;
+  animation: blink 1s steps(12) infinite alternate;
 }
 
 @keyframes blink {
-    to {
-        color: @on_surface;
-    }
+  to {
+    color: @on_surface;
+  }
 }
 
-/* —— 电源菜单 —— */
+/* Power menu */
 #custom-poweroff {
-    color: @error;
-    font-size: 1.14em;
-    padding: 0 0.63em 0 0.5em;
+  color: @error;
+  font-size: 1.14em;
+  padding: 0 0.63em 0 0.5em;
 }
 
 #custom-reboot,
 #custom-lockscreen {
-    color: @on_surface_variant;
-    padding: 0 0.57em;
+  color: @on_surface_variant;
+  padding: 0 0.57em;
 }
 
 #custom-reboot:hover,
 #custom-lockscreen:hover {
-    color: @error;
+  color: @error;
 }
+

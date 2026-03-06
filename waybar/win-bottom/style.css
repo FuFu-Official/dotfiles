@@ -2,7 +2,7 @@
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  *  Windows 11 Taskbar Style — Bottom Bar
- *  基准 font-size: 14px — 整体缩放只需改这一个值
+ *  Base font-size: change one value to scale the bar
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 * {
@@ -15,7 +15,7 @@
   margin: 0;
 }
 
-/* ── 整体栏：半透明深色底栏 ── */
+/* ── Bar container: translucent dark base ── */
 window#waybar {
   background: alpha(@surface_container, 0.92);
   border-top: 1px solid alpha(@outline_variant, 0.3);
@@ -24,12 +24,12 @@ window#waybar {
   padding: 0;
 }
 
-window#waybar>box {
+window#waybar > box {
   margin: 0;
   padding: 0;
 }
 
-/* ── 左/中/右容器 — 无背景，纯平排列 ── */
+/* ── Left/center/right containers: flat layout ── */
 .modules-left,
 .modules-center,
 .modules-right {
@@ -52,7 +52,7 @@ tooltip label {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  通用模块样式 — 悬浮高亮条
+ *  Common module style — hover highlight
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #workspaces,
@@ -85,7 +85,7 @@ tooltip label {
   transition: all 150ms ease;
 }
 
-/* Windows 风格：鼠标悬浮淡色高亮 */
+/* Windows-style subtle hover highlight */
 #workspaces button:hover,
 #battery:hover,
 #network:hover,
@@ -111,10 +111,10 @@ tooltip label {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  左侧：开始 + 工作区
+ *  Left: launcher + workspaces
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-/* "开始"按钮 */
+/* Launcher button */
 #custom-applauncher {
   color: @primary;
   font-size: 1.36em;
@@ -126,7 +126,7 @@ tooltip label {
   background: alpha(@primary, 0.12);
 }
 
-/* 工作区 — Windows 风格方块 */
+/* Workspaces — Windows-style tiles */
 #workspaces {
   padding: 0 0.14em;
 }
@@ -153,7 +153,7 @@ tooltip label {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  中间：任务栏（活动窗口列表）
+ *  Center: taskbar (active windows)
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #window {
@@ -189,22 +189,22 @@ tooltip label {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  右侧：系统托盘区
+ *  Right: tray and system area
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-/* —— 更新 —— */
+/* Updates */
 #custom-updates {
   color: @tertiary;
 }
 
-/* —— 媒体播放 —— */
+/* Media */
 #mpris {
   color: @secondary;
   font-size: 0.93em;
   margin-left: 0.57em;
 }
 
-/* —— 天气 —— */
+/* Weather */
 #custom-weather {
   color: @on_surface_variant;
   font-size: 0.93em;
@@ -212,7 +212,7 @@ tooltip label {
   padding-left: 0.71em;
 }
 
-/* —— 系统监控 —— */
+/* System monitor */
 #cpu {
   color: @on_surface_variant;
 }
@@ -230,12 +230,12 @@ tooltip label {
   animation: blink 1s steps(12) infinite alternate;
 }
 
-/* —— 托盘 —— */
+/* Tray */
 #tray {
   padding: 0.29em 0.36em;
 }
 
-/* —— 工具模块 —— */
+/* Tools */
 #custom-screenshot {
   color: @secondary;
 }
@@ -252,13 +252,13 @@ tooltip label {
   color: @tertiary;
 }
 
-/* —— 屏幕隐私 —— */
+/* Privacy */
 #privacy {
   color: @error;
   padding: 0.29em 0.43em;
 }
 
-/* —— 音频 —— */
+/* Audio */
 #pulseaudio {
   color: @on_surface;
 }
@@ -294,7 +294,7 @@ tooltip label {
   background: @primary;
 }
 
-/* —— 网络 —— */
+/* Network */
 #network {
   color: @on_surface;
 }
@@ -303,7 +303,7 @@ tooltip label {
   color: @outline;
 }
 
-/* —— 蓝牙 —— */
+/* Bluetooth */
 #bluetooth {
   color: @on_surface;
 }
@@ -325,7 +325,7 @@ tooltip label {
   color: @tertiary;
 }
 
-/* —— 电池 —— */
+/* Battery */
 #battery {
   color: @on_surface;
 }
@@ -346,7 +346,7 @@ tooltip label {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  时钟 — Windows 风格双行时间日期
+ *  Clock — Windows-style two-line time/date
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #clock {
@@ -362,7 +362,7 @@ tooltip label {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- *  电源菜单
+ *  Power menu
  * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 #custom-poweroff {
@@ -389,7 +389,7 @@ tooltip label {
   color: @error;
 }
 
-/* 亮度 */
+/* Brightness */
 #custom-ddcutil-day,
 #custom-ddcutil-night,
 #custom-ddcutil-sleep,
@@ -441,3 +441,4 @@ tooltip label {
   /* 5px */
   background-color: @tertiary;
 }
+
