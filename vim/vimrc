@@ -1,0 +1,75 @@
+" ============================================================================
+" Vim Configuration - Main Entry
+" ============================================================================
+
+" Disable vi compatibility
+set nocompatible
+
+" Leader keys
+let mapleader = ' '
+let maplocalleader = '\'
+
+" ============================================================================
+" Plugin Manager (vim-plug)
+" ============================================================================
+
+let g:plug_home = expand('~/.vim/plugged')
+
+call plug#begin(g:plug_home)
+
+" Colorschemes (matching nvim config)
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'rose-pine/vim'
+
+" LSP and Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+" Statusline
+Plug 'itchyny/lightline.vim'
+
+" File explorer
+Plug 'preservim/nerdtree'
+
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Multiple cursors
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" Commenting
+Plug 'tpope/vim-commentary'
+
+" Surround
+Plug 'tpope/vim-surround'
+
+" Repeat
+Plug 'tpope/vim-repeat'
+
+" Syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
+" Smooth scrolling
+Plug 'psliwka/vim-smoothie'
+
+" Devicons
+Plug 'ryanoasis/vim-devicons'
+
+call plug#end()
+
+" ============================================================================
+" Source Configuration Files
+" ============================================================================
+
+source ~/.vim/config/options.vim
+source ~/.vim/config/keymaps.vim
+source ~/.vim/config/autocmds.vim
+source ~/.vim/plugins/coc.vim
+source ~/.vim/plugins/fzf.vim
+source ~/.vim/plugins/git.vim
+source ~/.vim/plugins/ui.vim
+source ~/.vim/plugins/editor.vim

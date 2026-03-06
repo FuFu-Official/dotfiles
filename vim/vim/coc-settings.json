@@ -1,0 +1,82 @@
+{
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true,
+  "suggest.completionItemKindLabels": {
+    "text": "󰉿",
+    "method": "󰆧",
+    "function": "󰊕",
+    "constructor": "",
+    "field": "󰜢",
+    "variable": "󰀫",
+    "class": "󰠱",
+    "interface": "",
+    "module": "",
+    "property": "󰜢",
+    "unit": "󰑭",
+    "value": "󰎠",
+    "enum": "",
+    "keyword": "󰌋",
+    "snippet": "",
+    "color": "󰏘",
+    "file": "󰈙",
+    "reference": "󰈇",
+    "folder": "󰉋",
+    "enumMember": "",
+    "constant": "󰏿",
+    "struct": "󰙅",
+    "event": "",
+    "operator": "󰆕",
+    "typeParameter": ""
+  },
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.hintSign": "➤",
+  "inlayHint.enable": true,
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
+  "suggest.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
+  "diagnostic.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
+  "Lua.diagnostics.globals": ["vim"],
+  "Lua.workspace.checkThirdParty": false,
+  "Lua.hint.enable": true,
+  "Lua.hint.setType": false,
+  "Lua.hint.paramType": true,
+  "Lua.hint.paramName": "Disable",
+  "Lua.completion.callSnippet": "Replace",
+  "pyright.organizeImports": true,
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length=120"],
+  "json.format.enable": true,
+  "json.schemas": [],
+  "clangd.path": "clangd",
+  "clangd.arguments": [
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+    "--completion-style=detailed",
+    "--function-arg-placeholders"
+  ],
+  "sh.enable": true,
+  "html.enable": true,
+  "css.enable": true,
+  "yaml.schemas": {},
+  "toml.enable": true,
+  "markdownlint.config": {
+    "MD013": false
+  },
+  "prettier.requireConfig": true,
+  "prettier.formatterPriority": 1
+}

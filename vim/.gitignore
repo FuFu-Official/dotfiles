@@ -1,0 +1,33 @@
+# Backup, swap, and undo files
+vim/backup/
+vim/swap/
+vim/undo/
+*.*~
+
+# Netrw history
+vim/.netrwhist
+
+# Installed plugins (vim-plug)
+vim/plugged/
+
+# vim-plug autoload (can be re-downloaded)
+vim/autoload/
+
+# Plugin cache
+vim/cache/
+
+# Session files
+*.vim.session
+Session.vim
+
+# Tags
+tags
+.tags
+
+# Coc.nvim data
+vim/coc/
+
+# Other
+*.pyc
+__pycache__/
+.DS_Store
