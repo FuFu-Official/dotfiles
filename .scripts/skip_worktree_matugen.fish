@@ -6,7 +6,8 @@ set matugen_color_file_paths btop/themes/fufu-matugen.theme cava/themes/fufu-mat
     opencode/themes/fufu-matugen.json qt5ct/colors/fufu-matugen.conf qt6ct/colors/fufu-matugen.conf \
     kitty/current-theme.conf rmpc/themes/fufu-matugen.ron yazi/theme.toml wlogout/colors.css \
     wlogout/.scripts/recolor-icons.sh wlogout/icons/*.png zathura/zathurarc obs-studio/themes/matugen.obt \
-    AdwSteamGtk/custom.css fish/conf.d/50-fish-prompt.fish zen/chrome/colors.css waybar/colors.css
+    AdwSteamGtk/custom.css fish/conf.d/50-fish-prompt.fish zen/chrome/colors.css waybar/colors.css \
+    walker/colors.css
 
 for file in $matugen_color_file_paths
     set full_path "$path_prefix$file"
