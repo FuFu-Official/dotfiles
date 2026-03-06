@@ -1,103 +1,135 @@
 @-moz-document domain("github.com") {
   :root {
-    --bgColor-default: var(--background) !important;
-    --bgColor-muted: var(--surface_container_low) !important;
-    --bgColor-inset: var(--surface_container_lowest) !important;
-    --bgColor-emphasis: var(--surface_bright) !important;
+    /* 基础背景 (Canvas) */
+    --color-canvas-default: var(--background) !important;
+    --color-canvas-subtle: var(--surface_container_low) !important;
+    --color-canvas-inset: var(--surface_container_lowest) !important;
+    --color-canvas-overlay: var(--surface_container_high) !important;
 
-    /* Borders */
-    --borderColor-default: var(--outline_variant) !important;
-    --borderColor-muted: var(--outline_variant) !important;
-    --borderColor-emphasis: var(--outline) !important;
+    /* 文本颜色 (Foreground) */
+    --color-fg-default: var(--on_surface) !important;
+    --color-fg-muted: var(--on_surface_variant) !important;
+    --color-fg-subtle: var(--outline) !important;
+    --color-fg-on-emphasis: var(--on_primary) !important;
 
-    /* Text Colors */
-    --fgColor-default: var(--on_surface) !important;
-    --fgColor-muted: var(--on_surface_variant) !important;
-    --fgColor-accent: var(--primary) !important;
+    /* 边框颜色 (Borders) */
+    --color-border-default: var(--outline_variant) !important;
+    --color-border-muted: var(--surface_variant) !important;
+    --color-border-subtle: var(--outline_variant) !important;
 
-    /* Buttons */
-    --button-primary-bgColor-rest: var(--primary) !important;
-    --button-primary-fgColor-rest: var(--on_primary) !important;
-    --button-primary-bgColor-hover: var(--primary_fixed_dim) !important;
-    --button-primary-bgColor-active: var(--primary_fixed) !important;
-    --button-primary-borderColor-rest: var(--outline_variant) !important;
+    /* 强调/链接色 (Accent) */
+    --color-accent-fg: var(--primary) !important;
+    --color-accent-emphasis: var(--primary) !important;
+    --color-accent-muted: var(--primary_container) !important;
+    --color-accent-subtle: rgba(var(--primary_rgb), 0.1) !important;
 
-    --button-default-bgColor-rest: var(--surface_container_high) !important;
-    --button-default-fgColor-rest: var(--on_surface) !important;
-    --button-default-bgColor-hover: var(--surface_bright) !important;
-    --buttonCounter-default-bgColor-rest: var(
+    /* 阴影 */
+    --color-shadow-medium: 0 8px 24px var(--shadow) !important;
+    --color-shadow-large: 0 12px 48px var(--shadow) !important;
+
+    /* 头部 (Header) 适配 */
+    --color-header-bg: var(--surface_container_lowest) !important;
+    --color-header-text: var(--on_surface_variant) !important;
+    --color-header-logo: var(--primary) !important;
+    --color-header-search-bg: var(--surface_container) !important;
+    --color-header-search-border: var(--outline_variant) !important;
+    /* 默认按钮 (Default Button) */
+    --color-btn-bg: var(--surface_container_high) !important;
+    --color-btn-text: var(--on_surface) !important;
+    --color-btn-border: var(--outline_variant) !important;
+    --color-btn-hover-bg: var(--surface_variant) !important;
+    --color-btn-hover-border: var(--outline) !important;
+    --color-btn-active-bg: var(--surface_container_highest) !important;
+    --color-btn-selected-bg: var(--surface_variant) !important;
+
+    /* 主要按钮 (Primary Button) */
+    --color-btn-primary-bg: var(--primary) !important;
+    --color-btn-primary-text: var(--on_primary) !important;
+    --color-btn-primary-hover-bg: var(--secondary) !important;
+    --color-btn-primary-selected-bg: var(--primary_container) !important;
+    --color-btn-primary-disabled-bg: var(--surface_variant) !important;
+    --color-btn-primary-disabled-text: var(--outline) !important;
+
+    /* 轮廓按钮 (Outline Button) */
+    --color-btn-outline-text: var(--primary) !important;
+    --color-btn-outline-hover-bg: var(--surface_variant) !important;
+    --color-btn-outline-hover-text: var(--secondary) !important;
+    --color-btn-outline-selected-bg: var(--primary_container) !important;
+    --color-btn-outline-selected-text: var(--on_surface) !important;
+
+    /* 输入框与菜单 (Inputs & Menus) */
+    --color-input-bg: var(--surface_container_lowest) !important;
+    --color-select-menu-backdrop-bg: rgba(var(--scrim_rgb), 0.5) !important;
+    --color-action-list-item-default-hover-bg: var(
+      --surface_variant
+    ) !important;
+    --color-action-list-item-default-selected-bg: var(
       --surface_container_highest
     ) !important;
+    /* 危险/错误 (Danger) - 映射到你的 Error 变量 */
+    --color-danger-fg: var(--error) !important;
+    --color-danger-emphasis: var(--error) !important;
+    --color-danger-subtle: rgba(var(--error_rgb), 0.1) !important;
+    --color-danger-muted: var(--error_container) !important;
+    --color-btn-danger-text: var(--error) !important;
+    --color-btn-danger-hover-bg: var(--error) !important;
+    --color-btn-danger-hover-text: var(--on_error) !important;
 
-    --bgColor-accent-emphasis: var(--primary) !important;
-    --borderColor-accent-emphasis: var(--primary) !important;
-    --bgColor-accent-muted: var(--primary_container) !important;
-    --borderColor-accent-muted: var(--primary_container) !important;
+    /* 警告/注意 (Attention) - 映射到你的 Tertiary 变量 */
+    --color-attention-fg: var(--tertiary) !important;
+    --color-attention-emphasis: var(--tertiary) !important;
+    --color-attention-subtle: rgba(var(--tertiary_rgb), 0.1) !important;
+    --color-attention-muted: var(--tertiary_container) !important;
 
-    /* Looks kinda bad in issues but here if you want it */
-    /* --bgColor-success-emphasis: var(--tertiary) !important; */
-    /* --fgColor-success: var(--tertiary) !important; */
+    /* 成功 (Success) - 稍微调亮你的 Tertiary 以作区分，或使用系统绿 */
+    --color-success-fg: #aff5b4 !important; /* GitHub 绿色习惯 */
+    --color-success-emphasis: #3fb950 !important;
+    --color-success-subtle: rgba(63, 185, 80, 0.1) !important;
 
-    --bgColor-danger-emphasis: var(--error) !important;
-    --fgColor-danger: var(--error) !important;
-    --button-danger-fgColor-rest: var(--error) !important;
-    --button-danger-bgColor-hover: var(--error_container) !important;
+    /* 标签 (Labels) */
+    --color-fg-on-emphasis: var(--on_primary) !important;
+    /* 贡献图 (Contribution Calendar) - 这里的色阶映射到你的 Primary 系列 */
+    --color-calendar-graph-day-bg: var(--surface_container_low) !important;
+    --color-calendar-graph-day-L1-bg: #4e3c37 !important; /* 暗红 */
+    --color-calendar-graph-day-L2-bg: var(--tertiary_container) !important;
+    --color-calendar-graph-day-L3-bg: var(--primary_container) !important;
+    --color-calendar-graph-day-L4-bg: var(--primary) !important;
 
-    --bgColor-attention-emphasis: var(--secondary) !important;
-    --borderColor-attention-muted: var(--secondary_container) !important;
-
-    --control-checked-bgColor-rest: var(--primary) !important;
-    --control-checked-bgColor-hover: var(--primary_fixed_dim) !important;
-    --control-checked-bgColor-active: var(--primary_fixed) !important;
-
-    /* Star button */
-    --button-star-iconColor: var(--primary) !important;
-
-    /*Code Blocks*/
-    --color-prettylights-syntax-comment: var(--on_surface_variant) !important;
+    /* 语法高亮 (Syntax Highlighting) */
+    --color-prettylights-syntax-keyword: var(--primary) !important;
+    --color-prettylights-syntax-string: var(--tertiary) !important;
     --color-prettylights-syntax-constant: var(--secondary) !important;
-    --color-prettylights-syntax-entity: var(--primary) !important;
-    --color-prettylights-syntax-storage-modifier-import: var(
-      --on_surface
-    ) !important;
-    --color-prettylights-syntax-entity-tag: var(--tertiary) !important;
-    --color-prettylights-syntax-keyword: var(--error) !important;
-    --color-prettylights-syntax-string: var(--primary_fixed_dim) !important;
     --color-prettylights-syntax-variable: var(--on_surface) !important;
-    --color-prettylights-syntax-markup-heading: var(--primary) !important;
-    --color-prettylights-syntax-markup-italic: var(--on_surface) !important;
-    --color-prettylights-syntax-markup-bold: var(--on_surface) !important;
-    --color-prettylights-syntax-markup-code: var(
-      --primary_container
+    --color-prettylights-syntax-comment: var(--outline) !important;
+    --color-prettylights-syntax-entity: var(--primary_fixed_dim) !important;
+    --color-prettylights-syntax-storage-modifier-import: var(
+      --on_surface_variant
     ) !important;
-    --color-canvas-subtle: var(--surface_container_low) !important;
+    --color-prettylights-syntax-markup-bold: var(--on_surface) !important;
+    --color-prettylights-syntax-markup-italic: var(--on_surface) !important;
+    --color-prettylights-syntax-markup-heading: var(--primary) !important;
+    --color-prettylights-syntax-markup-list: var(--tertiary) !important;
 
-    .prc-SegmentedControl-SegmentedControl-lqIXp,
-    [class*="SegmentedControl-SegmentedControl"] {
-      background-color: var(--surface_container_low) !important;
-      border: 1px solid var(--outline_variant) !important;
-      border-radius: 6px !important;
-    }
-    .prc-SegmentedControl-list,
-    [class*="SegmentedControl-Button"]:not([aria-current="true"]),
-    [class*="SegmentedControl-Button"]:not([aria-current="true"])
-      [class*="SegmentedControl-Content"] {
-      background-color: transparent !important;
-    }
-    [class*="SegmentedControl-Button"][aria-current="true"]
-      [class*="SegmentedControl-Content"] {
-      background-color: var(--surface_bright) !important;
-      color: var(--on_surface) !important;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
-      border-radius: 4px !important; /* 让滑块边缘更圆润 */
-    }
-    [class*="SegmentedControl-Content"] {
-      color: var(--on_surface) !important;
-    }
-    [class*="SegmentedControl-Button"]:not([aria-current="true"]):hover
-      [class*="SegmentedControl-Content"] {
-      background-color: var(--surface_container_high) !important;
-      transition: background-color 0.2s ease;
-    }
+    /* Diff 差异比较 */
+    --color-prettylights-syntax-markup-inserted: rgba(
+      var(--primary_rgb),
+      0.2
+    ) !important;
+    --color-prettylights-syntax-markup-deleted: rgba(
+      var(--error_rgb),
+      0.2
+    ) !important;
+
+    /* Markdown 元素 */
+    --color-markdown-code-bg: var(--surface_container_lowest) !important;
+    --color-blockquote-border: var(--primary) !important;
+  }
+
+  /* 额外的 UI 修正 */
+  .f4.color-fg-muted.h6.mb-1 {
+    color: var(--on_surface_variant) !important;
+  }
+  .user-status-container-border-busy {
+    border-color: var(--error) !important;
   }
 }
