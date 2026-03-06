@@ -2,5 +2,5 @@ force_keyboard_focus = true # forces keyboard forcus to stay in Walker
 theme = "matugen"
 
 [keybinds]
-next = ["ctrl j"]
-previous = ["ctrl k"]
+next = ["ctrl j", "Down"]
+previous = ["ctrl k", "Up"]
