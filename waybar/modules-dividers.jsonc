@@ -1,7 +1,7 @@
 {
   /*-------------------
-		left dividers
-	-------------------*/
+    left dividers
+  -------------------*/
   "custom/left_div#1": {
     "format": "",
     "tooltip": false,
@@ -51,8 +51,8 @@
     "tooltip": false,
   },
   /*--------------------
-		right dividers
-	--------------------*/
+    right dividers
+  --------------------*/
   "custom/right_div#1": {
     "format": "",
     "tooltip": false,
@@ -86,3 +86,4 @@
     "tooltip": false,
   },
 }
+

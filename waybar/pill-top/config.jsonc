@@ -1,6 +1,7 @@
 {
   "include": [
-    "pill-top/modules.jsonc",
+    "modules.jsonc",
+    "modules-dividers.jsonc",
   ],
   "layer": "top",
   "position": "top",

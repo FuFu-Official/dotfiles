@@ -1,6 +1,7 @@
 {
   "include": [
-    "win-bottom/modules.jsonc",
+    "modules.jsonc",
+    "modules-dividers.jsonc",
   ],
   "layer": "top",
   "position": "bottom",
@@ -35,3 +36,4 @@
     "group/powermenu",
   ],
 }
+

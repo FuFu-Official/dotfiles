@@ -1,7 +1,7 @@
 {
   "include": [
-    "powerline-top/modules.jsonc",
-    "powerline-top/modules-dividers.jsonc",
+    "modules.jsonc",
+    "modules-dividers.jsonc",
   ],
   "layer": "top",
   "position": "top",

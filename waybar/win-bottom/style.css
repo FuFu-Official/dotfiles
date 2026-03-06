@@ -24,7 +24,7 @@ window#waybar {
   padding: 0;
 }
 
-window#waybar > box {
+window#waybar>box {
   margin: 0;
   padding: 0;
 }
@@ -441,4 +441,3 @@ tooltip label {
   /* 5px */
   background-color: @tertiary;
 }
-
