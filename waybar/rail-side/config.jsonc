@@ -16,16 +16,21 @@
     "hyprland/workspaces",
   ],
   "modules-center": [
-    "clock",
+    "clock#rail",
     "idle_inhibitor",
   ],
   "modules-right": [
     "custom/updates",
+    "custom/screenshot",
     "network",
     "bluetooth",
     "privacy",
+    "pulseaudio#rail",
+    "pulseaudio/slider#rail",
+    // "custom/ddcutil-day",
+    "backlight",
+    "backlight/slider#rail",
     "power-profiles-daemon",
     "group/powermenu",
   ],
 }
-

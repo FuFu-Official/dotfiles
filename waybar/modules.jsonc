@@ -56,6 +56,12 @@
       "on-scroll-down": "shift_down",
     },
   },
+  "clock#rail": {
+    "interval": 60,
+    "format": "{:%H\n%M}",
+    "format-alt": "{:%m/%d}",
+    "tooltip-format": "{:%Y/%m/%d %A}",
+  },
   "mpris": {
     "format": "{status_icon} {title}",
     "format-paused": "{status_icon} {title}",
@@ -110,6 +116,11 @@
     "max": 100,
     "orientation": "horizontal",
   },
+  "backlight/slider#rail": {
+    "min": 5,
+    "max": 100,
+    "orientation": "vertical",
+  },
   "backlight": {
     "tooltip": true,
     "tooltip-format": "Control backlight",
@@ -135,6 +146,21 @@
     "modules": [
       "custom/ddcutil-day",
       "backlight/slider",
+      "backlight",
+      "custom/separator#1",
+      "custom/ddcutil-sleep",
+      "custom/ddcutil-night",
+    ],
+  },
+  "group/ddcutil#rail": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
+      "transition-duration": 260,
+    },
+    "modules": [
+      "custom/ddcutil-day",
+      "backlight/slider#rail",
       "backlight",
       "custom/separator#1",
       "custom/ddcutil-sleep",
@@ -245,6 +271,37 @@
       "pulseaudio/slider",
     ],
   },
+  "group/audio#rail": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
+      "transition-duration": 260,
+    },
+    "modules": [
+      "pulseaudio",
+      "pulseaudio/slider#rail",
+    ],
+  },
+  "pulseaudio#rail": {
+    "tooltip-format": "Click: mute | Right: mic mute | Mid: pavucontrol",
+    "format": "{icon}",
+    "format-bluetooth": "",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "bluetooth": "",
+      "speaker": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-middle": "pavucontrol --tab=3",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"
+  },
   "pulseaudio": {
     "tooltip-format": "Click: mute | Right: mic mute | Mid: pavucontrol",
     "format": "{icon} {volume}% {format_source}",
@@ -271,6 +328,11 @@
     "min": 0,
     "max": 100,
     "orientation": "horizontal",
+  },
+  "pulseaudio/slider#rail": {
+    "min": 0,
+    "max": 100,
+    "orientation": "vertical",
   },
   "bluetooth": {
     "format-disabled": "󰂲",

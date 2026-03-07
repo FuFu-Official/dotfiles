@@ -18,7 +18,7 @@ window#waybar {
 }
 
 window#waybar>box {
- padding: 0.32em 0.26em;
+ padding: 0.24em 0.18em;
 }
 
 .modules-left,
@@ -26,8 +26,8 @@ window#waybar>box {
 .modules-right {
  background: transparent;
  border-radius: 0.7em;
- padding: 0.12em 0;
- margin: 0.16em 0;
+ padding: 0.08em 0;
+ margin: 0.12em 0;
 }
 
 .modules-left {
@@ -42,19 +42,28 @@ window#waybar>box {
 
 #custom-applauncher,
 #workspaces button,
-#clock,
+#clock.rail,
 #idle_inhibitor,
 #custom-updates,
+#custom-screenshot,
 #network,
 #bluetooth,
 #privacy,
+#pulseaudio.rail,
+#pulseaudio-slider.rail,
+#custom-ddcutil-day,
+#custom-ddcutil-night,
+#custom-ddcutil-sleep,
+#custom-separator-1,
+#backlight,
+#backlight-slider.rail,
 #power-profiles-daemon,
 #custom-poweroff,
 #custom-reboot,
 #custom-lockscreen {
- margin: 0.14em 0;
- padding: 0.28em 0.38em;
- min-width: 1.58em;
+ margin: 0.11em 0;
+ padding: 0.22em 0.28em;
+ min-width: 1.26em;
  border-radius: 0.58em;
  transition: all 140ms ease;
 }
@@ -66,7 +75,7 @@ window#waybar>box {
 #workspaces button {
  color: @outline;
  background: transparent;
- padding: 0.26em 0.36em;
+ padding: 0.22em 0.28em;
 }
 
 #workspaces button.active {
@@ -85,14 +94,15 @@ window#waybar>box {
  background: alpha(@primary, 0.14);
 }
 
-#clock {
+#clock.rail {
  color: @primary;
  font-weight: 700;
- font-size: 1.02em;
+ font-size: 0.9em;
  background: alpha(@primary, 0.12);
 }
 
 #custom-updates,
+#custom-screenshot,
 #network,
 #bluetooth {
  color: @secondary;
@@ -114,6 +124,60 @@ window#waybar>box {
  color: @tertiary;
 }
 
+#pulseaudio.rail,
+#custom-ddcutil-day,
+#custom-ddcutil-night,
+#custom-ddcutil-sleep,
+#backlight {
+ color: @tertiary;
+}
+
+#custom-separator-1 {
+ color: @outline;
+ padding-left: 0.18em;
+ padding-right: 0.18em;
+}
+
+#pulseaudio-slider.rail,
+#backlight-slider.rail {
+ padding: 0.22em 0.16em;
+ min-width: 1.22em;
+ min-height: 5.2em;
+ background: alpha(@surface_container_high, 0.72);
+}
+
+#pulseaudio-slider.rail slider,
+#backlight-slider.rail slider {
+ min-width: 0.52em;
+ min-height: 0.52em;
+ opacity: 1;
+ border-radius: 999px;
+ border: none;
+ box-shadow: none;
+ background: @on_surface;
+}
+
+#pulseaudio-slider.rail trough,
+#backlight-slider.rail trough {
+ min-width: 0.5em;
+ min-height: 4.8em;
+ border-radius: 0.28em;
+ border: 1px solid alpha(@outline_variant, 0.35);
+ background: alpha(@surface_container_highest, 0.9);
+}
+
+#pulseaudio-slider.rail highlight {
+ min-width: 0.5em;
+ border-radius: 0.28em;
+ background: @primary;
+}
+
+#backlight-slider.rail highlight {
+ min-width: 0.5em;
+ border-radius: 0.28em;
+ background: @tertiary;
+}
+
 #privacy,
 #custom-poweroff {
  color: @error;
@@ -132,12 +196,18 @@ window#waybar>box {
 
 #custom-applauncher:hover,
 #workspaces button:hover,
-#clock:hover,
+#clock.rail:hover,
 #idle_inhibitor:hover,
 #custom-updates:hover,
+#custom-screenshot:hover,
 #network:hover,
 #bluetooth:hover,
 #privacy:hover,
+#pulseaudio.rail:hover,
+#custom-ddcutil-day:hover,
+#custom-ddcutil-night:hover,
+#custom-ddcutil-sleep:hover,
+#backlight:hover,
 #power-profiles-daemon:hover,
 #custom-poweroff:hover,
 #custom-reboot:hover,
@@ -159,9 +229,15 @@ window#waybar>box {
 }
 
 #custom-updates,
+#custom-screenshot,
 #network,
 #bluetooth,
 #privacy,
+#pulseaudio.rail,
+#custom-ddcutil-day,
+#custom-ddcutil-night,
+#custom-ddcutil-sleep,
+#backlight,
 #power-profiles-daemon,
 #idle_inhibitor,
 #custom-poweroff,
