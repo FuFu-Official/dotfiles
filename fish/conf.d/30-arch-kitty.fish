@@ -75,12 +75,19 @@ if test "$OS_ID" = arch
         ln -sf $target/style.css $waybar_dir/style.css
 
         # Restart waybar
-        pkill -i waybar; or true
-        sleep 0.3
-        waybar &>/dev/null &
-        disown
+        # pkill -i waybar; or true
+        # sleep 0.3
+        # waybar &>/dev/null &
+        # disown
 
-        echo "Switched waybar to: $target"
+        if not pgrep -x waybar >/dev/null
+            waybar &>/dev/null &
+            disown
+        else
+            killall -SIGUSR2 waybar
+        end
+
+        notify-send Waybar "🌸 Switched to: $target"
     end
 
     function switch-wallpaper --description "Update hyprpaper.conf and restart"
@@ -106,7 +113,7 @@ if test "$OS_ID" = arch
         echo "Hyprpaper config updated and hyprpaper restarted with: $wall_path"
 
         matugen image $wall_path -t scheme-fruit-salad --contrast 0.3
-        echo "Matugen updated with new wallpaper"
+        echo "Matugen updated with new wallpaper!"
     end
 
     function conda_activate
@@ -146,13 +153,16 @@ end
 # Qt
 set -gx QT_QPA_PLATFORMTHEME qt6ct
 
-function restart_fcitx5
-    if pgrep -x fcitx5 >/dev/null
-        hyprctl keyword exec "pkill fcitx5 &> /dev/null &"
-        while pgrep -x fcitx5 >/dev/null
-            sleep 0.1
-        end
-        hyprctl keyword exec "nohup fcitx5 >/dev/null 2>&1 & disown"
-        notify-send "[🌸中|⚡A]  Fcitx5 restarted!"
+function check_caps
+    sleep 0.15
+    set -l state (brightnessctl --device="*capslock" get)
+    if test "$state" = 1
+        set -l title "CAPS LOCK: ON"
+        set -l body "󰪛  LOCKED"
+        notify-send -t 1600 -u low "$title" "$body"
+    else
+        set -l title "caps lock: off"
+        set -l body "󰪜  unlocked"
+        notify-send -t 1600 -u low "$title" "$body"
     end
 end
