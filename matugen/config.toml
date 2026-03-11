@@ -25,7 +25,7 @@ output_path = "~/.zen/7dljbyy8.Default (release)/chrome/colors.css"
 [templates.fcitx5]
 input_path = '~/.config/matugen/templates/fcitx5-theme.conf'
 output_path = '~/.local/share/fcitx5/themes/Matugen/theme.conf'
-post_hook = 'restart_fcitx5'
+post_hook = 'fcitx5 -r >/dev/null 2>&1 & disown'
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
@@ -103,4 +103,4 @@ output_path = '~/.config/obs-studio/themes/matugen.obt'
 [templates.steam]
 input_path = '~/.config/matugen/templates/steam.css'
 output_path = '~/.config/AdwSteamGtk/custom.css'
-post_hook = 'adwaita-steam-gtk -i && notify-send "󰄵  Matugen Theme Refreshed."'
+post_hook = 'adwaita-steam-gtk -i && notify-send "Matugen" "󰄵  Matugen Theme Refreshed."'

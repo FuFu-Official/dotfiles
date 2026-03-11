@@ -8,7 +8,6 @@
 > Neovim colors + Lualine. Other plugins that manage their own highlight groups
 > are not covered by this guide (e.g. Neogit)
 
-
 ## The `base16-colorscheme` Plugin
 
 As with any program broad and free as Neovim, there are infinite ways to go
@@ -43,7 +42,7 @@ require('base16-colorscheme').setup({
 While this `.setup()` call takes care of mostly everything, some additional
 calls to `nvim_set_hl` may be needed to tweak colors to your liking:
 
-``` lua
+```lua
 -- Make selected text stand out more
 vim.api.nvim_set_hl(0, 'Visual', {
   bg = '{{colors.primary_container.default.hex}}',
@@ -76,7 +75,7 @@ If you are using an unmodified (or simple) Lualine configuration, all you need
 to do add a `require('lualine').setup({})` to the end of matugen's
 `template.lua`, which will re-setup Lualine as the output file gets sourced.
 However, if your Lualine setup is a bit complex, it can be sub-optimal to copy
-its entire setup function into the matugen template file. 
+its entire setup function into the matugen template file.
 
 One solution to this is to refactor your Lualine setup into its own file, and
 then just call `dofile()` on said file from both your `init.lua` and matugen
