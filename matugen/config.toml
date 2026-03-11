@@ -71,6 +71,11 @@ output_path = '~/.config/qt6ct/colors/fufu-matugen.conf'
 input_path = '~/.config/matugen/templates/rmpc/rmpc.ron'
 output_path = '~/.config/rmpc/themes/fufu-matugen.ron'
 
+[templates.snappy-switcher]
+input_path = '~/.config/matugen/templates/snappy-switcher.ini'
+output_path = '~/.config/snappy-switcher/themes/matugen.ini'
+post_hook = 'snappy-switcher quit; nohup snappy-switcher --daemon >/dev/null 2>&1 &'
+
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
