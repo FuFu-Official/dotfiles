@@ -1,47 +1,13 @@
+include zathura-colors
+
 " -----------------------------------------------------------------------------
 " Zathura settings
 " -----------------------------------------------------------------------------
 
-" Colors
-set default-bg              "rgba(63, 46, 0, 1)"
-set default-fg              "#e7c26c"
-
-set statusbar-bg            "#3f2e00"
-set statusbar-fg            "#e7c26c"
-
-set inputbar-bg             "#3f2e00"
-set inputbar-fg             "#e7c26c"
-
-set notification-error-bg   "#690005"
-set notification-error-fg   "#ffb4ab"
-
-set notification-warning-bg "#ffdf99"
-set notification-warning-fg "#93000a"
-
-set highlight-color         "#ffdf99"
-set highlight-active-color  "#e7c26c"
-
-set completion-highlight-fg "#3f2e00"
-set completion-highlight-bg #e7c26c""
-
-set completion-bg           "#3f2e00"
-set completion-fg           "#e7c26c"
-
-set notification-bg         "#3f2e00"
-set notification-fg         "#e7c26c"
-
-set recolor                 "true"
-set recolor-lightcolor      "rgba(63, 46, 0, 1)"
-set recolor-darkcolor       "#e7c26c"
-set recolor-reverse-video   "true"
-set recolor-keephue         "true"
-
-set synctex               true
-set scroll-step           100
-set database              "sqlite"
-set page-padding          20
-set adjust-open           "width"
-set guioptions            "none"
+set scroll-step 100
+set database "sqlite"
+set adjust-open "width"
+set guioptions "none"
 
 " Clipboard
 set selection-clipboard clipboard
@@ -53,19 +19,20 @@ set search-hadjust true
 " Autoadjust
 set adjust-open width
 
-" Typography
-" set font "FiraCode Nerd Font 12"
-
 " -----------------------------------------------------------------------------
 " Zathura mappings
 " -----------------------------------------------------------------------------
-" remove status bar
-set guioptions none
+
 " Zoom in/out
 map [normal]     z zoom in
 map [normal]     Z zoom out
 map [fullscreen] z zoom in
 map [fullscreen] Z zoom out
+
+map <C-+> zoom in
+map <C--> zoom out
+map <C-=> zoom in
+map <C-0> zoom reset
 
 " Toggle mode
 map [normal]     D toggle_page_mode
