@@ -66,4 +66,4 @@ else
   # Touchpad (could not be) enabled.
 fi
 
-notify-send -u normal "$NOTIFMSG" # Send notification(delete this line if you don't want notifications)
+notify-send -t 1600 -u normal "$NOTIFMSG" # Send notification(delete this line if you don't want notifications)
