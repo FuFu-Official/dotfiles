@@ -11,11 +11,13 @@ This is a LazyVim-based Neovim configuration. It uses the lazy.nvim plugin manag
 This is a configuration repository, not a buildable project. However, there are linting and formatting commands:
 
 ### Formatting
+
 ```bash
 stylua lua/ init.lua matugen.lua
 ```
 
 ### Linting
+
 ```bash
 # Lua linting (if luacheck is installed)
 luacheck lua/ init.lua matugen.lua
@@ -25,6 +27,7 @@ markdownlint-cli2 **/*.md
 ```
 
 ### Validation
+
 ```bash
 # Validate Neovim config loads without errors
 nvim --headless -c 'q' 2>&1 | grep -i error
