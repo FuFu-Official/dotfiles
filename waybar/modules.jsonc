@@ -104,7 +104,8 @@
     "tooltip": true,
     "interval": 1800,
     "return-type": "json",
-    "exec": "wttrbar --location Shanghai --main-indicator temp_C --custom-indicator \"{ICON} {temp_C}°C\" --lang zh --nerd",
+    // SJTU campus in MinHang district, Shanghai
+    "exec": "wttrbar --location 31.02645,121.42879 --main-indicator temp_C --custom-indicator \"{ICON} {temp_C}°C\" --lang zh --nerd",
     "on-click-right": "xdg-open https://wttr.in",
   },
   "tray": {
@@ -215,8 +216,8 @@
   "custom/screenshot": {
     "format": "",
     "tooltip-format": "Left: region | Right: window | Mid: open folder",
-    "on-click": "hyprshot -m region",
-    "on-click-right": "hyprshot -m window",
+    "on-click": "grim -g \"$(slurp)\" - | satty -f -",
+    "on-click-right": "grim - | satty -f -",
     "on-click-middle": "thunar $HOME/Pictures/Screenshots",
   },
   "custom/wfrec": {
