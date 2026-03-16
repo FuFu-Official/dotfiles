@@ -5,5 +5,4 @@
 vim.g.root_spec = { "lsp", "cwd", { ".git", "lua" } }
 
 -- vim.opt.scrolloff = 10
-
 -- vim.opt.jumpoptions = "stack"
