@@ -342,8 +342,8 @@
     "tooltip-format-on": "Bluetooth on",
     "tooltip-format-connected": "{device_alias}",
     "tooltip-format-disabled": "Bluetooth off",
-    "on-click": "~/.config/waybar/.scripts/toggle-bluetooth.sh",
-    "on-click-right": "kitty --class bluetui -e bluetui",
+    "on-click": "kitty --class bluetui -e bluetui",
+    "on-click-right": "~/.config/waybar/.scripts/toggle-bluetooth.sh",
   },
   "network": {
     "format-disconnected": "󰤮",
