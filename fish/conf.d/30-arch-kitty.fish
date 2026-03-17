@@ -112,7 +112,9 @@ if test "$OS_ID" = arch
 
         echo "Hyprpaper config updated and hyprpaper restarted with: $wall_path"
 
+        # matugen image $wall_path -t scheme-fruit-salad --contrast 0.3 -m dark --lightness-dark 0.2
         matugen image $wall_path -t scheme-fruit-salad --contrast 0.3
+
         echo "Matugen updated with new wallpaper!"
     end
 
@@ -157,12 +159,8 @@ function check_caps
     sleep 0.15
     set -l state (brightnessctl --device="*capslock" get)
     if test "$state" = 1
-        set -l title "CAPS LOCK: ON"
-        set -l body "󰪛  LOCKED"
-        notify-send -t 1600 -u low "$title" "$body"
+        notify-send -t 800 -u low "CAPS LOCK: ON"
     else
-        set -l title "caps lock: off"
-        set -l body "󰪜  unlocked"
-        notify-send -t 1600 -u low "$title" "$body"
+        notify-send -t 800 -u low "caps lock: off"
     end
 end
