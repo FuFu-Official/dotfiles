@@ -15,7 +15,8 @@
     "custom/applauncher",
     "hyprland/workspaces",
     // "niri/workspaces",
-    "mpris",
+    // "mpris",
+    "custom/media",
   ],
   "modules-center": [
     "wlr/taskbar",

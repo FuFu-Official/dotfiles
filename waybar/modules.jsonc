@@ -82,6 +82,22 @@
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
   },
+  "custom/media": {
+    "format": "{icon} {text}",
+    "return-type": "json",
+    "max-length": 25,
+    "format-icons": {
+      "Playing": "󰏤",
+      "Paused": "󰐊",
+      "Stopped": "󰓛",
+    },
+    "escape": true,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{title}}\", \"tooltip\": \"{{artist}} - {{title}} ({{album}})\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctld shift",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+  },
   "custom/cava": {
     "tooltip": "Audio Visualization",
     "format": "{}",

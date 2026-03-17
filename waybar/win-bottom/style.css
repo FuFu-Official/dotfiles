@@ -24,7 +24,7 @@ window#waybar {
   padding: 0;
 }
 
-window#waybar > box {
+window#waybar>box {
   margin: 0;
   padding: 0;
 }
@@ -457,4 +457,15 @@ tooltip label {
   to {
     color: @on_surface;
   }
+}
+
+#custom-media {
+  padding: 0.29em 0.57em;
+  margin: 0.21em 0.07em;
+  border-radius: 0.29em;
+  color: @tertiary;
+}
+
+#custom-media:hover {
+  background: alpha(@on_surface, 0.08);
 }
