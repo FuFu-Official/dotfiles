@@ -64,6 +64,7 @@ return {
         hyprls = {},
         markdown_oxide = {},
         bashls = {},
+        -- ron_lsp = {},
         texlab = {
           settings = {
             texlab = {

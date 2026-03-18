@@ -15,6 +15,8 @@ return {
       typescript = { "dprint" },
       css = { "prettier" },
       kdl = { "kdlfmt" },
+      rust = { "rustfmt" },
+      ron = { "fmtron" },
     },
   },
 }
