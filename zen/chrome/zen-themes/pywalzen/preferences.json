@@ -1,0 +1,13 @@
+[
+  {
+    "property": "uc.pywalzen.darkness",
+    "label": "Darkness level",
+    "type": "dropdown",
+    "defaultValue": "default",
+    "options": [
+      { "value": "default", "label": "Default" },
+      { "value": "pitch-black", "label": "Pitch black" }
+    ],
+    "disabledOn": []
+  }
+]

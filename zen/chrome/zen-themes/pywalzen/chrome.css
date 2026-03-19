@@ -1,0 +1,85 @@
+:root {
+  --zen-primary-color: #d9d9d9 !important;
+  --zen-colors-primary: var(--tab-loading-fill) !important;
+  --zen-colors-secondary: var(--tab-loading-fill) !important;
+  --toolbarbutton-icon-fill: var(--tab-loading-fill) !important;
+}
+
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="default"]) {
+  --zen-colors-tertiary: var(--lwt-accent-color) !important;
+  --zen-main-browser-background: var(--lwt-accent-color) !important;
+  --zen-themed-toolbar-bg-transparent: var(--lwt-accent-color) !important;
+  --arrowpanel-background: var(--lwt-accent-color) !important;
+}
+
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="pitch-black"]) {
+  --zen-colors-tertiary: black !important;
+  --zen-main-browser-background: black !important;
+  --zen-themed-toolbar-bg-transparent: black !important;
+  --arrowpanel-background: black !important;
+}
+
+/* Urlbar background in expanded/breakout mode — also overrides Zen's own
+   --zen-urlbar-background-base variable so their formula uses our color */
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="default"])
+  #urlbar[breakout-extend="true"]
+  > .urlbar-background {
+  --zen-urlbar-background-base: var(--lwt-accent-color, #1b1b1b) !important;
+  --zen-urlbar-background-transparent: var(
+    --lwt-accent-color,
+    #1b1b1b
+  ) !important;
+  background-color: var(--lwt-accent-color, #1b1b1b) !important;
+}
+
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="pitch-black"])
+  #urlbar[breakout-extend="true"]
+  > .urlbar-background {
+  --zen-urlbar-background-base: black !important;
+  --zen-urlbar-background-transparent: black !important;
+  background-color: black !important;
+}
+
+/* Floating urlbar (Ctrl+T new tab center overlay) */
+:root:has(#theme-PywalZen)
+  #urlbar[zen-floating-urlbar="true"]
+  > .urlbar-background {
+  --zen-urlbar-background-base: var(
+    --zen-main-browser-background,
+    var(--lwt-accent-color, #1b1b1b)
+  ) !important;
+  --zen-urlbar-background-transparent: var(
+    --zen-main-browser-background,
+    var(--lwt-accent-color, #1b1b1b)
+  ) !important;
+  background-color: var(
+    --zen-main-browser-background,
+    var(--lwt-accent-color, #1b1b1b)
+  ) !important;
+}
+
+#urlbar:not([focused="true"]):not([breakout-extend="true"])
+  > .urlbar-background {
+  background: color-mix(
+    in srgb,
+    light-dark(#fff, var(--zen-colors-secondary)) 35%,
+    transparent 65%
+  ) !important;
+}
+
+/* All popup panels and menus — doorhangers, context menus, dropdowns */
+:root:has(#theme-PywalZen) panel::part(content),
+:root:has(#theme-PywalZen) menupopup,
+:root:has(#theme-PywalZen) .panel-arrowcontent {
+  background-color: var(--lwt-accent-color, #1b1b1b) !important;
+}
+
+:root:has(#theme-PywalZen) panel,
+:root:has(#theme-PywalZen) menupopup {
+  --panel-background: var(--lwt-accent-color, #1b1b1b) !important;
+  --arrowpanel-background: var(--lwt-accent-color, #1b1b1b) !important;
+}
+
+#commonDialogWindow {
+  background-color: black !important;
+}
