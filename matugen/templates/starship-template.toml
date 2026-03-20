@@ -1,0 +1,71 @@
+add_newline = true
+
+format = """
+$os $status $directory $c$cmake$python $git_branch$git_status $character
+> """
+
+right_format = """$cmd_duration"""
+
+[os]
+disabled = false
+format = "[$symbol]($style) "
+style = "bold #{{colors.primary.default.hex_stripped}}"
+
+[os.symbols]
+Arch = ""
+Linux = ""
+Macos = "✔"
+Windows = "✔"
+
+[status]
+disabled = false
+format = "[$symbol]($style) "
+style = "bold #{{colors.error.default.hex_stripped}}"
+map_symbol = true
+not_found_symbol = ""
+sigint_symbol = "󱈸"
+symbol = "󰚌"
+
+[directory]
+format = "[$path]($style) "
+style = "italic #{{colors.secondary.default.hex_stripped}}"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+format = "[$symbol$branch]($style)"
+style = "bold #{{colors.tertiary.default.hex_stripped}}"
+symbol = ""
+
+[git_status]
+format = "[$all_status$ahead_behind]($style)"
+style = "bold #{{colors.tertiary.default.hex_stripped}}"
+
+[c]
+format = "[$symbol($version(-$name))]($style) "
+symbol = " "
+style = "bold #{{colors.primary.default.hex_stripped}}"
+
+[cmake]
+format = "[$symbol($version)]($style) "
+symbol = "△ "
+style = "bold #{{colors.secondary.default.hex_stripped}}"
+
+[python]
+format = '[$symbol$pyenv_prefix($version)(\($virtualenv\))]($style) '
+symbol = " "
+style = "bold #{{colors.tertiary.default.hex_stripped}}"
+
+[cmd_duration]
+min_time = 2000
+format = "[$duration]($style)"
+style = "italic #{{colors.inverse_primary.default.hex_stripped}}"
+
+[character]
+format = "$symbol"
+success_symbol = '[\[I\]](bold #{{colors.primary.default.hex_stripped}})'
+error_symbol = '[\[I\]](bold #{{colors.error.default.hex_stripped}})'
+vimcmd_symbol = '[\[N\]](bold #{{colors.inverse_primary.default.hex_stripped}})'
+vimcmd_visual_symbol = '[\[V\]](bold #{{colors.tertiary.default.hex_stripped}})'
+vimcmd_replace_one_symbol = '[\[R\]](bold #{{colors.error.default.hex_stripped}})'
+vimcmd_replace_symbol = '[\[R\]](bold #{{colors.error.default.hex_stripped}})'
