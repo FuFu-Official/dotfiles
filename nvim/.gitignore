@@ -17,7 +17,7 @@
 !lua/**
 !*.toml
 !LICENSE
-!config
-!config/**
+!dots
+!dots/**
 !colors
 !colors/**
