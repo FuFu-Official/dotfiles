@@ -1,0 +1,71 @@
+add_newline = true
+
+format = """
+$os $status $directory $c$cmake$python $git_branch$git_status $character
+> """
+
+right_format = """$cmd_duration"""
+
+[os]
+disabled = false
+format = "[$symbol]($style) "
+style = "bold #e2b6ff"
+
+[os.symbols]
+Arch = ""
+Linux = ""
+Macos = "✔"
+Windows = "✔"
+
+[status]
+disabled = false
+format = "[$symbol]($style) "
+style = "bold #ffb4ab"
+map_symbol = true
+not_found_symbol = ""
+sigint_symbol = "󱈸"
+symbol = "󰚌"
+
+[directory]
+format = "[$path]($style) "
+style = "italic #dfb8f7"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+format = "[$symbol$branch]($style)"
+style = "bold #ffb1c3"
+symbol = ""
+
+[git_status]
+format = "[$all_status$ahead_behind]($style)"
+style = "bold #ffb1c3"
+
+[c]
+format = "[$symbol($version(-$name))]($style) "
+symbol = " "
+style = "bold #e2b6ff"
+
+[cmake]
+format = "[$symbol($version)]($style) "
+symbol = "△ "
+style = "bold #dfb8f7"
+
+[python]
+format = '[$symbol$pyenv_prefix($version)(\($virtualenv\))]($style) '
+symbol = " "
+style = "bold #ffb1c3"
+
+[cmd_duration]
+min_time = 2000
+format = "[$duration]($style)"
+style = "italic #6b3d8c"
+
+[character]
+format = "$symbol"
+success_symbol = '[\[I\]](bold #e2b6ff)'
+error_symbol = '[\[I\]](bold #ffb4ab)'
+vimcmd_symbol = '[\[N\]](bold #6b3d8c)'
+vimcmd_visual_symbol = '[\[V\]](bold #ffb1c3)'
+vimcmd_replace_one_symbol = '[\[R\]](bold #ffb4ab)'
+vimcmd_replace_symbol = '[\[R\]](bold #ffb4ab)'
