@@ -1,8 +1,16 @@
 function typewrite
     for arg in $argv
         for i in (seq (string length $arg))
-            echo -n (string sub -s $i -l 1 $arg)
-            sleep 0.01
+            set char (string sub -s $i -l 1 $arg)
+            echo -n $char
+
+            if test "$char" = " "
+                sleep 0.004
+            else if string match -rq '[,.!]' -- $char
+                sleep 0.1
+            else
+                sleep 0.01
+            end
         end
     end
     echo ""
@@ -58,33 +66,54 @@ function gen_random_pictures
 end
 
 function fish_greeting
-    if set -q XDG_CACHE_HOME
-        set cachedir $XDG_CACHE_HOME/fish
-    else
-        set cachedir $HOME/.cache/fish
-    end
+    if status is-interactive
+        if set -q XDG_CACHE_HOME
+            set cachedir $XDG_CACHE_HOME/fish
+        else
+            set cachedir $HOME/.cache/fish
+        end
 
-    set datefile $cachedir/fish_greeting_date
-    set today (date '+%Y-%m-%d')
+        set datefile $cachedir/fish_greeting_date
+        set today (date '+%Y-%m-%d')
 
-    mkdir -p $cachedir
+        mkdir -p $cachedir
 
-    if test -f $datefile
-        set lastdate (cat $datefile)
-    else
-        set lastdate ""
-    end
+        if test -f $datefile
+            set lastdate (cat $datefile)
+        else
+            set lastdate ""
+        end
 
-    if test "$lastdate" != "$today"
-        typewrite ""
-        typewrite " Hello, $USER!"
-        typewrite " Welcome back! Today is "(date '+%A, %B %d, %Y')"."
-        typewrite " The current time is "(date '+%H:%M:%S')"."
-        typewrite " Study hard, Play hard!"
-        typewrite ""
+        if test "$lastdate" != "$today"
+            set_color cyan
+            typewrite ""
+            typewrite "╭─────────────────────────────────────╮"
+            typewrite "│   👋 Hello, $USER! Welcome Back!     │"
+            typewrite "╰─────────────────────────────────────╯"
 
-        gen_random_pictures
+            set_color yellow
+            typewrite ""
+            typewrite "📅 "(date '+%A, %B %d, %Y')
+            typewrite "⏰ "(date '+%H:%M:%S')
 
-        echo $today >$datefile
+            # set_color green
+            # typewrite ""
+            # cal
+
+            set_color magenta
+            typewrite ""
+            typewrite "💻 "(uname -srmo)
+
+            set_color blue
+            typewrite ""
+            typewrite "🚀 Study hard, Play hard!"
+            typewrite "🎉 Have a great day! "
+
+            typewrite ""
+
+            gen_random_pictures
+
+            echo $today >$datefile
+        end
     end
 end

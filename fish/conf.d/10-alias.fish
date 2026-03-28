@@ -79,7 +79,7 @@ function nh
 end
 
 # Coding
-alias CC clang
+alias CC gcc
 set -g FF_CXX_FLAGS \
     -Wall -Wextra -Weffc++ \
     -Werror=uninitialized \
@@ -90,5 +90,7 @@ set -g FF_CXX_FLAGS \
     -Wzero-as-null-pointer-constant \
     -Wmissing-declarations \
     -Wold-style-cast -Werror=vla \
-    -Wnon-virtual-dtor
-alias CXX "clang++ $FF_CXX_FLAGS"
+    -Wnon-virtual-dtor \
+    -Wlogical-op -Wduplicated-cond -Wduplicated-branches -Wformat=2
+alias CXX "g++ $FF_CXX_FLAGS"
+alias py python

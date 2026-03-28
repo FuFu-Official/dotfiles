@@ -5,4 +5,9 @@ if status is-interactive
         commandline -f repaint
     end
 
+    thefuck --alias fk | source
+    zoxide init fish | source
+    alias cd z
+
+    # starship init fish | source
 end

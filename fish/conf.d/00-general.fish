@@ -2,6 +2,9 @@ set -gx EDITOR nvim
 set -gx TERMINAL kitty
 set -gx nvm_default_version lts
 
+# PATH
+set -px PATH /home/fufu/.cargo/bin
+
 # Set Proxy for GO Dependency
 set -Ux GOPROXY https://goproxy.cn,direct
 

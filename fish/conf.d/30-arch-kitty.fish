@@ -113,7 +113,8 @@ if test "$OS_ID" = arch
         echo "Hyprpaper config updated and hyprpaper restarted with: $wall_path"
 
         # matugen image $wall_path -t scheme-fruit-salad --contrast 0.3 -m dark --lightness-dark 0.2
-        matugen image $wall_path -t scheme-fruit-salad --contrast 0.3
+        # matugen image $wall_path -t scheme-fruit-salad --contrast 0.3
+        matugen image $wall_path -t scheme-content --contrast 0.3
 
         echo "Matugen updated with new wallpaper!"
     end
