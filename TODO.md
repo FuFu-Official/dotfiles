@@ -12,6 +12,7 @@
 - [ ] Add screen recording module to waybar using `gpu-screen-recorder` for easy access to screen recording functionality.
 - [ ] Replace `hyprpaper` with an animation-capable wallpaper engine to achieve seamless transitions.
 - [ ] Random wallpaper selection from web sources, similar to [this script](https://github.com/SHORiN-KiWATA/Shorin-ArchLinux-Guide/blob/main/dotfiles/.config/scripts/random-anime-wallpaper.sh).
+- [x] Add clock widget with kitten panel.
 - [ ] Custom software for walker to provide GUI for theme selection and wallpaper management.
 - [ ] Setup keybinds cheatsheet with `Mod+/` key.
 
