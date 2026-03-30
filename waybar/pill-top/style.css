@@ -79,6 +79,7 @@ tooltip label {
 #custom-separator-1,
 #custom-applauncher,
 #custom-screenshot,
+#custom-wfrec,
 #custom-eye-protect,
 #custom-colorpicker,
 #power-profiles-daemon {
@@ -102,6 +103,7 @@ tooltip label {
 #custom-lockscreen:hover,
 #custom-applauncher:hover,
 #custom-screenshot:hover,
+#custom-wfrec:hover,
 #custom-eye-protect:hover,
 #custom-colorpicker:hover,
 #power-profiles-daemon:hover,
@@ -271,6 +273,15 @@ tooltip label {
   color: @secondary;
 }
 
+#custom-wfrec {
+  color: @secondary;
+}
+
+#custom-wfrec.recording {
+  color: @error;
+  background: alpha(@error, 0.15);
+}
+
 #custom-eye-protect {
   color: @tertiary;
 }
@@ -353,4 +364,3 @@ tooltip label {
 #custom-lockscreen:hover {
   color: @error;
 }
-

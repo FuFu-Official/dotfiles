@@ -1,43 +1,43 @@
 @import "/home/fufu/.config/waybar/colors.css";
 
 * {
- border: none;
- border-radius: 0;
- font-family: "JetBrainsMono Nerd Font Propo", "LXGW WenKai Screen";
- font-size: 12px;
- min-height: 0;
- padding: 0;
- margin: 0;
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font Propo", "LXGW WenKai Screen";
+  font-size: 12px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
 }
 
 window#waybar {
- background: alpha(@surface_container, 0.96);
- border: 1px solid alpha(@outline_variant, 0.3);
- border-radius: 1em;
- color: @on_surface;
+  background: alpha(@surface_container, 0.96);
+  border: 1px solid alpha(@outline_variant, 0.3);
+  border-radius: 1em;
+  color: @on_surface;
 }
 
-window#waybar>box {
- padding: 0.24em 0.18em;
+window#waybar > box {
+  padding: 0.24em 0.18em;
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
- background: transparent;
- border-radius: 0.7em;
- padding: 0.08em 0;
- margin: 0.12em 0;
+  background: transparent;
+  border-radius: 0.7em;
+  padding: 0.08em 0;
+  margin: 0.12em 0;
 }
 
 .modules-left {
- border-bottom: 1px solid alpha(@outline_variant, 0.2);
- padding-bottom: 0.2em;
+  border-bottom: 1px solid alpha(@outline_variant, 0.2);
+  padding-bottom: 0.2em;
 }
 
 .modules-right {
- border-top: 1px solid alpha(@outline_variant, 0.2);
- padding-top: 0.2em;
+  border-top: 1px solid alpha(@outline_variant, 0.2);
+  padding-top: 0.2em;
 }
 
 #custom-applauncher,
@@ -46,6 +46,7 @@ window#waybar>box {
 #idle_inhibitor,
 #custom-updates,
 #custom-screenshot,
+#custom-wfrec,
 #network,
 #bluetooth,
 #privacy,
@@ -61,67 +62,73 @@ window#waybar>box {
 #custom-poweroff,
 #custom-reboot,
 #custom-lockscreen {
- margin: 0.11em 0;
- padding: 0.22em 0.28em;
- min-width: 1.26em;
- border-radius: 0.58em;
- transition: all 140ms ease;
+  margin: 0.11em 0;
+  padding: 0.22em 0.28em;
+  min-width: 1.26em;
+  border-radius: 0.58em;
+  transition: all 140ms ease;
 }
 
 #workspaces {
- padding: 0.04em 0;
+  padding: 0.04em 0;
 }
 
 #workspaces button {
- color: @outline;
- background: transparent;
- padding: 0.22em 0.28em;
+  color: @outline;
+  background: transparent;
+  padding: 0.22em 0.28em;
 }
 
 #workspaces button.active {
- color: @primary;
- background: alpha(@primary, 0.2);
+  color: @primary;
+  background: alpha(@primary, 0.2);
 }
 
 #workspaces button.urgent {
- color: @error;
- background: alpha(@error, 0.22);
+  color: @error;
+  background: alpha(@error, 0.22);
 }
 
 #custom-applauncher {
- color: @primary;
- font-size: 1.34em;
- background: alpha(@primary, 0.14);
+  color: @primary;
+  font-size: 1.34em;
+  background: alpha(@primary, 0.14);
 }
 
 #clock.rail {
- color: @primary;
- font-weight: 700;
- font-size: 0.9em;
- background: alpha(@primary, 0.12);
+  color: @primary;
+  font-weight: 700;
+  font-size: 0.9em;
+  background: alpha(@primary, 0.12);
 }
 
 #custom-updates,
 #custom-screenshot,
+#custom-wfrec,
 #network,
 #bluetooth {
- color: @secondary;
+  color: @secondary;
+}
+
+#custom-wfrec.recording {
+  color: @error;
+  background: alpha(@error, 0.16);
 }
 
 #bluetooth.connected,
 #network:not(.disconnected) {
- color: @primary;
+  color: @primary;
 }
 
 #network.disconnected,
 #bluetooth.disabled,
 #idle_inhibitor {
- color: @outline;
+  color: @outline;
 }
 
 #idle_inhibitor.activated,
 #power-profiles-daemon {
- color: @tertiary;
+  color: @tertiary;
 }
 
 #pulseaudio.rail,
@@ -129,69 +136,69 @@ window#waybar>box {
 #custom-ddcutil-night,
 #custom-ddcutil-sleep,
 #backlight {
- color: @tertiary;
+  color: @tertiary;
 }
 
 #custom-separator-1 {
- color: @outline;
- padding-left: 0.18em;
- padding-right: 0.18em;
+  color: @outline;
+  padding-left: 0.18em;
+  padding-right: 0.18em;
 }
 
 #pulseaudio-slider.rail,
 #backlight-slider.rail {
- padding: 0.22em 0.16em;
- min-width: 1.22em;
- min-height: 5.2em;
- background: alpha(@surface_container_high, 0.72);
+  padding: 0.22em 0.16em;
+  min-width: 1.22em;
+  min-height: 5.2em;
+  background: alpha(@surface_container_high, 0.72);
 }
 
 #pulseaudio-slider.rail slider,
 #backlight-slider.rail slider {
- min-width: 0.52em;
- min-height: 0.52em;
- opacity: 1;
- border-radius: 999px;
- border: none;
- box-shadow: none;
- background: @on_surface;
+  min-width: 0.52em;
+  min-height: 0.52em;
+  opacity: 1;
+  border-radius: 999px;
+  border: none;
+  box-shadow: none;
+  background: @on_surface;
 }
 
 #pulseaudio-slider.rail trough,
 #backlight-slider.rail trough {
- min-width: 0.5em;
- min-height: 4.8em;
- border-radius: 0.28em;
- border: 1px solid alpha(@outline_variant, 0.35);
- background: alpha(@surface_container_highest, 0.9);
+  min-width: 0.5em;
+  min-height: 4.8em;
+  border-radius: 0.28em;
+  border: 1px solid alpha(@outline_variant, 0.35);
+  background: alpha(@surface_container_highest, 0.9);
 }
 
 #pulseaudio-slider.rail highlight {
- min-width: 0.5em;
- border-radius: 0.28em;
- background: @primary;
+  min-width: 0.5em;
+  border-radius: 0.28em;
+  background: @primary;
 }
 
 #backlight-slider.rail highlight {
- min-width: 0.5em;
- border-radius: 0.28em;
- background: @tertiary;
+  min-width: 0.5em;
+  border-radius: 0.28em;
+  background: @tertiary;
 }
 
 #privacy,
 #custom-poweroff {
- color: @error;
+  color: @error;
 }
 
 #group-powermenu {
- border-top: 1px solid alpha(@outline_variant, 0.22);
- margin-top: 0.16em;
- padding-top: 0.14em;
+  border-top: 1px solid alpha(@outline_variant, 0.22);
+  margin-top: 0.16em;
+  padding-top: 0.14em;
 }
 
 #custom-reboot,
 #custom-lockscreen {
- color: @on_surface_variant;
+  color: @on_surface_variant;
 }
 
 #custom-applauncher:hover,
@@ -200,6 +207,7 @@ window#waybar>box {
 #idle_inhibitor:hover,
 #custom-updates:hover,
 #custom-screenshot:hover,
+#custom-wfrec:hover,
 #network:hover,
 #bluetooth:hover,
 #privacy:hover,
@@ -212,24 +220,25 @@ window#waybar>box {
 #custom-poweroff:hover,
 #custom-reboot:hover,
 #custom-lockscreen:hover {
- background: alpha(@on_surface, 0.11);
+  background: alpha(@on_surface, 0.11);
 }
 
 #custom-poweroff:hover {
- color: @on_surface;
- background: @error;
+  color: @on_surface;
+  background: @error;
 }
 
 #network {
- font-size: 1.08em;
+  font-size: 1.08em;
 }
 
 #bluetooth {
- font-size: 1.12em;
+  font-size: 1.12em;
 }
 
 #custom-updates,
 #custom-screenshot,
+#custom-wfrec,
 #network,
 #bluetooth,
 #privacy,
@@ -243,16 +252,16 @@ window#waybar>box {
 #custom-poweroff,
 #custom-reboot,
 #custom-lockscreen {
- background: alpha(@surface_container_high, 0.66);
+  background: alpha(@surface_container_high, 0.66);
 }
 
 tooltip {
- background: @surface_container_high;
- border: 1px solid @outline_variant;
- border-radius: 0.57em;
- padding: 0.43em 0.71em;
+  background: @surface_container_high;
+  border: 1px solid @outline_variant;
+  border-radius: 0.57em;
+  padding: 0.43em 0.71em;
 }
 
 tooltip label {
- color: @on_surface;
+  color: @on_surface;
 }

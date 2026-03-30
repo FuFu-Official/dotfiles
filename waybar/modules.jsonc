@@ -237,9 +237,13 @@
     "on-click-middle": "thunar $HOME/Pictures/Screenshots",
   },
   "custom/wfrec": {
-    "format": "󰕧",
-    "tooltip-format": "Launch OBS",
-    "on-click": "obs-studio",
+    "format": "{}",
+    "return-type": "json",
+    "interval": 1,
+    "exec": "~/.config/waybar/.scripts/gpu-screen-recorder.sh status",
+    "on-click": "~/.config/waybar/.scripts/gpu-screen-recorder.sh toggle-region",
+    "on-click-right": "~/.config/waybar/.scripts/gpu-screen-recorder.sh toggle-portal",
+    "on-click-middle": "thunar $HOME/Videos/gpu-screen-recorder",
   },
   "custom/eye-protect": {
     "exec": "hyprshade current | grep -q blue-light-filter && echo '{\"text\":\"\"}' || echo '{\"text\":\"\"}'",
@@ -265,6 +269,7 @@
       "custom/eye-protect",
       "idle_inhibitor",
       "power-profiles-daemon",
+      "custom/wfrec",
     ],
   },
   "power-profiles-daemon": {

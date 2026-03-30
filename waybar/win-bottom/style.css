@@ -24,7 +24,7 @@ window#waybar {
   padding: 0;
 }
 
-window#waybar>box {
+window#waybar > box {
   margin: 0;
   padding: 0;
 }
@@ -90,6 +90,7 @@ tooltip label {
 #memory,
 #temperature,
 #custom-screenshot,
+#custom-wfrec,
 #custom-eye-protect,
 #custom-colorpicker,
 #power-profiles-daemon,
@@ -125,6 +126,7 @@ tooltip label {
 #custom-lockscreen:hover,
 #custom-applauncher:hover,
 #custom-screenshot:hover,
+#custom-wfrec:hover,
 #custom-eye-protect:hover,
 #custom-colorpicker:hover,
 #power-profiles-daemon:hover,
@@ -291,9 +293,15 @@ tooltip label {
 
 /* Tools cluster */
 #custom-screenshot,
+#custom-wfrec,
 #custom-colorpicker {
   color: @tertiary;
   font-size: 1.16em;
+}
+
+#custom-wfrec.recording {
+  color: @error;
+  background: alpha(@error, 0.14);
 }
 
 #custom-eye-protect,
