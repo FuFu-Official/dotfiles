@@ -2,3 +2,5 @@
 require("config.lazy")
 require("config.screenlocker")
 require("matugen.init")
+
+vim.cmd([[packadd nvim.undotree]])
