@@ -9,5 +9,7 @@ if status is-interactive
     zoxide init fish | source
     alias cd z
 
+    alias x clear
+
     # starship init fish | source
 end
