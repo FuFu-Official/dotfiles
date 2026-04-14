@@ -21,3 +21,5 @@
 !dots/**
 !colors
 !colors/**
+!.scripts
+!.scripts/**
