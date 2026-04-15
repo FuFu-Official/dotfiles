@@ -19,7 +19,7 @@
 ## Structural Improvements
 
 - [ ] Separate configuration into `.config` and `.local` directories, ensuring a cleaner and more organized setup.
-- [ ] Symlink configuration files of `~/Dev/dotfiles/nvim` directory to [~/Dev/nvim](https://github.com/FuFu-Official/nvim).
+- [x] Update configuration script from `~/Dev/dotfiles/nvim` directory to [~/Dev/nvim](https://github.com/FuFu-Official/nvim).
 
 ## Future Plans
 
