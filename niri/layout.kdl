@@ -1,4 +1,5 @@
 layout {
+    background-color "transparent"
 
     //设置工作区背景颜色
     //background-color "transparent"
