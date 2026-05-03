@@ -90,7 +90,7 @@ if test "$OS_ID" = arch
         notify-send Waybar "🌸 Switched to: $target"
     end
 
-    function switch-wallpaper --description "Update hyprpaper.conf and restart"
+    function switch-wallpaper --description "Switch wallpaper and update matugen"
         if test (count $argv) -eq 0
             echo "Usage: change_wallpaper <path_to_image>"
             return 1
@@ -102,15 +102,25 @@ if test "$OS_ID" = arch
             return 1
         end
 
-        set -l config_file "$HOME/.config/hypr/hyprpaper.conf"
+        if pgrep -x hyprpaper >/dev/null
+            set -l config_file "$HOME/.config/hypr/hyprpaper.conf"
 
-        sed -i "/monitor =/,/}/ s|path = .*|path = $wall_path|" "$config_file"
+            sed -i "/monitor =/,/}/ s|path = .*|path = $wall_path|" "$config_file"
 
-        killall hyprpaper; or true
-        sleep 0.2
-        nh hyprpaper
+            killall hyprpaper; or true
+            sleep 0.2
+            nh hyprpaper
 
-        echo "Hyprpaper config updated and hyprpaper restarted with: $wall_path"
+            echo "Hyprpaper config updated and hyprpaper restarted with: $wall_path"
+        else if pgrep -x awww-daemon >/dev/null
+            awww img --transition-type wipe --transition-angle 30 --transition-step 90 "$wall_path"
+            or return 1
+
+            echo "Awww wallpaper updated with: $wall_path"
+        else
+            echo "Error: Neither hyprpaper nor swww-daemon is running"
+            return 1
+        end
 
         # matugen image $wall_path -t scheme-fruit-salad --contrast 0.3 -m dark --lightness-dark 0.2
         # matugen image $wall_path -t scheme-fruit-salad --contrast 0.3
@@ -155,13 +165,3 @@ end
 
 # Qt
 set -gx QT_QPA_PLATFORMTHEME qt6ct
-
-function check_caps
-    sleep 0.15
-    set -l state (brightnessctl --device="*capslock" get)
-    if test "$state" = 1
-        notify-send -t 800 -u low "CAPS LOCK: ON"
-    else
-        notify-send -t 800 -u low "caps lock: off"
-    end
-end

@@ -13,3 +13,6 @@ if status is-interactive
 
     # starship init fish | source
 end
+
+# uv
+fish_add_path "/home/fufu/.local/bin"
