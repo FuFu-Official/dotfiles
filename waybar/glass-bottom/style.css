@@ -1,0 +1,340 @@
+@import "/home/fufu/.config/waybar/colors.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font Propo", "LXGW WenKai Screen";
+  font-size: 10px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: @on_surface;
+}
+
+window#waybar > box {
+  margin: 0;
+  padding: 0.48em 0;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: linear-gradient(
+    180deg,
+    alpha(@surface_bright, 0.3),
+    alpha(@surface_container_high, 0.76)
+  );
+  border: 1px solid alpha(@primary, 0.18);
+  border-radius: 1.35em;
+  padding: 0.24em 0.36em;
+  margin: 0 0.34em;
+  box-shadow:
+    0 0 0 1px alpha(@surface_bright, 0.08),
+    0 0 24px alpha(@primary, 0.12),
+    0 12px 34px alpha(black, 0.34);
+}
+
+tooltip {
+  background: alpha(@surface_container_high, 0.96);
+  border: 1px solid alpha(@primary, 0.28);
+  border-radius: 1em;
+  padding: 0.45em 0.75em;
+  box-shadow: 0 0 18px alpha(@primary, 0.12);
+}
+
+tooltip label {
+  color: @on_surface;
+}
+
+#custom-applauncher,
+#workspaces,
+#window,
+#taskbar,
+#custom-updates,
+#custom-weather,
+#custom-media,
+#custom-cava,
+#network,
+#bluetooth,
+#privacy,
+#tray,
+#battery,
+#clock,
+#group-tools,
+#group-sysinfo,
+#group-audio,
+#group-powermenu,
+#pulseaudio,
+#idle_inhibitor,
+#custom-screenshot,
+#custom-wfrec,
+#custom-eye-protect,
+#custom-colorpicker,
+#power-profiles-daemon,
+#cpu,
+#memory,
+#temperature,
+#custom-poweroff,
+#custom-reboot,
+#custom-lockscreen {
+  margin: 0.14em 0.1em;
+  transition: all 160ms ease;
+}
+
+#custom-applauncher,
+#custom-updates,
+#custom-weather,
+#custom-media,
+#network,
+#bluetooth,
+#privacy,
+#tray,
+#battery,
+#clock,
+#pulseaudio,
+#idle_inhibitor,
+#custom-screenshot,
+#custom-wfrec,
+#custom-eye-protect,
+#custom-colorpicker,
+#power-profiles-daemon,
+#cpu,
+#memory,
+#temperature,
+#custom-poweroff,
+#custom-reboot,
+#custom-lockscreen {
+  background: linear-gradient(
+    180deg,
+    alpha(@surface_bright, 0.42),
+    alpha(@surface_container, 0.72)
+  );
+  border-radius: 0.95em;
+  padding: 0.36em 0.72em;
+  box-shadow:
+    inset 0 1px 0 alpha(white, 0.08),
+    0 0 0 1px alpha(@primary, 0.04);
+}
+
+#group-tools,
+#group-sysinfo,
+#group-audio,
+#group-powermenu {
+  background: linear-gradient(
+    180deg,
+    alpha(@surface_bright, 0.24),
+    alpha(@surface_container, 0.58)
+  );
+  border-radius: 1em;
+  padding: 0.08em 0.2em;
+  box-shadow: inset 0 1px 0 alpha(white, 0.06);
+}
+
+#custom-applauncher:hover,
+#custom-updates:hover,
+#custom-weather:hover,
+#custom-media:hover,
+#custom-cava:hover,
+#network:hover,
+#bluetooth:hover,
+#privacy:hover,
+#tray:hover,
+#battery:hover,
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#pulseaudio:hover,
+#idle_inhibitor:hover,
+#custom-screenshot:hover,
+#custom-wfrec:hover,
+#custom-eye-protect:hover,
+#custom-colorpicker:hover,
+#power-profiles-daemon:hover,
+#custom-poweroff:hover,
+#custom-reboot:hover,
+#custom-lockscreen:hover,
+#group-tools:hover,
+#group-sysinfo:hover,
+#group-audio:hover,
+#group-powermenu:hover,
+#taskbar button:hover,
+#workspaces button:hover {
+  background: linear-gradient(
+    180deg,
+    alpha(@primary, 0.28),
+    alpha(@tertiary, 0.18)
+  );
+  box-shadow: 0 0 16px alpha(@primary, 0.18);
+}
+
+#custom-applauncher {
+  color: @primary;
+  font-size: 1.2em;
+  padding-left: 0.82em;
+  padding-right: 0.82em;
+  box-shadow:
+    inset 0 1px 0 alpha(white, 0.08),
+    0 0 18px alpha(@primary, 0.12);
+}
+
+#workspaces {
+  background: transparent;
+  padding: 0 0.1em;
+}
+
+#workspaces button {
+  color: @on_surface_variant;
+  background: linear-gradient(
+    180deg,
+    alpha(@surface_bright, 0.38),
+    alpha(@surface_container, 0.66)
+  );
+  border-radius: 0.9em;
+  padding: 0.38em 0.82em;
+  margin: 0.12em 0.12em;
+  min-width: 1.9em;
+  box-shadow: inset 0 1px 0 alpha(white, 0.06);
+}
+
+#workspaces button.active {
+  color: @on_primary;
+  background: linear-gradient(
+    180deg,
+    alpha(@primary, 0.96),
+    alpha(@tertiary, 0.82)
+  );
+  box-shadow: 0 0 18px alpha(@primary, 0.3);
+}
+
+#workspaces button.urgent {
+  color: @on_error;
+  background: @error;
+}
+
+#taskbar {
+  background: transparent;
+  padding: 0 0.1em;
+}
+
+#custom-media,
+#custom-cava {
+  border-radius: 0.95em;
+  padding: 0.36em 0.78em;
+}
+
+#custom-media {
+  color: @secondary;
+}
+
+#custom-media.Playing {
+  box-shadow:
+    inset 0 1px 0 alpha(white, 0.08),
+    0 0 18px alpha(@secondary, 0.12);
+}
+
+#custom-media.Paused {
+  color: @outline;
+}
+
+#custom-cava {
+  color: @primary;
+  letter-spacing: 0.08em;
+  padding-left: 0.9em;
+  padding-right: 0.9em;
+  text-shadow: 0 0 12px alpha(@primary, 0.3);
+}
+
+#taskbar button {
+  background: linear-gradient(
+    180deg,
+    alpha(@surface_bright, 0.34),
+    alpha(@surface_container, 0.6)
+  );
+  border-radius: 0.9em;
+  padding: 0.34em 0.78em;
+  margin: 0.12em 0.12em;
+  box-shadow: inset 0 1px 0 alpha(white, 0.06);
+}
+
+#taskbar button.active {
+  background: linear-gradient(
+    180deg,
+    alpha(@primary, 0.24),
+    alpha(@tertiary, 0.14)
+  );
+  box-shadow:
+    inset 0 -2px 0 @primary,
+    0 0 16px alpha(@primary, 0.16);
+}
+
+#taskbar button.minimized {
+  opacity: 0.55;
+}
+
+#custom-updates,
+#custom-weather,
+#custom-media,
+#custom-cava,
+#network,
+#bluetooth,
+#pulseaudio,
+#custom-screenshot,
+#custom-colorpicker,
+#cpu,
+#memory,
+#temperature {
+  color: @tertiary;
+}
+
+#bluetooth.connected,
+#battery.charging {
+  color: @primary;
+}
+
+#network.disconnected,
+#bluetooth.disabled,
+#pulseaudio.muted {
+  color: @outline;
+}
+
+#privacy {
+  color: @error;
+}
+
+#clock {
+  color: @on_surface;
+  padding-left: 0.88em;
+  padding-right: 0.88em;
+  text-shadow: 0 0 10px alpha(@primary, 0.22);
+}
+
+#battery.warning,
+#battery.critical {
+  color: @error;
+}
+
+#custom-wfrec.recording {
+  color: @on_error;
+  background: linear-gradient(180deg, alpha(@error, 0.96), alpha(@error, 0.82));
+  box-shadow: 0 0 18px alpha(@error, 0.28);
+}
+
+#idle_inhibitor {
+  color: @outline;
+}
+
+#idle_inhibitor.activated,
+#custom-eye-protect,
+#power-profiles-daemon {
+  color: @secondary;
+}
+
+#tray menu {
+  background: @surface_container;
+  color: @on_surface;
+}
