@@ -52,6 +52,9 @@ return {
   {
     "folke/noice.nvim",
     opts = {
+      -- cmdline = {
+      --   view = "cmdline", -- cmdline or cmdline_popup
+      -- },
       lsp = {
         signature = {
           auto_open = { enabled = false },
