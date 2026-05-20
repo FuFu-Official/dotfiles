@@ -35,8 +35,8 @@ function chafa_smart_clamp --argument picture max_width
 end
 
 function gen_random_pictures
-    set -l primary_dirs $HOME/Pictures/Hiten $HOME/Pictures/竹嶋えく
-    set -l fallback_dirs $HOME/Pictures/Wallpapers
+    set -l primary_dirs $HOME/Pictures/Hiten $HOME/Pictures/竹嶋えく $HOME/Pictures/Wallpapers
+    set -l fallback_dirs
 
     set -l image_dirs
 

@@ -8,6 +8,7 @@
 !fish_variables
 !conf.d
 !conf.d/**
+conf.d/99-keys.fish
 conf.d/nvm.fish
 !.scripts
 !.scripts/**

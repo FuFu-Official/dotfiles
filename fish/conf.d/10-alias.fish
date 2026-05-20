@@ -92,5 +92,15 @@ set -g FF_CXX_FLAGS \
     -Wold-style-cast -Werror=vla \
     -Wnon-virtual-dtor \
     -Wlogical-op -Wduplicated-cond -Wduplicated-branches -Wformat=2
-alias CXX "g++ $FF_CXX_FLAGS"
+
+function CXX
+    if test (count $argv) -eq 1
+        set -l output (string replace -r '\.[^.]+$' '' -- $argv[1])
+        g++ $FF_CXX_FLAGS $argv -o $output
+        return
+    end
+
+    g++ $FF_CXX_FLAGS $argv
+end
+
 alias py python
