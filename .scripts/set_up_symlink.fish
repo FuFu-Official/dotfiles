@@ -10,7 +10,7 @@ set target_path $HOME/.config/
 set default_sources nvim fish hypr fastfetch kitty mako walker waybar wlogout \
     feishu-flags.conf mimeapps.list zathura imv bat mpv btop niri satty cava \
     matugen gtk-3.0 gtk-4.0 opencode qt5ct qt6ct mpd rmpc yazi obs-studio \
-    AdwSteamGtk snappy-switcher starship.toml
+    AdwSteamGtk snappy-switcher starship.toml lazygit
 set ignore_list .git .gitignore .DS_Store README.md LICENSE
 
 argparse f/force b/backup n/dry-run -- $argv
