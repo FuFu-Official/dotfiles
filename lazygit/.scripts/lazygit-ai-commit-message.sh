@@ -15,11 +15,11 @@ selected_model="${OPENCODE_COMMIT_MODEL:-}"
 if [ -z "$selected_model" ]; then
   available_models="$(opencode models github-copilot)"
   preferred_models=(
+    "tabcode/gpt-5.4"
+    "tabcode/gpt-5.2"
     "github-copilot/gpt-5-mini"
     "github-copilot/gpt-5.2-codex"
     "github-copilot/gpt-5.4-mini"
-    "tabcode/gpt-5.4"
-    "tabcode/gpt-5.2"
     "github-copilot/gpt-5.2"
     "github-copilot/gpt-4.1"
   )
