@@ -13,15 +13,12 @@ mkdir -p "$workspace"
 selected_model="${OPENCODE_COMMIT_MODEL:-}"
 
 if [ -z "$selected_model" ]; then
-  available_models="$(opencode models github-copilot)"
+  available_models="$(opencode models)"
   preferred_models=(
+    "github-copilot/gpt-5.2-codex"
+    "github-copilot/gpt-5.2"
     "tabcode/gpt-5.4"
     "tabcode/gpt-5.2"
-    "github-copilot/gpt-5-mini"
-    "github-copilot/gpt-5.2-codex"
-    "github-copilot/gpt-5.4-mini"
-    "github-copilot/gpt-5.2"
-    "github-copilot/gpt-4.1"
   )
 
   for candidate in "${preferred_models[@]}"; do
@@ -32,12 +29,17 @@ if [ -z "$selected_model" ]; then
   done
 
   if [ -z "$selected_model" ]; then
-    selected_model="$(printf '%s\n' "$available_models" | head -n 1)"
+    while IFS= read -r candidate; do
+      selected_model="$candidate"
+      break
+    done <<EOF
+$available_models
+EOF
   fi
 fi
 
 if [ -z "$selected_model" ]; then
-  printf '%s\n' 'No github-copilot models available in opencode.' >&2
+  printf '%s\n' 'No available opencode models found.' >&2
   exit 1
 fi
 
