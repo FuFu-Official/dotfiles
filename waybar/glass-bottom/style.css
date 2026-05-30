@@ -60,6 +60,7 @@ tooltip label {
 #custom-cava,
 #network,
 #bluetooth,
+#keyboard-state,
 #privacy,
 #tray,
 #battery,
@@ -91,6 +92,7 @@ tooltip label {
 #custom-media,
 #network,
 #bluetooth,
+#keyboard-state,
 #privacy,
 #tray,
 #battery,
@@ -141,6 +143,7 @@ tooltip label {
 #custom-cava:hover,
 #network:hover,
 #bluetooth:hover,
+#keyboard-state:hover,
 #privacy:hover,
 #tray:hover,
 #battery:hover,
@@ -314,6 +317,7 @@ tooltip label {
 #custom-cava,
 #network,
 #bluetooth,
+#keyboard-state,
 #pulseaudio,
 #custom-screenshot,
 #custom-colorpicker,
@@ -325,6 +329,10 @@ tooltip label {
 
 #bluetooth.connected,
 #battery.charging {
+  color: @primary;
+}
+
+#keyboard-state label.locked {
   color: @primary;
 }
 

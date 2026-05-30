@@ -26,6 +26,7 @@
   "modules-right": [
     "bluetooth",
     "network",
+    // "keyboard-state",
     "tray",
     "privacy",
     "group/tools",

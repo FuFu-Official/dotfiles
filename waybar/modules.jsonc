@@ -128,6 +128,16 @@
     "icon-size": 18,
     "spacing": 6,
   },
+  "keyboard-state": {
+    "capslock": true,
+    "format": {
+      "capslock": "{icon}"
+    },
+    "format-icons": {
+      "locked": "CAPS",
+      "unlocked": "caps"
+    }
+  },
   "backlight/slider": {
     "min": 5,
     "max": 100,

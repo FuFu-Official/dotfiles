@@ -61,6 +61,7 @@ tooltip label {
 #battery,
 #network,
 #bluetooth,
+#keyboard-state,
 #tray,
 #privacy,
 #mpris,
@@ -113,6 +114,7 @@ tooltip label {
 #battery:hover,
 #network:hover,
 #bluetooth:hover,
+#keyboard-state:hover,
 #pulseaudio:hover,
 #idle_inhibitor:hover,
 #mpris:hover,
@@ -231,6 +233,7 @@ tooltip label {
 #custom-weather,
 #network,
 #bluetooth,
+#keyboard-state,
 #privacy,
 #tray,
 #battery,
@@ -256,6 +259,14 @@ tooltip label {
 #network,
 #bluetooth {
   color: @tertiary;
+}
+
+#keyboard-state {
+  color: @outline;
+}
+
+#keyboard-state label.locked {
+  color: @primary;
 }
 
 #custom-updates {
