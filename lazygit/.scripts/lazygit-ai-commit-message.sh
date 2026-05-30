@@ -10,6 +10,81 @@ fi
 workspace="/tmp/opencode-commit-msg"
 mkdir -p "$workspace"
 
+if ! command -v opencode >/dev/null 2>&1; then
+  printf '%s\n' 'opencode command not found.' >&2
+  exit 1
+fi
+
+if ! command -v flock >/dev/null 2>&1; then
+  printf '%s\n' 'flock command not found.' >&2
+  exit 1
+fi
+
+server_url="${OPENCODE_GIT_COMMIT_SERVER_URL:-http://127.0.0.1:14096}"
+server_url="${server_url%/}"
+
+if [[ "$server_url" =~ ^http://([^:/]+):([0-9]+)$ ]]; then
+  server_host="${BASH_REMATCH[1]}"
+  server_port="${BASH_REMATCH[2]}"
+else
+  printf 'Unsupported OPENCODE_GIT_COMMIT_SERVER_URL: %s\n' "$server_url" >&2
+  printf '%s\n' 'Expected format: http://host:port' >&2
+  exit 1
+fi
+
+is_opencode_server_ready() {
+  if { exec 3<>"/dev/tcp/$server_host/$server_port"; } 2>/dev/null; then
+    exec 3>&-
+    exec 3<&-
+    return 0
+  fi
+
+  return 1
+}
+
+wait_for_opencode_server() {
+  local attempts="${1:-30}"
+
+  while [ "$attempts" -gt 0 ]; do
+    if is_opencode_server_ready; then
+      return 0
+    fi
+    attempts=$((attempts - 1))
+    [ "$attempts" -gt 0 ] && sleep 1
+  done
+
+  return 1
+}
+
+ensure_opencode_server() {
+  local lock_file="$workspace/server.lock"
+  local log_file="$workspace/server.log"
+
+  if is_opencode_server_ready; then
+    return 0
+  fi
+
+  if (
+    flock -x -w 30 9
+    if is_opencode_server_ready; then
+      exit 0
+    fi
+
+    if ! wait_for_opencode_server 2; then
+      nohup opencode serve --hostname "$server_host" --port "$server_port" \
+        9>&- >"$log_file" 2>&1 &
+    fi
+
+    wait_for_opencode_server 30
+  ) 9>"$lock_file"; then
+    return 0
+  fi
+
+  printf 'Failed to start opencode server at %s\n' "$server_url" >&2
+  printf 'See log: %s\n' "$log_file" >&2
+  return 1
+}
+
 selected_model="${OPENCODE_COMMIT_MODEL:-}"
 
 if [ -z "$selected_model" ]; then
@@ -94,7 +169,10 @@ Examples when conventional commit style is appropriate:
 EOF
 )
 
+ensure_opencode_server
+
 opencode run \
+  --attach "$server_url" \
   --dir "$workspace" \
   --title lazygit-commit-message \
   --model "$selected_model" \
@@ -102,4 +180,4 @@ opencode run \
   -f "$diff_file" \
   -- "$prompt" > "$msg_file"
 
-git commit -e -F "$msg_file"
+git commit -s -e -F "$msg_file"
