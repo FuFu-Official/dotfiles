@@ -16,8 +16,8 @@
         }
       }
     }
-  },
-  "instructions": [
-    "CLAUDE.md"
-  ]
+  }
+  // "instructions": [
+  //   "CLAUDE.md"
+  // ]
 }
