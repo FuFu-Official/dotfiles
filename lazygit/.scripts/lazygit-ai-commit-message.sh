@@ -90,10 +90,9 @@ selected_model="${OPENCODE_COMMIT_MODEL:-}"
 if [ -z "$selected_model" ]; then
   available_models="$(opencode models)"
   preferred_models=(
-    "github-copilot/gpt-5.2-codex"
-    "github-copilot/gpt-5.2"
-    "tabcode/gpt-5.4"
-    "tabcode/gpt-5.2"
+    "4router-codex/gpt-5.3-codex-spark"
+    # "4router-codex/gpt-5.4"
+    # "4router-codex/gpt-5.5"
   )
 
   for candidate in "${preferred_models[@]}"; do
