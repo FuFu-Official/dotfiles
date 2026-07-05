@@ -13,7 +13,7 @@
   "margin-bottom": -2,
   "modules-left": [
     "custom/applauncher",
-    "hyprland/workspaces",
+    "ext/workspaces",
     "niri/workspaces",
     // "mpris",
     "custom/media",

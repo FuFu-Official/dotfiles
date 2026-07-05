@@ -1,9 +1,9 @@
 {
   // ━━━━━━━━━━ Common Modules (shared by all themes) ━━━━━━━━━━
   "ext/workspaces": {
-    "format": "{icon}",
+    "format": "{name}",
     "ignore-hidden": true,
-    "sort-by-number": true,
+    "sort-by-id": true,
     "on-click": "activate",
     "on-click-right": "deactivate",
   },

@@ -12,7 +12,7 @@
   "margin-right": 4,
   "modules-left": [
     "custom/applauncher",
-    "hyprland/workspaces",
+    "ext/workspaces",
     "hyprland/window",
   ],
   "modules-center": [
