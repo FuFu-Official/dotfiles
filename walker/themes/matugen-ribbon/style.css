@@ -1,0 +1,309 @@
+/*************************************************
+ * Walker Launcher Theme
+ * Matugen Spotlight · Material You
+ *************************************************/
+
+@import "/home/fufu/.config/walker/colors.css";
+
+@define-color shell_bg alpha(@surface_container_lowest, 0.90);
+@define-color panel_bg alpha(@surface_container, 0.88);
+@define-color panel_top alpha(@surface_container_high, 0.96);
+@define-color field_bg alpha(@surface_container_highest, 0.78);
+@define-color item_bg alpha(@surface_container_high, 0.30);
+@define-color item_hover alpha(@surface_container_highest, 0.50);
+
+@define-color accent @primary;
+@define-color accent_2 @tertiary;
+@define-color accent_3 @secondary;
+@define-color text @on_surface;
+@define-color text_muted @on_surface_variant;
+@define-color stroke alpha(@outline_variant, 0.38);
+
+* {
+  all: unset;
+  font-family: "Inter", "Noto Sans CJK SC", "Noto Sans", sans-serif;
+  font-size: 13px;
+}
+
+.window {
+  background: transparent;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 18px;
+}
+
+.large-icons {
+  -gtk-icon-size: 34px;
+}
+
+popover {
+  background: alpha(@surface_container_high, 0.98);
+  border: 1px solid alpha(@outline, 0.30);
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 18px 50px alpha(@shadow, 0.50);
+}
+
+.box-wrapper {
+  background:
+    radial-gradient(85% 70% at 10% 0%, alpha(@primary, 0.22), transparent 62%),
+    radial-gradient(85% 75% at 100% 0%, alpha(@tertiary, 0.16), transparent 58%),
+    linear-gradient(180deg, @panel_top, @panel_bg 48%, @shell_bg);
+  border: 1px solid alpha(@outline, 0.25);
+  border-radius: 32px;
+  padding: 22px;
+  box-shadow:
+    0 32px 90px alpha(@shadow, 0.62),
+    0 2px 0 alpha(@inverse_surface, 0.06) inset,
+    0 -1px 0 alpha(@surface_container_lowest, 0.60) inset;
+}
+
+.box {
+  color: @text;
+}
+
+.preview-box,
+.elephant-hint,
+.placeholder {
+  color: alpha(@text_muted, 0.78);
+  font-weight: 600;
+}
+
+.search-container {
+  background:
+    linear-gradient(135deg, alpha(@primary, 0.20), alpha(@tertiary, 0.12)),
+    @field_bg;
+  border: 1px solid alpha(@primary, 0.46);
+  border-radius: 24px;
+  margin-bottom: 10px;
+  padding: 5px;
+  box-shadow:
+    0 12px 32px alpha(@primary, 0.12),
+    0 1px 0 alpha(@inverse_surface, 0.10) inset;
+}
+
+.input {
+  background: alpha(@surface_container_lowest, 0.24);
+  border-radius: 19px;
+  caret-color: @accent;
+  color: @text;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.15px;
+  padding: 14px 18px;
+}
+
+.input placeholder {
+  color: @text_muted;
+  opacity: 0.58;
+}
+
+.input selection {
+  background: alpha(@primary, 0.42);
+  color: @on_primary_container;
+}
+
+.content-container {
+  margin-top: 2px;
+}
+
+.scroll {
+  border-radius: 22px;
+}
+
+.list {
+  color: @text;
+}
+
+child,
+.row {
+  padding: 0;
+}
+
+.item-box {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  margin: 3px 0;
+  padding: 12px 14px;
+  transition:
+    background 0.16s ease,
+    border 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.item-image {
+  color: @accent;
+}
+
+.item-image-text {
+  color: @accent;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.item-text-box {
+  color: @text;
+}
+
+.item-text {
+  color: @text;
+  font-weight: 700;
+}
+
+.item-subtext {
+  color: alpha(@text_muted, 0.82);
+  font-size: 11px;
+}
+
+.item-quick-activation {
+  background: alpha(@secondary_container, 0.64);
+  border: 1px solid alpha(@secondary, 0.32);
+  border-radius: 999px;
+  color: @on_secondary_container;
+  font-weight: 800;
+  padding: 5px 9px;
+}
+
+child:hover .item-box,
+row:hover .item-box {
+  background: @item_hover;
+  border-color: alpha(@outline_variant, 0.28);
+}
+
+child:selected .item-box,
+row:selected .item-box {
+  background:
+    linear-gradient(135deg, alpha(@primary, 0.30), alpha(@tertiary, 0.18)),
+    alpha(@primary_container, 0.78);
+  border: 1px solid alpha(@primary, 0.66);
+  box-shadow:
+    0 12px 30px alpha(@primary, 0.22),
+    0 1px 0 alpha(@inverse_surface, 0.12) inset,
+    4px 0 0 @accent inset;
+}
+
+child:selected .item-image,
+row:selected .item-image,
+child:selected .item-image-text,
+row:selected .item-image-text {
+  color: @on_primary_container;
+}
+
+child:selected .item-text,
+row:selected .item-text {
+  color: @on_primary_container;
+  font-weight: 800;
+}
+
+child:selected .item-subtext,
+row:selected .item-subtext {
+  color: alpha(@on_primary_container, 0.72);
+}
+
+:not(.calc).current {
+  color: @accent_2;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.preview {
+  background:
+    linear-gradient(180deg, alpha(@surface_container_high, 0.72), alpha(@surface_container_low, 0.78));
+  border: 1px solid @stroke;
+  border-radius: 24px;
+  color: @text;
+  padding: 16px;
+  box-shadow: inset 0 1px 0 alpha(@inverse_surface, 0.07);
+}
+
+.preview .large-icons {
+  -gtk-icon-size: 68px;
+}
+
+.preview-content.archlinuxpkgs,
+.preview-content.dnfpackages {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.calc .item-text {
+  font-size: 24px;
+}
+
+.calc .item-subtext {
+  color: alpha(@accent_3, 0.86);
+}
+
+.providerlist .item-subtext {
+  font-size: unset;
+  opacity: 0.78;
+}
+
+.symbols .item-image {
+  font-size: 24px;
+}
+
+.todo.done .item-text-box {
+  opacity: 0.30;
+}
+
+.todo.urgent {
+  color: @error;
+  font-size: 24px;
+}
+
+.todo.active {
+  font-weight: 800;
+}
+
+.bluetooth.disconnected {
+  opacity: 0.42;
+}
+
+.keybinds {
+  border-top: 1px solid @stroke;
+  color: alpha(@text_muted, 0.82);
+  font-size: 11px;
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.global-keybinds,
+.item-keybinds {
+  color: alpha(@text_muted, 0.82);
+}
+
+.keybind-button {
+  opacity: 0.50;
+}
+
+.keybind-button:hover {
+  opacity: 0.82;
+}
+
+.keybind-bind {
+  opacity: 0.42;
+  text-transform: lowercase;
+}
+
+.keybind-label {
+  background: alpha(@primary, 0.16);
+  border: 1px solid alpha(@primary, 0.44);
+  border-radius: 999px;
+  color: @accent;
+  font-weight: 800;
+  padding: 3px 9px;
+}
+
+.error {
+  background: alpha(@error_container, 0.90);
+  border: 1px solid alpha(@error, 0.42);
+  border-radius: 18px;
+  color: @on_error_container;
+  padding: 12px;
+}

@@ -90,7 +90,9 @@ selected_model="${OPENCODE_COMMIT_MODEL:-}"
 if [ -z "$selected_model" ]; then
   available_models="$(opencode models)"
   preferred_models=(
-    "4router-codex/gpt-5.3-codex-spark"
+    4router-codex/gpt-5.4
+    # "tabcode-codex/gpt-5.4"
+    # "4router-codex/gpt-5.3-codex-spark"
     # "4router-codex/gpt-5.4"
     # "4router-codex/gpt-5.5"
   )

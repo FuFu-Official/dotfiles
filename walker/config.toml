@@ -1,5 +1,5 @@
 force_keyboard_focus = true # forces keyboard forcus to stay in Walker
-theme = "matugen"
+theme = "matugen-ribbon"
 
 [keybinds]
 next = ["ctrl j", "Down"]

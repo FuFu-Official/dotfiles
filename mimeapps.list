@@ -21,6 +21,10 @@ x-scheme-handler/discord=vesktop.desktop
 application/x-zerosize=nvim.desktop
 x-scheme-handler/clash=mihomo-party.desktop
 x-scheme-handler/mihomo=mihomo-party.desktop
+x-scheme-handler/baiduyunguanjia=baidunetdisk.desktop
+image/bmp=imv-dir.desktop
+x-scheme-handler/ccswitch=cc-switch-handler.desktop
+video/webm=mpv.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen-browser.desktop;
@@ -39,7 +43,11 @@ application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop;
 text/x-python=nvim.desktop;
 text/markdown=nvim.desktop;
 application/pdf=zen-browser.desktop;org.pwmt.zathura-pdf-mupdf.desktop;
-image/jpeg=satty.desktop;swappy.desktop;imv-dir.desktop;imv.desktop;
+image/jpeg=satty.desktop;org.gnome.Loupe.desktop;swappy.desktop;imv-dir.desktop;imv.desktop;
 text/plain=nvim.desktop;
 application/x-zerosize=nvim.desktop;
 image/heif=org.ksnip.ksnip.desktop;swappy.desktop;satty.desktop;imv-dir.desktop;
+application/vnd.openxmlformats-officedocument.presentationml.presentation=wps-office-wpp.desktop;
+video/mp4=mpv.desktop;vlc.desktop;
+image/bmp=imv-dir.desktop;
+video/webm=mpv.desktop;
